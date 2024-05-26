@@ -45,7 +45,7 @@ namespace Demo.Lab.Biz
 				if (CmUtils.StringUtils.StringEqual(strFlagExistToCheck, TConst.Flag.Active) && dtDB_Mst_CampainCriteria.Rows.Count < 1)
 				{
 					alParamsCoupleError.AddRange(new object[]{
-						"Check.POSMType", objCampaignCrCode
+						"Check.CampaignCrCode", objCampaignCrCode
 						});
 					throw CmUtils.CMyException.Raise(
 						TError.ErrDemoLab.Mst_CampainCriteria_CheckDB_CampainCriteriaNotFound
@@ -56,7 +56,7 @@ namespace Demo.Lab.Biz
 				if (CmUtils.StringUtils.StringEqual(strFlagExistToCheck, TConst.Flag.Inactive) && dtDB_Mst_CampainCriteria.Rows.Count > 0)
 				{
 					alParamsCoupleError.AddRange(new object[]{
-						"Check.POSMType", objCampaignCrCode
+						"Check.CampaignCrCode", objCampaignCrCode
 						});
 					throw CmUtils.CMyException.Raise(
 						TError.ErrDemoLab.Mst_CampainCriteria_CheckDB_CampainCriteriaExist
@@ -70,7 +70,7 @@ namespace Demo.Lab.Biz
 			if (strFlagActiveListToCheck.Length > 0 && !strFlagActiveListToCheck.Contains(Convert.ToString(dtDB_Mst_CampainCriteria.Rows[0]["FlagActive"])))
 			{
 				alParamsCoupleError.AddRange(new object[]{
-					"Check.POSMType", objCampaignCrCode
+					"Check.CampaignCrCode", objCampaignCrCode
 					, "Check.strFlagActiveListToCheck", strFlagActiveListToCheck
 					, "DB.FlagActive", dtDB_Mst_CampainCriteria.Rows[0]["FlagActive"]
 					});
@@ -148,7 +148,7 @@ namespace Demo.Lab.Biz
 
 				#region //// Refine and Check Mst_CampainCriteria:
 				////
-				bool bIsDelete = CmUtils.StringUtils.StringEqual(objFlagIsDelete, TConst.Flag.Yes);
+				bool bIsDelete = CmUtils.StringUtils.StringEqual(objFlagIsDelete, TConst.Flag.Active);
 				////
 				string strCampaignCrCode = TUtils.CUtils.StdParam(objCampaignCrCode);
 				string strCampaignCrName = string.Format("{0}", objCampaignCrName).Trim();

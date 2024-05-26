@@ -126,6 +126,8 @@ namespace ZTest01.WSDVNAUD {
         
         private System.Threading.SendOrPostCallback Mst_CampainCriteria_SaveOperationCompleted;
         
+        private System.Threading.SendOrPostCallback Aud_Campaign_SaveOperationCompleted;
+        
         private System.Threading.SendOrPostCallback Mst_District_GetOperationCompleted;
         
         private System.Threading.SendOrPostCallback Mst_District_CreateOperationCompleted;
@@ -359,6 +361,9 @@ namespace ZTest01.WSDVNAUD {
         
         /// <remarks/>
         public event Mst_CampainCriteria_SaveCompletedEventHandler Mst_CampainCriteria_SaveCompleted;
+        
+        /// <remarks/>
+        public event Aud_Campaign_SaveCompletedEventHandler Aud_Campaign_SaveCompleted;
         
         /// <remarks/>
         public event Mst_District_GetCompletedEventHandler Mst_District_GetCompleted;
@@ -2781,6 +2786,119 @@ namespace ZTest01.WSDVNAUD {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Aud_Campaign_Save", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public object[] Aud_Campaign_Save(
+                    string strGwUserCode, 
+                    string strGwPassword, 
+                    string strTid, 
+                    string strSessionId, 
+                    object objFlagIsDelete, 
+                    object objCampaignCode, 
+                    object objCampaignCrCode, 
+                    object objCrtrScoreVerCode, 
+                    object objCrtrScoreVerAUCode, 
+                    object objCampaignName, 
+                    object objEffDTimeStart, 
+                    object objEffDTimeEnd, 
+                    object objQtyCheck, 
+                    object objQtySuccess, 
+                    object objMinIntervalDays, 
+                    object objReportEndDate, 
+                    object[] arrobjDSData) {
+            object[] results = this.Invoke("Aud_Campaign_Save", new object[] {
+                        strGwUserCode,
+                        strGwPassword,
+                        strTid,
+                        strSessionId,
+                        objFlagIsDelete,
+                        objCampaignCode,
+                        objCampaignCrCode,
+                        objCrtrScoreVerCode,
+                        objCrtrScoreVerAUCode,
+                        objCampaignName,
+                        objEffDTimeStart,
+                        objEffDTimeEnd,
+                        objQtyCheck,
+                        objQtySuccess,
+                        objMinIntervalDays,
+                        objReportEndDate,
+                        arrobjDSData});
+            return ((object[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void Aud_Campaign_SaveAsync(
+                    string strGwUserCode, 
+                    string strGwPassword, 
+                    string strTid, 
+                    string strSessionId, 
+                    object objFlagIsDelete, 
+                    object objCampaignCode, 
+                    object objCampaignCrCode, 
+                    object objCrtrScoreVerCode, 
+                    object objCrtrScoreVerAUCode, 
+                    object objCampaignName, 
+                    object objEffDTimeStart, 
+                    object objEffDTimeEnd, 
+                    object objQtyCheck, 
+                    object objQtySuccess, 
+                    object objMinIntervalDays, 
+                    object objReportEndDate, 
+                    object[] arrobjDSData) {
+            this.Aud_Campaign_SaveAsync(strGwUserCode, strGwPassword, strTid, strSessionId, objFlagIsDelete, objCampaignCode, objCampaignCrCode, objCrtrScoreVerCode, objCrtrScoreVerAUCode, objCampaignName, objEffDTimeStart, objEffDTimeEnd, objQtyCheck, objQtySuccess, objMinIntervalDays, objReportEndDate, arrobjDSData, null);
+        }
+        
+        /// <remarks/>
+        public void Aud_Campaign_SaveAsync(
+                    string strGwUserCode, 
+                    string strGwPassword, 
+                    string strTid, 
+                    string strSessionId, 
+                    object objFlagIsDelete, 
+                    object objCampaignCode, 
+                    object objCampaignCrCode, 
+                    object objCrtrScoreVerCode, 
+                    object objCrtrScoreVerAUCode, 
+                    object objCampaignName, 
+                    object objEffDTimeStart, 
+                    object objEffDTimeEnd, 
+                    object objQtyCheck, 
+                    object objQtySuccess, 
+                    object objMinIntervalDays, 
+                    object objReportEndDate, 
+                    object[] arrobjDSData, 
+                    object userState) {
+            if ((this.Aud_Campaign_SaveOperationCompleted == null)) {
+                this.Aud_Campaign_SaveOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAud_Campaign_SaveOperationCompleted);
+            }
+            this.InvokeAsync("Aud_Campaign_Save", new object[] {
+                        strGwUserCode,
+                        strGwPassword,
+                        strTid,
+                        strSessionId,
+                        objFlagIsDelete,
+                        objCampaignCode,
+                        objCampaignCrCode,
+                        objCrtrScoreVerCode,
+                        objCrtrScoreVerAUCode,
+                        objCampaignName,
+                        objEffDTimeStart,
+                        objEffDTimeEnd,
+                        objQtyCheck,
+                        objQtySuccess,
+                        objMinIntervalDays,
+                        objReportEndDate,
+                        arrobjDSData}, this.Aud_Campaign_SaveOperationCompleted, userState);
+        }
+        
+        private void OnAud_Campaign_SaveOperationCompleted(object arg) {
+            if ((this.Aud_Campaign_SaveCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.Aud_Campaign_SaveCompleted(this, new Aud_Campaign_SaveCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Mst_District_Get", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public object[] Mst_District_Get(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, string strFt_RecordStart, string strFt_RecordCount, string strFt_WhereClause, string strRt_Cols_Mst_District) {
             object[] results = this.Invoke("Mst_District_Get", new object[] {
@@ -5122,6 +5240,32 @@ namespace ZTest01.WSDVNAUD {
         private object[] results;
         
         internal Mst_CampainCriteria_SaveCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public object[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((object[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    public delegate void Aud_Campaign_SaveCompletedEventHandler(object sender, Aud_Campaign_SaveCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class Aud_Campaign_SaveCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal Aud_Campaign_SaveCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

@@ -3110,6 +3110,93 @@ namespace Demo.Lab.WS
 		}
 		#endregion
 
+		#region // Aud_Campaign: 
+		[WebMethod]
+		public object[] Aud_Campaign_Save(
+			string strGwUserCode
+			, string strGwPassword
+			, string strTid
+			, string strSessionId
+			////
+			, object objFlagIsDelete
+			////
+			, object objCampaignCode
+			, object objCampaignCrCode
+			, object objCrtrScoreVerCode
+			, object objCrtrScoreVerAUCode
+			, object objCampaignName
+			, object objEffDTimeStart
+			, object objEffDTimeEnd
+			, object objQtyCheck
+			, object objQtySuccess
+			, object objMinIntervalDays
+			, object objReportEndDate
+			, object[] arrobjDSData
+			)
+		{
+			// Temp:
+			string strFunctionName = "Aud_Campaign_Save";
+
+			#region // Check:
+			// Check Init:
+			if (_mdsInitError != null) return WSReturn(_mdsInitError);
+			string strErrorCodeDefault = TError.ErrDemoLab.CmSys_SessionPreInitFailed;
+			DataSet mdsFinal = CmUtils.CMyDataSet.NewMyDataSet(strTid);
+			ArrayList alParamsCoupleError = new ArrayList(new object[]{
+				"strFunctionName", strFunctionName
+				});
+			DataRow drSession = null;
+
+			try
+			{
+				// Check all:
+				TUtils.CConnectionManager.CheckAllCondition(
+					_biz._cf.nvcParams // nvcParams
+					, _biz._cf.sess // ss
+					, ref alParamsCoupleError // alParamsCoupleError
+					, strGwUserCode // strGwUserCode
+					, strGwPassword // strGwPassword
+					, strSessionId // strSessionId
+					, out drSession // drSession
+					);
+
+				// Init SessionInfo:
+				_biz._cf.sinf = new TBiz.CSessionInfo(drSession);
+			}
+			catch (Exception exc)
+			{
+				return WSReturn(TUtils.CProcessExc.Process(
+					ref mdsFinal // mdsFinal
+					, exc // exc
+					, strErrorCodeDefault // strErrorCode
+					, alParamsCoupleError.ToArray() // arrobjErrorParams
+					));
+			}
+			#endregion
+
+			// Return Good:
+			return WSReturn(_biz.Aud_Campaign_Save(
+			strTid
+			, drSession
+			//// 
+			, objFlagIsDelete
+			////
+			, objCampaignCode
+			, objCampaignCrCode
+			, objCrtrScoreVerCode
+			, objCrtrScoreVerAUCode
+			, objCampaignName
+			, objEffDTimeStart
+			, objEffDTimeEnd
+			, objQtyCheck
+			, objQtySuccess
+			, objMinIntervalDays
+			, objReportEndDate
+			, arrobjDSData
+			));
+		}
+		#endregion
+
 		#region // Mst_District:
 		[WebMethod]
 		public object[] Mst_District_Get(

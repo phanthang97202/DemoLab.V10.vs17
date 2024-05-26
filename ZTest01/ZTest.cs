@@ -592,7 +592,7 @@ namespace ZTest01
 			#endregion
 
 			#region // Mst_CampainCriteria:
-			if (!bTest)
+			if (bTest)
 			{
 
 				////
@@ -635,6 +635,113 @@ namespace ZTest01
 					, arrobjDSData
 					));
 				dtTable0 = mdsResult.Tables[0];
+
+				if (CmUtils.CMyDataSet.HasError(mdsResult))
+				{
+					CommonForms.Utils.ProcessMyDS(mdsResult);
+				}
+			}
+			#endregion
+
+			#region // Aud_Campaign:
+			if (!bTest)
+			{
+				////
+				object objFlagIsDelete = "1"; // 1 => Clear Exist, 0 => Clear + Insert
+				object objCampaignCode = "AC20220912.999999";
+				object objCampaignCrCode = "DZUNGND.IF_ACSINNO.01"; // Phải tạo Tiêu chuẩn chiến dịch trước
+				object objCrtrScoreVerCode = "VER1.0";
+				object objCrtrScoreVerAUCode = "VER1.0";
+				object objCampaignName = "ThangPV_Campaign";
+				object objEffDTimeStart = "2023-09-09";
+				object objEffDTimeEnd = "2023-09-10";
+				object objQtyCheck = "3";
+				object objQtySuccess = "1";
+				object objMinIntervalDays = "1";
+				object objReportEndDate = "3";
+
+				DataSet dsData = new DataSet();
+
+				////
+				DataTable dtData_Aud_CampaignDoc = new DataTable("Aud_CampaignDoc");
+				dtData_Aud_CampaignDoc.Columns.Add("FilePath", typeof(object));
+
+				////
+				dtData_Aud_CampaignDoc.Rows.Add("/UploadFile/MrThang.png");
+
+				////
+				DataTable dtData_Aud_CampaignDBDtl = new DataTable("Aud_CampaignDBDtl");
+				dtData_Aud_CampaignDBDtl.Columns.Add("DBCode", typeof(object));
+				dtData_Aud_CampaignDBDtl.Columns.Add("POSMCode", typeof(object));
+				dtData_Aud_CampaignDBDtl.Columns.Add("QtyDeliver", typeof(object));
+
+				////
+				dtData_Aud_CampaignDBDtl.Rows.Add("DBVN001", "GB", "10");
+				dtData_Aud_CampaignDBDtl.Rows.Add("DBVN001", "GH", "20");
+				dtData_Aud_CampaignDBDtl.Rows.Add("DBVN001", "HT", "30");
+				dtData_Aud_CampaignDBDtl.Rows.Add("DBVN001", "KB", "40");
+				dtData_Aud_CampaignDBDtl.Rows.Add("DBVN001", "TT", "50");
+
+				////
+				dtData_Aud_CampaignDBDtl.Rows.Add("DBVN002", "GB", "10");
+				dtData_Aud_CampaignDBDtl.Rows.Add("DBVN002", "GH", "20");
+				dtData_Aud_CampaignDBDtl.Rows.Add("DBVN002", "HT", "30");
+				dtData_Aud_CampaignDBDtl.Rows.Add("DBVN002", "KB", "40");
+				dtData_Aud_CampaignDBDtl.Rows.Add("DBVN002", "TT", "50");
+
+				////
+				dtData_Aud_CampaignDBDtl.Rows.Add("DBVN003", "GB", "10");
+				dtData_Aud_CampaignDBDtl.Rows.Add("DBVN003", "GH", "20");
+				dtData_Aud_CampaignDBDtl.Rows.Add("DBVN003", "HT", "30");
+				dtData_Aud_CampaignDBDtl.Rows.Add("DBVN003", "KB", "40");
+				dtData_Aud_CampaignDBDtl.Rows.Add("DBVN003", "TT", "50");
+
+				////
+				dtData_Aud_CampaignDBDtl.Rows.Add("DBVN004", "GB", "10");
+				dtData_Aud_CampaignDBDtl.Rows.Add("DBVN004", "GH", "20");
+				dtData_Aud_CampaignDBDtl.Rows.Add("DBVN004", "HT", "30");
+				dtData_Aud_CampaignDBDtl.Rows.Add("DBVN004", "KB", "40");
+				dtData_Aud_CampaignDBDtl.Rows.Add("DBVN004", "TT", "50");
+
+				////
+				dtData_Aud_CampaignDBDtl.Rows.Add("DBVN005", "GB", "10");
+				dtData_Aud_CampaignDBDtl.Rows.Add("DBVN005", "GH", "20");
+				dtData_Aud_CampaignDBDtl.Rows.Add("DBVN005", "HT", "30");
+				dtData_Aud_CampaignDBDtl.Rows.Add("DBVN005", "KB", "40");
+				dtData_Aud_CampaignDBDtl.Rows.Add("DBVN005", "TT", "50");
+
+				////
+				dsData.Tables.Add(dtData_Aud_CampaignDoc);
+				dsData.Tables.Add(dtData_Aud_CampaignDBDtl);
+				object[] arrobjDSData = CmUtils.ConvertUtils.DataSet2Array(dsData);
+
+				////
+				string strTid = string.Format("{0}.{1}", DateTime.Now.ToString("yyyyMMdd.HHmmss"), nSeq++);
+
+
+				mdsResult = CmUtils.ConvertUtils.Array2DataSet(ws.Aud_Campaign_Save(
+					strGwUserCode // strGwUserCode
+					, strGwPassword // strGwPassword
+					, strTid // strTid
+					, strSessionId // strSessionId
+								   ////
+					, objFlagIsDelete
+					////
+					, objCampaignCode
+					, objCampaignCrCode
+					, objCrtrScoreVerCode
+					, objCrtrScoreVerAUCode
+					, objCampaignName
+					, objEffDTimeStart
+					, objEffDTimeEnd
+					, objQtyCheck
+					, objQtySuccess
+					, objMinIntervalDays
+					, objReportEndDate
+					, arrobjDSData
+					));
+				dtTable0 = mdsResult.Tables[0];
+				MessageBox.Show("Success!");
 
 				if (CmUtils.CMyDataSet.HasError(mdsResult))
 				{
