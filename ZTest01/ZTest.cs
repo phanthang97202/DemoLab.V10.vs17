@@ -647,7 +647,7 @@ namespace ZTest01
 			if (!bTest)
 			{
 				////
-				object objFlagIsDelete = "1"; // 1 => Clear Exist, 0 => Clear + Insert
+				object objFlagIsDelete = "0"; // 1 => Clear Exist, 0 => Clear + Insert
 				object objCampaignCode = "AC20220912.999999";
 				object objCampaignCrCode = "DZUNGND.IF_ACSINNO.01"; // Phải tạo Tiêu chuẩn chiến dịch trước
 				object objCrtrScoreVerCode = "VER1.0";

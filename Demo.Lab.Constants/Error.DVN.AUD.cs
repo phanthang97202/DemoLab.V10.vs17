@@ -459,6 +459,7 @@
 		public const string Mst_CampainCriteria_CheckDB_CampainCriteriaNotFound = "ErrDemoLab.Mst_CampainCriteria_CheckDB_CampainCriteriaNotFound"; //// //Mst_CampainCriteria_CheckDB_CampainCriteriaNotFound
 		public const string Mst_CampainCriteria_CheckDB_CampainCriteriaExist = "ErrDemoLab.Mst_CampainCriteria_CheckDB_CampainCriteriaExist"; //// //Mst_CampainCriteria_CheckDB_CampainCriteriaExist
 		public const string Mst_CampainCriteria_CheckDB_FlagActiveNotMatched = "ErrDemoLab.Mst_CampainCriteria_CheckDB_FlagActiveNotMatched"; //// //Mst_CampainCriteria_CheckDB_FlagActiveNotMatched
+		public const string Mst_CampainCriteria_Save_InvalidFlagActive = "ErrDemoLab.Mst_CampainCriteria_Save_InvalidFlagActive"; //// //Mst_CampainCriteria_Save_InvalidFlagActive
 
 		// Mst_StarShopType_Get:
 
@@ -481,6 +482,7 @@
 		public const string Aud_Campaign_CheckDB_CampainNotFound = "ErrDemoLab.Aud_Campaign_CheckDB_CampainNotFound"; //// //Aud_Campaign_CheckDB_CampainNotFound
 		public const string Aud_Campaign_CheckDB_CampainExist = "ErrDemoLab.Aud_Campaign_CheckDB_CampainExist"; //// //Aud_Campaign_CheckDB_CampainExist
 		public const string Aud_Campaign_CheckDB_FlagActiveNotMatched = "ErrDemoLab.Aud_Campaign_CheckDB_FlagActiveNotMatched"; //// //Aud_Campaign_CheckDB_FlagActiveNotMatched
+		public const string Aud_Campaign_Save_InvalidCampaignStatus = "ErrDemoLab.Aud_Campaign_Save_InvalidCampaignStatus"; //// //Aud_Campaign_Save_InvalidCampaignStatus
 
 		// Aud_Campaign_Save:
 		public const string Aud_Campaign_Save = "ErrDemoLab.Aud_Campaign_Save"; //// //Aud_Campaign_Save
@@ -491,11 +493,24 @@
 		public const string Aud_Campaign_Save_InvalidCampaignName = "ErrDemoLab.Aud_Campaign_Save_InvalidCampaignName"; //// //Aud_Campaign_Save_InvalidCampaignName
 		public const string Aud_Campaign_Save_InvalidEffDTimeStart = "ErrDemoLab.Aud_Campaign_Save_InvalidEffDTimeStart"; //// //Aud_Campaign_Save_InvalidEffDTimeStart
 		public const string Aud_Campaign_Save_InvalidEffDTimeEnd = "ErrDemoLab.Aud_Campaign_Save_InvalidEffDTimeEnd"; //// //Aud_Campaign_Save_InvalidEffDTimeEnd
-		public const string Aud_Campaign_Save_EffDTimeEndSmallThanEffDTimeStart = "ErrDemoLab.Aud_Campaign_Save_EffDTimeEndSmallThanEffDTimeStart"; //// //Aud_Campaign_Save_EffDTimeEndSmallThanEffDTimeStart
-		public const string Aud_Campaign_Save_InvalidQtyCheck = "ErrDemoLab.Aud_Campaign_Save_InvalidQtyCheck"; //// //Aud_Campaign_Save_InvalidQtyCheck
-		public const string Aud_Campaign_Save_InvalidQtySuccess = "ErrDemoLab.Aud_Campaign_Save_InvalidQtySuccess"; //// //Aud_Campaign_Save_InvalidQtySuccess
+		public const string Aud_CampaignDBPOSMDtl_Save_InvalidValue = "ErrDemoLab.Aud_CampaignDBPOSMDtl_Save_InvalidValue"; //// //Aud_CampaignDBPOSMDtl_Save_InvalidValue
+		public const string Aud_Campaign_Save_InvalidValue = "ErrDemoLab.Aud_Campaign_Save_InvalidValue"; //// //Aud_Campaign_Save_InvalidValue
 		public const string Aud_Campaign_Save_InvalidMinIntervalDays = "ErrDemoLab.Aud_Campaign_Save_InvalidMinIntervalDays"; //// //Aud_Campaign_Save_InvalidMinIntervalDays
 		public const string Aud_Campaign_Save_InvalidReportEndDate = "ErrDemoLab.Aud_Campaign_Save_InvalidReportEndDate"; //// //Aud_Campaign_Save_InvalidReportEndDate
+		#endregion
+
+		#region // Mst_CriteriaScoreVersion:
+		// Mst_CriteriaScoreVersion_CheckDB:
+		public const string Mst_CriteriaScoreVersion_CheckDB_CriteriaScoreVersionNotFound = "ErrDemoLab.Mst_CriteriaScoreVersion_CheckDB_CriteriaScoreVersionNotFound"; //// //Mst_CriteriaScoreVersion_CheckDB_CriteriaScoreVersionNotFound
+		public const string Mst_CriteriaScoreVersion_CheckDB_CriteriaScoreVersionExist = "ErrDemoLab.Mst_CriteriaScoreVersion_CheckDB_CriteriaScoreVersionExist"; //// //Mst_CriteriaScoreVersion_CheckDB_CriteriaScoreVersionExist
+		public const string Mst_CriteriaScoreVersion_CheckDB_FlagActiveNotMatched = "ErrDemoLab.Mst_CriteriaScoreVersion_CheckDB_FlagActiveNotMatched"; //// //Mst_CriteriaScoreVersion_CheckDB_FlagActiveNotMatched
+		#endregion
+
+		#region // Mst_CriteriaScoreVersionAuditUser:
+		// Mst_CriteriaScoreVersionAuditUser_CheckDB:
+		public const string Mst_CriteriaScoreVersionAuditUser_CheckDB_CriteriaScoreVersionAuditUserNotFound = "ErrDemoLab.Mst_CriteriaScoreVersionAuditUser_CheckDB_CriteriaScoreVersionAuditUserNotFound"; //// //Mst_CriteriaScoreVersionAuditUser_CheckDB_CriteriaScoreVersionAuditUserNotFound
+		public const string Mst_CriteriaScoreVersionAuditUser_CheckDB_CriteriaScoreVersionAuditUserExist = "ErrDemoLab.Mst_CriteriaScoreVersionAuditUser_CheckDB_CriteriaScoreVersionAuditUserExist"; //// //Mst_CriteriaScoreVersionAuditUser_CheckDB_CriteriaScoreVersionAuditUserExist
+		public const string Mst_CriteriaScoreVersionAuditUser_CheckDB_FlagActiveNotMatched = "ErrDemoLab.Mst_CriteriaScoreVersionAuditUser_CheckDB_FlagActiveNotMatched"; //// //Mst_CriteriaScoreVersionAuditUser_CheckDB_FlagActiveNotMatched
 		#endregion
 
 		#region // Aud_CampaignDoc:

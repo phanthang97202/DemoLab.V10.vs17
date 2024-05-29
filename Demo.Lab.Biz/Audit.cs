@@ -82,6 +82,142 @@ namespace Demo.Lab.Biz
 		}
 		#endregion
 
+		#region // Mst_CriteriaScoreVersion_CheckDB
+		private void Mst_CriteriaScoreVersion_CheckDB(
+			ref ArrayList alParamsCoupleError
+			, object objCrtrScoreVerCode
+			, string strFlagExistToCheck
+			, string strFlagActiveListToCheck
+			, out DataTable dtDB_Mst_CriteriaScoreVersion
+			)
+		{
+			// GetInfo:
+			string strSqlExec = CmUtils.StringUtils.Replace(@"
+					select top 1
+						t.*
+					from Mst_CriteriaScoreVersion t --//[mylock]
+					where (1=1)
+						and t.CrtrScoreVerCode = @objCrtrScoreVerCode
+					;
+				");
+			dtDB_Mst_CriteriaScoreVersion = _cf.db.ExecQuery(
+				strSqlExec
+				, "@objCrtrScoreVerCode", objCrtrScoreVerCode
+				).Tables[0];
+			dtDB_Mst_CriteriaScoreVersion.TableName = "Mst_CriteriaScoreVersion";
+
+			// strFlagExistToCheck:
+			if (strFlagExistToCheck.Length > 0)
+			{
+				if (CmUtils.StringUtils.StringEqual(strFlagExistToCheck, TConst.Flag.Active) && dtDB_Mst_CriteriaScoreVersion.Rows.Count < 1)
+				{
+					alParamsCoupleError.AddRange(new object[]{
+						"Check.CrtrScoreVerCode", objCrtrScoreVerCode
+						});
+					throw CmUtils.CMyException.Raise(
+						TError.ErrDemoLab.Mst_CriteriaScoreVersion_CheckDB_CriteriaScoreVersionNotFound
+						, null
+						, alParamsCoupleError.ToArray()
+						);
+				}
+				if (CmUtils.StringUtils.StringEqual(strFlagExistToCheck, TConst.Flag.Inactive) && dtDB_Mst_CriteriaScoreVersion.Rows.Count > 0)
+				{
+					alParamsCoupleError.AddRange(new object[]{
+						"Check.CrtrScoreVerCode", objCrtrScoreVerCode
+						});
+					throw CmUtils.CMyException.Raise(
+						TError.ErrDemoLab.Mst_CriteriaScoreVersion_CheckDB_CriteriaScoreVersionExist
+						, null
+						, alParamsCoupleError.ToArray()
+						);
+				}
+			}
+
+			// strFlagActiveListToCheck:
+			if (strFlagActiveListToCheck.Length > 0 && !strFlagActiveListToCheck.Contains(Convert.ToString(dtDB_Mst_CriteriaScoreVersion.Rows[0]["FlagActive"])))
+			{
+				alParamsCoupleError.AddRange(new object[]{
+					"Check.CrtrScoreVerCode", objCrtrScoreVerCode
+					, "Check.strFlagActiveListToCheck", strFlagActiveListToCheck
+					, "DB.FlagActive", dtDB_Mst_CriteriaScoreVersion.Rows[0]["FlagActive"]
+					});
+				throw CmUtils.CMyException.Raise(
+					TError.ErrDemoLab.Mst_CriteriaScoreVersion_CheckDB_FlagActiveNotMatched
+					, null
+					, alParamsCoupleError.ToArray()
+					);
+			}
+		}
+		#endregion
+
+		#region // Mst_CriteriaScoreVersionAuditUser_CheckDB
+		private void Mst_CriteriaScoreVersionAuditUser_CheckDB(
+			ref ArrayList alParamsCoupleError
+			, object objCrtrScoreVerAUCode
+			, string strFlagExistToCheck
+			, string strFlagActiveListToCheck
+			, out DataTable dtDB_Mst_CriteriaScoreVersionAuditUser
+			)
+		{
+			// GetInfo:
+			string strSqlExec = CmUtils.StringUtils.Replace(@"
+					select top 1
+						t.*
+					from Mst_CriteriaScoreVersionAuditUser t --//[mylock]
+					where (1=1)
+						and t.CrtrScoreVerAUCode = @objCrtrScoreVerAUCode
+					;
+				");
+			dtDB_Mst_CriteriaScoreVersionAuditUser = _cf.db.ExecQuery(
+				strSqlExec
+				, "@objCrtrScoreVerAUCode", objCrtrScoreVerAUCode
+				).Tables[0];
+			dtDB_Mst_CriteriaScoreVersionAuditUser.TableName = "Mst_CriteriaScoreVersionAuditUser";
+
+			// strFlagExistToCheck:
+			if (strFlagExistToCheck.Length > 0)
+			{
+				if (CmUtils.StringUtils.StringEqual(strFlagExistToCheck, TConst.Flag.Active) && dtDB_Mst_CriteriaScoreVersionAuditUser.Rows.Count < 1)
+				{
+					alParamsCoupleError.AddRange(new object[]{
+						"Check.CrtrScoreVerAUCode", objCrtrScoreVerAUCode
+						});
+					throw CmUtils.CMyException.Raise(
+						TError.ErrDemoLab.Mst_CriteriaScoreVersionAuditUser_CheckDB_CriteriaScoreVersionAuditUserNotFound
+						, null
+						, alParamsCoupleError.ToArray()
+						);
+				}
+				if (CmUtils.StringUtils.StringEqual(strFlagExistToCheck, TConst.Flag.Inactive) && dtDB_Mst_CriteriaScoreVersionAuditUser.Rows.Count > 0)
+				{
+					alParamsCoupleError.AddRange(new object[]{
+						"Check.CrtrScoreVerAUCode", objCrtrScoreVerAUCode
+						});
+					throw CmUtils.CMyException.Raise(
+						TError.ErrDemoLab.Mst_CriteriaScoreVersionAuditUser_CheckDB_CriteriaScoreVersionAuditUserExist
+						, null
+						, alParamsCoupleError.ToArray()
+						);
+				}
+			}
+
+			// strFlagActiveListToCheck:
+			if (strFlagActiveListToCheck.Length > 0 && !strFlagActiveListToCheck.Contains(Convert.ToString(dtDB_Mst_CriteriaScoreVersionAuditUser.Rows[0]["FlagActive"])))
+			{
+				alParamsCoupleError.AddRange(new object[]{
+					"Check.CrtrScoreVerAUCode", objCrtrScoreVerAUCode
+					, "Check.strFlagActiveListToCheck", strFlagActiveListToCheck
+					, "DB.FlagActive", dtDB_Mst_CriteriaScoreVersionAuditUser.Rows[0]["FlagActive"]
+					});
+				throw CmUtils.CMyException.Raise(
+					TError.ErrDemoLab.Mst_CriteriaScoreVersionAuditUser_CheckDB_FlagActiveNotMatched
+					, null
+					, alParamsCoupleError.ToArray()
+					);
+			}
+		}
+		#endregion
+
 		#region // Aud_Campaign_Save
 		public DataSet Aud_Campaign_Save(
 			string strTid
@@ -112,23 +248,23 @@ namespace Demo.Lab.Biz
 			string strFunctionName = "Aud_Campaign_Save";
 			string strErrorCodeDefault = TError.ErrDemoLab.Aud_Campaign_Save;
 			ArrayList alParamsCoupleError = new ArrayList(new object[]{
-				"strFunctionName", strFunctionName
-				, "dtimeSys", dtimeSys.ToString("yyyy-MM-dd HH:mm:ss")
-			    ////
-			    , "objFlagIsDelete", objFlagIsDelete
-			    ////
-				, "objCampaignCode", objCampaignCode
-				, "objCampaignCrCode", objCampaignCrCode
-				, "objCrtrScoreVerCode", objCrtrScoreVerCode
-				, "objCrtrScoreVerAUCode", objCrtrScoreVerAUCode
-				, "objCampaignName", objCampaignName
-				, "objEffDTimeStart", objEffDTimeStart
-				, "objEffDTimeEnd", objEffDTimeEnd
-				, "objQtyCheck", objQtyCheck
-				, "objQtySuccess", objQtySuccess
-				, "objMinIntervalDays", objMinIntervalDays
-				, "objReportEndDate", objReportEndDate
-				});
+					"strFunctionName", strFunctionName
+					, "dtimeSys", dtimeSys.ToString("yyyy-MM-dd HH:mm:ss")
+					////
+					, "objFlagIsDelete", objFlagIsDelete
+					////
+					, "objCampaignCode", objCampaignCode
+					, "objCampaignCrCode", objCampaignCrCode
+					, "objCrtrScoreVerCode", objCrtrScoreVerCode
+					, "objCrtrScoreVerAUCode", objCrtrScoreVerAUCode
+					, "objCampaignName", objCampaignName
+					, "objEffDTimeStart", objEffDTimeStart
+					, "objEffDTimeEnd", objEffDTimeEnd
+					, "objQtyCheck", objQtyCheck
+					, "objQtySuccess", objQtySuccess
+					, "objMinIntervalDays", objMinIntervalDays
+					, "objReportEndDate", objReportEndDate
+					});
 			//ArrayList alPCErrEx = new ArrayList();
 			#endregion
 
@@ -168,29 +304,19 @@ namespace Demo.Lab.Biz
 				////
 				string strCampaignCode = TUtils.CUtils.StdParam(objCampaignCode);
 				string strCampaignCrCode = TUtils.CUtils.StdParam(objCampaignCrCode);
-				string strCrtrScoreVerCode = string.Format("{0}", objCrtrScoreVerCode).Trim();
-				string strCrtrScoreVerAUCode = string.Format("{0}", objCrtrScoreVerAUCode).Trim();
+				string strCrtrScoreVerCode = string.Format("{0}", objCrtrScoreVerCode).Trim().ToUpper();
+				string strCrtrScoreVerAUCode = string.Format("{0}", objCrtrScoreVerAUCode).Trim().ToUpper();
 				string strCampaignName = string.Format("{0}", objCampaignName).Trim();
-				string strEffDTimeStart = TUtils.CUtils.StdDTime(objEffDTimeStart);
-				string strEffDTimeEnd = TUtils.CUtils.StdDTime(objEffDTimeEnd);
+				string strEffDTimeStart = TUtils.CUtils.StdDTimeBeginDay(objEffDTimeStart);
+				string strEffDTimeEnd = TUtils.CUtils.StdDTimeEndDay(objEffDTimeEnd);
 				int intQtyCheck = Convert.ToInt32(TUtils.CUtils.StdInt(objQtyCheck));
 				int intQtySuccess = Convert.ToInt32(TUtils.CUtils.StdInt(objQtySuccess));
 				int intMinIntervalDays = Convert.ToInt32(TUtils.CUtils.StdInt(objMinIntervalDays));
 				int intReportEndDate = Convert.ToInt32(TUtils.CUtils.StdInt(objReportEndDate));
-				TimeSpan subTimeStartEnd = (Convert.ToDateTime(strEffDTimeEnd)).Subtract(Convert.ToDateTime(strEffDTimeStart));
-				string strMinImagesPerCheck = "1";
-				string strMaxImagesPerCheck = "1000";
-				string strAppr1DTime = null;
-				string strAppr1By = null;
-				string strAppr2DTime = null;
-				string strAppr2By = null;
-				string strFinishDTime = null;
-				string strFinishBy = null;
-				string strCancelDTime = null;
-				string strCancelBy = null;
+				int intMinImagesPerCheck = 1;
+				int intMaxImagesPerCheck = 1000;
 				string strCreateDTime = null;
 				string strCreateBy = null;
-				string strRemark = null;
 
 				////
 				DataTable dtDB_Aud_Campaign = null;
@@ -216,9 +342,23 @@ namespace Demo.Lab.Biz
 					}
 					else // Đã Tồn tại.
 					{
-
-						strCreateDTime = TUtils.CUtils.StdDTime(dtDB_Aud_Campaign.Rows[0]["CreateDTime"]);
-						strCreateBy = TUtils.CUtils.StdParam(dtDB_Aud_Campaign.Rows[0]["CreateBy"]);
+						if (!CmUtils.StringUtils.StringEqualIgnoreCase(dtDB_Aud_Campaign.Rows[0]["CampaignStatus"], TConst.CampaignStatus.Pending))
+						{
+							alParamsCoupleError.AddRange(new object[]{
+								"Check.DB.CampaignStatus", dtDB_Aud_Campaign.Rows[0]["CampaignStatus"]
+								, "Check.CampaignStatus.Expected", TConst.CampaignStatus.Pending
+							});
+							throw CmUtils.CMyException.Raise(
+								TError.ErrDemoLab.Aud_Campaign_Save_InvalidCampaignStatus
+								, null
+								, alParamsCoupleError.ToArray()
+								);
+						}
+						else
+						{
+							strCreateDTime = TUtils.CUtils.StdDTime(dtDB_Aud_Campaign.Rows[0]["CreateDTime"]);
+							strCreateBy = TUtils.CUtils.StdParam(dtDB_Aud_Campaign.Rows[0]["CreateBy"]);
+						}
 					}
 					////
 					strCreateDTime = string.IsNullOrEmpty(strCreateDTime) ? dtimeSys.ToString("yyyy-MM-dd HH:mm:ss") : strCreateDTime;
@@ -237,37 +377,34 @@ namespace Demo.Lab.Biz
 					}
 					////
 					DataTable dtDB_Mst_CampainCriteria = null;
+
 					Mst_CampainCriteria_CheckDB(
 						ref alParamsCoupleError // alParamsCoupleError
 						, strCampaignCrCode // objCampaignCrCode
 						, TConst.Flag.Yes // strFlagExistToCheck
-						, "" // strStatusListToCheck
+						, TConst.Flag.Yes // strStatusListToCheck
 						, out dtDB_Mst_CampainCriteria // dtDB_Mst_CampainCriteria
 						);
 					////
-					if (strCrtrScoreVerCode == null || strCrtrScoreVerCode.Length < 1)
-					{
-						alParamsCoupleError.AddRange(new object[]{
-							"Check.strCrtrScoreVerCode", strCrtrScoreVerCode
-							});
-						throw CmUtils.CMyException.Raise(
-							TError.ErrDemoLab.Aud_Campaign_Save_InvalidCrtrScoreVerCode
-							, null
-							, alParamsCoupleError.ToArray()
-							);
-					}
+					DataTable dtDB_Mst_CriteriaScoreVersion = null;
+
+					Mst_CriteriaScoreVersion_CheckDB(
+						ref alParamsCoupleError // alParamsCoupleError
+						, strCampaignCrCode // objCampaignCrCode
+						, TConst.Flag.Yes // strFlagExistToCheck
+						, "" // strStatusListToCheck
+						, out dtDB_Mst_CriteriaScoreVersion // dtDB_Mst_CriteriaScoreVersion
+						);
 					////
-					if (strCrtrScoreVerAUCode == null || strCrtrScoreVerAUCode.Length < 1)
-					{
-						alParamsCoupleError.AddRange(new object[]{
-							"Check.strCrtrScoreVerAUCode", strCrtrScoreVerAUCode
-							});
-						throw CmUtils.CMyException.Raise(
-							TError.ErrDemoLab.Aud_Campaign_Save_InvalidCrtrScoreVerAUCode
-							, null
-							, alParamsCoupleError.ToArray()
-							);
-					}
+					DataTable dtDB_Mst_CriteriaScoreVersionAuditUser = null;
+
+					Mst_CriteriaScoreVersionAuditUser_CheckDB(
+						ref alParamsCoupleError // alParamsCoupleError
+						, strCrtrScoreVerAUCode // objCampaignCrCode
+						, TConst.Flag.Yes // strFlagExistToCheck
+						, "" // strStatusListToCheck
+						, out dtDB_Mst_CriteriaScoreVersionAuditUser // dtDB_Mst_CriteriaScoreVersionAuditUser
+						);
 					////
 					if (strCampaignName == null || strCampaignName.Length < 1)
 					{
@@ -304,38 +441,26 @@ namespace Demo.Lab.Biz
 							, alParamsCoupleError.ToArray()
 							);
 					}
-					////
-					if (DateTime.Compare(Convert.ToDateTime(strEffDTimeEnd), Convert.ToDateTime(strEffDTimeStart)) < 0)
-					{
-						alParamsCoupleError.AddRange(new object[]{
-							"Check.strEffDTimeEnd", strEffDTimeEnd
-							});
-						throw CmUtils.CMyException.Raise(
-							TError.ErrDemoLab.Aud_Campaign_Save_EffDTimeEndSmallThanEffDTimeStart
-							, null
-							, alParamsCoupleError.ToArray()
-							);
-					}
 					//// 
-					if (intQtyCheck < 1)
+					if (intQtyCheck < 0)
 					{
 						alParamsCoupleError.AddRange(new object[]{
 							"Check.QtyCheck", intQtyCheck
 							});
 						throw CmUtils.CMyException.Raise(
-							TError.ErrDemoLab.Aud_Campaign_Save_InvalidQtyCheck
+							TError.ErrDemoLab.Aud_Campaign_Save_InvalidValue
 							, null
 							, alParamsCoupleError.ToArray()
 							);
 					}
 					//// 
-					if (intQtySuccess < 1 || intQtySuccess > intQtyCheck)
+					if (intQtySuccess < 0)
 					{
 						alParamsCoupleError.AddRange(new object[]{
 							"Check.QtySuccess", intQtySuccess
 							});
 						throw CmUtils.CMyException.Raise(
-							TError.ErrDemoLab.Aud_Campaign_Save_InvalidQtySuccess
+							TError.ErrDemoLab.Aud_Campaign_Save_InvalidValue
 							, null
 							, alParamsCoupleError.ToArray()
 							);
@@ -384,12 +509,12 @@ namespace Demo.Lab.Biz
 							"EffDTimeEnd", TConst.BizMix.Default_DBColType,
 							"CreateDTime", TConst.BizMix.Default_DBColType,
 							"CreateBy", TConst.BizMix.Default_DBColType,
-							"QtyCheck", TConst.BizMix.Default_DBColType,
-							"QtySuccess", TConst.BizMix.Default_DBColType,
-							"MinIntervalDays", TConst.BizMix.Default_DBColType,
-							"MinImagesPerCheck", TConst.BizMix.Default_DBColType,
-							"MaxImagesPerCheck", TConst.BizMix.Default_DBColType,
-							"ReportEndDate", TConst.BizMix.Default_DBColType,
+							"QtyCheck", "int",
+							"QtySuccess", "int",
+							"MinIntervalDays", "int",
+							"MinImagesPerCheck", "int",
+							"MaxImagesPerCheck", "int",
+							"ReportEndDate", "int",
 							"Appr1DTime", TConst.BizMix.Default_DBColType,
 							"Appr1By", TConst.BizMix.Default_DBColType,
 							"Appr2DTime", TConst.BizMix.Default_DBColType,
@@ -417,19 +542,19 @@ namespace Demo.Lab.Biz
 								intQtyCheck, // QtyCheck   
 								intQtySuccess, // QtySuccess   
 								intMinIntervalDays, // MinIntervalDays  
-								strMinImagesPerCheck, // MinImagesPerCheck  
-								strMaxImagesPerCheck, // MaxImagesPerCheck   
+								intMinImagesPerCheck, // MinImagesPerCheck  
+								intMaxImagesPerCheck, // MaxImagesPerCheck   
 								intReportEndDate, // ReportEndDate   
-								strAppr1DTime, // Appr1DTime
-								strAppr1By, // Appr1By
-								strAppr2DTime, // Appr2DTime
-								strAppr2By, // Appr2By
-								strFinishDTime, // FinishDTime
-								strFinishBy, // FinishBy
-								strCancelDTime, // CancelDTime
-								strCancelBy, // CancelBy
-								TConst.StatusUserScheduleDtl.Pending, // CampaignStatus   
-								strRemark, // Remark
+								null, // Appr1DTime
+								null, // Appr1By
+								null, // Appr2DTime
+								null, // Appr2By
+								null, // FinishDTime
+								null, // FinishBy
+								null, // CancelDTime
+								null, // CancelBy
+								TConst.CampaignStatus.Pending, // CampaignStatus   
+								null, // Remark
 								dtimeSys.ToString("yyyy-MM-dd HH:mm:ss"), // LogLUDTime
 						        _cf.sinf.strUserCode, // LogLUBy
 						        }
@@ -476,22 +601,12 @@ namespace Demo.Lab.Biz
 						////
 						DataRow drScan = dtInput_Aud_CampaignDoc.Rows[nScan];
 
-						////
-						DataTable dtDB_Mst_CampainCriteria = null;
-
-						Mst_CampainCriteria_CheckDB(
-							ref alParamsCoupleError // alParamsCoupleError
-							, strCampaignCode // objCampaignCode
-							, TConst.Flag.Yes // strFlagExistToCheck
-							, "" // strStatusListToCheck
-							, out dtDB_Mst_CampainCriteria // dtDB_Mst_CampainCriteria
-							);
 						string strFilePath = string.Format("{0}", drScan["FilePath"]).Trim();
 						if (strFilePath.Length < 1)
 						{
 							alParamsCoupleError.AddRange(new object[]{
-							"Check.strFilePath", strFilePath
-							});
+								"Check.strFilePath", strFilePath
+								});
 							throw CmUtils.CMyException.Raise(
 								TError.ErrDemoLab.Aud_CampaignDoc_Save_InvalidFilePath
 								, null
@@ -574,7 +689,6 @@ namespace Demo.Lab.Biz
 						, "StdParam", "DBCode" // arrstrCouple   
 						);
 					////
-
 					TUtils.CUtils.MyForceNewColumn(ref dtInput_Aud_CampaignDBDtl, "CampaignCode", typeof(object));
 					TUtils.CUtils.MyForceNewColumn(ref dtInput_Aud_CampaignDBDtl, "CampaignDBStatusDtl", typeof(object));
 					TUtils.CUtils.MyForceNewColumn(ref dtInput_Aud_CampaignDBDtl, "LogLUDTime", typeof(object));
@@ -600,8 +714,8 @@ namespace Demo.Lab.Biz
 						if (strDBCode.Length < 1)
 						{
 							alParamsCoupleError.AddRange(new object[]{
-							"Check.strDBCode", strDBCode
-							});
+								"Check.strDBCode", strDBCode
+								});
 							throw CmUtils.CMyException.Raise(
 								TError.ErrDemoLab.Aud_CampaignDBDtl_Save_InvalidDBCode
 								, null
@@ -698,15 +812,15 @@ namespace Demo.Lab.Biz
 							, "" // strStatusListToCheck
 							, out dtDB_Mst_Distributor // dtDB_Mst_Distributor
 							);
-						////
-						string strQtyDeliver = string.Format("{0}", drScan["QtyDeliver"]).Trim();
-						if (strQtyDeliver.Length < 1)
+						//// dbQtyDeliver >= 0
+						double dbQtyDeliver = Convert.ToDouble(drScan["QtyDeliver"]);
+						if (dbQtyDeliver <= 0.0)
 						{
 							alParamsCoupleError.AddRange(new object[]{
-							"Check.strQtyDeliver", strQtyDeliver
-							});
+								"Check.dbQtyDeliver", dbQtyDeliver
+								});
 							throw CmUtils.CMyException.Raise(
-								TError.ErrDemoLab.Aud_CampaignDBPOSMDtl_Save_InvalidQtyDeliver
+								TError.ErrDemoLab.Aud_CampaignDBPOSMDtl_Save_InvalidValue
 								, null
 								, alParamsCoupleError.ToArray()
 								);
@@ -714,7 +828,7 @@ namespace Demo.Lab.Biz
 
 						////
 						drScan["CampaignCode"] = strCampaignCode;
-						drScan["QtyRetrieve"] = TConst.Flag.Inactive;
+						drScan["QtyRetrieve"] = 0;
 						drScan["DateDBRetrieve"] = null;
 						drScan["FlagActive"] = TConst.Flag.Active;
 						drScan["LogLUDTime"] = dtimeSys.ToString("yyyy-MM-dd HH:mm:ss");
@@ -734,8 +848,8 @@ namespace Demo.Lab.Biz
 							"CampaignCode", TConst.BizMix.Default_DBColType,
 							"DBCode", TConst.BizMix.Default_DBColType,
 							"POSMCode", TConst.BizMix.Default_DBColType,
-							"QtyDeliver", TConst.BizMix.Default_DBColType,
-							"QtyRetrieve", TConst.BizMix.Default_DBColType,
+							"QtyDeliver", "float",
+							"QtyRetrieve", "float",
 							"DateDBRetrieve", TConst.BizMix.Default_DBColType,
 							"FlagActive", TConst.BizMix.Default_DBColType,
 							"LogLUDTime", TConst.BizMix.Default_DBColType,

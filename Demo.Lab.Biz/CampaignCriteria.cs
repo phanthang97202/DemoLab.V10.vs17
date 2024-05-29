@@ -152,7 +152,7 @@ namespace Demo.Lab.Biz
 				////
 				string strCampaignCrCode = TUtils.CUtils.StdParam(objCampaignCrCode);
 				string strCampaignCrName = string.Format("{0}", objCampaignCrName).Trim();
-				string strCampainCriteriaType = string.Format("{0}", objCampainCriteriaType).Trim();
+				string strCampainCriteriaType = string.Format("{0}", objCampainCriteriaType).Trim().ToUpper();
 				string strCreateDTime = null;
 				string strCreateBy = null;
 
@@ -180,9 +180,23 @@ namespace Demo.Lab.Biz
 					}
 					else // Đã Tồn tại.
 					{
-
-						strCreateDTime = TUtils.CUtils.StdDTime(dtDB_Mst_CampainCriteria.Rows[0]["CreateDTime"]);
-						strCreateBy = TUtils.CUtils.StdParam(dtDB_Mst_CampainCriteria.Rows[0]["CreateBy"]);
+						if (!CmUtils.StringUtils.StringEqualIgnoreCase(dtDB_Mst_CampainCriteria.Rows[0]["FlagActive"], TConst.Flag.Active))
+						{
+							alParamsCoupleError.AddRange(new object[]{
+								"Check.DB.FlagActive", dtDB_Mst_CampainCriteria.Rows[0]["FlagActive"]
+								, "Check.FlagActive.Expected", TConst.Flag.Active
+							});
+							throw CmUtils.CMyException.Raise(
+								TError.ErrDemoLab.Mst_CampainCriteria_Save_InvalidFlagActive
+								, null
+								, alParamsCoupleError.ToArray()
+								);
+						}
+						else
+						{
+							strCreateDTime = TUtils.CUtils.StdDTime(dtDB_Mst_CampainCriteria.Rows[0]["CreateDTime"]);
+							strCreateBy = TUtils.CUtils.StdParam(dtDB_Mst_CampainCriteria.Rows[0]["CreateBy"]);
+						}
 					}
 					////
 					strCreateDTime = string.IsNullOrEmpty(strCreateDTime) ? dtimeSys.ToString("yyyy-MM-dd HH:mm:ss") : strCreateDTime;
@@ -272,8 +286,8 @@ namespace Demo.Lab.Biz
 						dtInput_Mst_CampainCriteriaScope         // dtData
 						, "StdParam", "SSGrpCode"                // arrstrCouple 
 						, "StdParam", "SSBrandCode"              // arrstrCouple  
-						, "StdParam", "CampainCritScopeDesc"     // arrstrCouple  
-						, "StdParam", "LevelCode"                // arrstrCouple  
+						, "", "CampainCritScopeDesc"             // arrstrCouple  
+						, "", "LevelCode"                        // arrstrCouple  
 						);
 					////
 
@@ -294,7 +308,7 @@ namespace Demo.Lab.Biz
 							ref alParamsCoupleError // alParamsCoupleError 
 							, drScan["SSGrpCode"] // objSSGrpCode 
 							, TConst.Flag.Yes // strFlagExistToCheck
-							, "" // strStatusListToCheck
+							, TConst.Flag.Yes // strStatusListToCheck
 							, out dtDB_Mst_StarShopGroup // dtDB_Mst_StarShopGroup
 							);
 						////
@@ -304,7 +318,7 @@ namespace Demo.Lab.Biz
 							ref alParamsCoupleError // alParamsCoupleError
 							, drScan["SSBrandCode"] // objSSBrandCode 
 							, TConst.Flag.Yes // strFlagExistToCheck							
-							, "" // strStatusListToCheck
+							, TConst.Flag.Yes // strStatusListToCheck
 							, out dtDB_Mst_StarShopBrand // dtDB_Mst_StarShopBrand
 							);
 						////
@@ -315,7 +329,7 @@ namespace Demo.Lab.Biz
 							, drScan["SSGrpCode"] // objSSGrpCode
 							, drScan["SSBrandCode"] // objSSBrandCode 
 							, TConst.Flag.Yes // strFlagExistToCheck							
-							, "" // strStatusListToCheck
+							, TConst.Flag.Yes // strStatusListToCheck
 							, out dtDB_Mst_StarShopType // dtDB_Mst_StarShopType
 							);
 						//// 
@@ -323,8 +337,8 @@ namespace Demo.Lab.Biz
 						if (strLevelCode.Length < 1)
 						{
 							alParamsCoupleError.AddRange(new object[]{
-							"Check.strLevelCode", strLevelCode
-							});
+								"Check.strLevelCode", strLevelCode
+								});
 							throw CmUtils.CMyException.Raise(
 								TError.ErrDemoLab.Mst_CampainCriteriaScope_Save_InvalidLevelCode
 								, null
@@ -369,14 +383,14 @@ namespace Demo.Lab.Biz
 					string strSqlDelete = CmUtils.StringUtils.Replace(@"
 						        ---- Mst_CampainCriteria:
 						        delete t
-						        from Mst_CampainCriteria t --//[mylock]
+						        from Mst_CampainCriteria t
 						        where (1=1)
 							        and t.CampaignCrCode = @strCampaignCrCode
 						        ;
 
 						        ---- Mst_CampainCriteriaScope:
 						        delete t
-						        from Mst_CampainCriteriaScope t --//[mylock]
+						        from Mst_CampainCriteriaScope t
 						        where (1=1)
 							        and t.CampaignCrCode = @strCampaignCrCode
 						        ;
