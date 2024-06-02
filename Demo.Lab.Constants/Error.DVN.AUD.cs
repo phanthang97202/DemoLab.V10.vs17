@@ -497,6 +497,10 @@
 		public const string Aud_Campaign_Save_InvalidValue = "ErrDemoLab.Aud_Campaign_Save_InvalidValue"; //// //Aud_Campaign_Save_InvalidValue
 		public const string Aud_Campaign_Save_InvalidMinIntervalDays = "ErrDemoLab.Aud_Campaign_Save_InvalidMinIntervalDays"; //// //Aud_Campaign_Save_InvalidMinIntervalDays
 		public const string Aud_Campaign_Save_InvalidReportEndDate = "ErrDemoLab.Aud_Campaign_Save_InvalidReportEndDate"; //// //Aud_Campaign_Save_InvalidReportEndDate
+
+		// Aud_Campaign_Approve
+		public const string Aud_Campaign_Approve = "ErrDemoLab.Aud_Campaign_Approve"; //// //Aud_Campaign_Approve
+		public const string Aud_Campaign_Approve_CampaignDBDtlNotFound = "ErrDemoLab.Aud_Campaign_Approve_CampaignDBDtlNotFound"; //// //Aud_Campaign_Approve_CampaignDBDtlNotFound
 		#endregion
 
 		#region // Mst_CriteriaScoreVersion:

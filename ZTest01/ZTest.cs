@@ -670,49 +670,49 @@ namespace ZTest01
 				dtData_Aud_CampaignDoc.Rows.Add("/UploadFile/MrThang.png");
 
 				////
-				DataTable dtData_Aud_CampaignDBDtl = new DataTable("Aud_CampaignDBDtl");
-				dtData_Aud_CampaignDBDtl.Columns.Add("DBCode", typeof(object));
-				dtData_Aud_CampaignDBDtl.Columns.Add("POSMCode", typeof(object));
-				dtData_Aud_CampaignDBDtl.Columns.Add("QtyDeliver", typeof(object));
+				DataTable dtData_Aud_CampaignDBPOSMDtl = new DataTable("Aud_CampaignDBPOSMDtl");
+				dtData_Aud_CampaignDBPOSMDtl.Columns.Add("DBCode", typeof(object));
+				dtData_Aud_CampaignDBPOSMDtl.Columns.Add("POSMCode", typeof(object));
+				dtData_Aud_CampaignDBPOSMDtl.Columns.Add("QtyDeliver", typeof(object));
 
 				////
-				dtData_Aud_CampaignDBDtl.Rows.Add("DBVN001", "GB", "10");
-				dtData_Aud_CampaignDBDtl.Rows.Add("DBVN001", "GH", "20");
-				dtData_Aud_CampaignDBDtl.Rows.Add("DBVN001", "HT", "30");
-				dtData_Aud_CampaignDBDtl.Rows.Add("DBVN001", "KB", "40");
-				dtData_Aud_CampaignDBDtl.Rows.Add("DBVN001", "TT", "50");
+				dtData_Aud_CampaignDBPOSMDtl.Rows.Add("DBVN001", "GB", "10");
+				dtData_Aud_CampaignDBPOSMDtl.Rows.Add("DBVN001", "GH", "20");
+				dtData_Aud_CampaignDBPOSMDtl.Rows.Add("DBVN001", "HT", "30");
+				dtData_Aud_CampaignDBPOSMDtl.Rows.Add("DBVN001", "KB", "40");
+				dtData_Aud_CampaignDBPOSMDtl.Rows.Add("DBVN001", "TT", "50");
 
 				////
-				dtData_Aud_CampaignDBDtl.Rows.Add("DBVN002", "GB", "10");
-				dtData_Aud_CampaignDBDtl.Rows.Add("DBVN002", "GH", "20");
-				dtData_Aud_CampaignDBDtl.Rows.Add("DBVN002", "HT", "30");
-				dtData_Aud_CampaignDBDtl.Rows.Add("DBVN002", "KB", "40");
-				dtData_Aud_CampaignDBDtl.Rows.Add("DBVN002", "TT", "50");
+				dtData_Aud_CampaignDBPOSMDtl.Rows.Add("DBVN002", "GB", "10");
+				dtData_Aud_CampaignDBPOSMDtl.Rows.Add("DBVN002", "GH", "20");
+				dtData_Aud_CampaignDBPOSMDtl.Rows.Add("DBVN002", "HT", "30");
+				dtData_Aud_CampaignDBPOSMDtl.Rows.Add("DBVN002", "KB", "40");
+				dtData_Aud_CampaignDBPOSMDtl.Rows.Add("DBVN002", "TT", "50");
 
 				////
-				dtData_Aud_CampaignDBDtl.Rows.Add("DBVN003", "GB", "10");
-				dtData_Aud_CampaignDBDtl.Rows.Add("DBVN003", "GH", "20");
-				dtData_Aud_CampaignDBDtl.Rows.Add("DBVN003", "HT", "30");
-				dtData_Aud_CampaignDBDtl.Rows.Add("DBVN003", "KB", "40");
-				dtData_Aud_CampaignDBDtl.Rows.Add("DBVN003", "TT", "50");
+				dtData_Aud_CampaignDBPOSMDtl.Rows.Add("DBVN003", "GB", "10");
+				dtData_Aud_CampaignDBPOSMDtl.Rows.Add("DBVN003", "GH", "20");
+				dtData_Aud_CampaignDBPOSMDtl.Rows.Add("DBVN003", "HT", "30");
+				dtData_Aud_CampaignDBPOSMDtl.Rows.Add("DBVN003", "KB", "40");
+				dtData_Aud_CampaignDBPOSMDtl.Rows.Add("DBVN003", "TT", "50");
 
 				////
-				dtData_Aud_CampaignDBDtl.Rows.Add("DBVN004", "GB", "10");
-				dtData_Aud_CampaignDBDtl.Rows.Add("DBVN004", "GH", "20");
-				dtData_Aud_CampaignDBDtl.Rows.Add("DBVN004", "HT", "30");
-				dtData_Aud_CampaignDBDtl.Rows.Add("DBVN004", "KB", "40");
-				dtData_Aud_CampaignDBDtl.Rows.Add("DBVN004", "TT", "50");
+				dtData_Aud_CampaignDBPOSMDtl.Rows.Add("DBVN004", "GB", "10");
+				dtData_Aud_CampaignDBPOSMDtl.Rows.Add("DBVN004", "GH", "20");
+				dtData_Aud_CampaignDBPOSMDtl.Rows.Add("DBVN004", "HT", "30");
+				dtData_Aud_CampaignDBPOSMDtl.Rows.Add("DBVN004", "KB", "40");
+				dtData_Aud_CampaignDBPOSMDtl.Rows.Add("DBVN004", "TT", "50");
 
 				////
-				dtData_Aud_CampaignDBDtl.Rows.Add("DBVN005", "GB", "10");
-				dtData_Aud_CampaignDBDtl.Rows.Add("DBVN005", "GH", "20");
-				dtData_Aud_CampaignDBDtl.Rows.Add("DBVN005", "HT", "30");
-				dtData_Aud_CampaignDBDtl.Rows.Add("DBVN005", "KB", "40");
-				dtData_Aud_CampaignDBDtl.Rows.Add("DBVN005", "TT", "50");
+				dtData_Aud_CampaignDBPOSMDtl.Rows.Add("DBVN005", "GB", "10");
+				dtData_Aud_CampaignDBPOSMDtl.Rows.Add("DBVN005", "GH", "20");
+				dtData_Aud_CampaignDBPOSMDtl.Rows.Add("DBVN005", "HT", "30");
+				dtData_Aud_CampaignDBPOSMDtl.Rows.Add("DBVN005", "KB", "40");
+				dtData_Aud_CampaignDBPOSMDtl.Rows.Add("DBVN005", "TT", "50");
 
 				////
 				dsData.Tables.Add(dtData_Aud_CampaignDoc);
-				dsData.Tables.Add(dtData_Aud_CampaignDBDtl);
+				dsData.Tables.Add(dtData_Aud_CampaignDBPOSMDtl);
 				object[] arrobjDSData = CmUtils.ConvertUtils.DataSet2Array(dsData);
 
 				////

@@ -302,6 +302,17 @@ namespace Demo.Lab.Biz
 						DataRow drScan = dtInput_Mst_CampainCriteriaScope.Rows[nScan];
 
 						////
+						DataTable dtDB_Mst_StarShopType = null;
+
+						Mst_StarShopType_CheckDB(
+							ref alParamsCoupleError // alParamsCoupleError
+							, drScan["SSGrpCode"] // objSSGrpCode
+							, drScan["SSBrandCode"] // objSSBrandCode 
+							, TConst.Flag.Yes // strFlagExistToCheck							
+							, TConst.Flag.Yes // strStatusListToCheck
+							, out dtDB_Mst_StarShopType // dtDB_Mst_StarShopType
+							);
+						////
 						DataTable dtDB_Mst_StarShopGroup = null;
 
 						Mst_StarShopGroup_CheckDB(
@@ -320,17 +331,6 @@ namespace Demo.Lab.Biz
 							, TConst.Flag.Yes // strFlagExistToCheck							
 							, TConst.Flag.Yes // strStatusListToCheck
 							, out dtDB_Mst_StarShopBrand // dtDB_Mst_StarShopBrand
-							);
-						////
-						DataTable dtDB_Mst_StarShopType = null;
-
-						Mst_StarShopType_CheckDB(
-							ref alParamsCoupleError // alParamsCoupleError
-							, drScan["SSGrpCode"] // objSSGrpCode
-							, drScan["SSBrandCode"] // objSSBrandCode 
-							, TConst.Flag.Yes // strFlagExistToCheck							
-							, TConst.Flag.Yes // strStatusListToCheck
-							, out dtDB_Mst_StarShopType // dtDB_Mst_StarShopType
 							);
 						//// 
 						string strLevelCode = string.Format("{0}", drScan["LevelCode"]).Trim();
