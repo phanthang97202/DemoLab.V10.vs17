@@ -500,7 +500,9 @@
 
 		// Aud_Campaign_Approve
 		public const string Aud_Campaign_Approve = "ErrDemoLab.Aud_Campaign_Approve"; //// //Aud_Campaign_Approve
-		public const string Aud_Campaign_Approve_CampaignDBDtlNotFound = "ErrDemoLab.Aud_Campaign_Approve_CampaignDBDtlNotFound"; //// //Aud_Campaign_Approve_CampaignDBDtlNotFound
+
+		// Aud_Campaign_Cancel
+		public const string Aud_Campaign_Cancel = "ErrDemoLab.Aud_Campaign_Cancel"; //// //Aud_Campaign_Cancel
 		#endregion
 
 		#region // Mst_CriteriaScoreVersion:
