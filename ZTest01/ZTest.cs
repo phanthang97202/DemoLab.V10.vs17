@@ -644,7 +644,7 @@ namespace ZTest01
 			#endregion
 
 			#region // Aud_Campaign:
-			if (!bTest)
+			if (bTest)
 			{
 				////
 				object objFlagIsDelete = "0"; // 1 => Clear Exist, 0 => Clear + Insert
@@ -720,6 +720,95 @@ namespace ZTest01
 
 
 				mdsResult = CmUtils.ConvertUtils.Array2DataSet(ws.Aud_Campaign_Save(
+					strGwUserCode // strGwUserCode
+					, strGwPassword // strGwPassword
+					, strTid // strTid
+					, strSessionId // strSessionId
+								   ////
+					, objFlagIsDelete
+					////
+					, objCampaignCode
+					, objCampaignCrCode
+					, objCrtrScoreVerCode
+					, objCrtrScoreVerAUCode
+					, objCampaignName
+					, objEffDTimeStart
+					, objEffDTimeEnd
+					, objQtyCheck
+					, objQtySuccess
+					, objMinIntervalDays
+					, objReportEndDate
+					, arrobjDSData
+					));
+				dtTable0 = mdsResult.Tables[0];
+				MessageBox.Show("Success!");
+
+				if (CmUtils.CMyDataSet.HasError(mdsResult))
+				{
+					CommonForms.Utils.ProcessMyDS(mdsResult);
+				}
+			}
+			#endregion
+
+			#region // Aud_CampaignDBReceive:
+			if (!bTest)
+			{
+				////
+				object objFlagIsDelete = "0"; // 1 => Clear Exist, 0 => Clear + Insert
+				object objCampaignCode = "AC20220912.999999";
+
+				DataSet dsData = new DataSet();
+
+				////  
+				DataTable dtData_Aud_CampaignDBReceive = new DataTable("Aud_CampaignDBReceive");
+				dtData_Aud_CampaignDBReceive.Columns.Add("DBCode", typeof(object));
+				dtData_Aud_CampaignDBReceive.Columns.Add("POSMCode", typeof(object));
+				dtData_Aud_CampaignDBReceive.Columns.Add("QtyDBRec", typeof(object));
+
+				////
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN001", "GB", "10");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN001", "GH", "20");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN001", "HT", "30");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN001", "KB", "40");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN001", "TT", "50");
+
+				////
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN002", "GB", "10");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN002", "GH", "20");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN002", "HT", "30");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN002", "KB", "40");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN002", "TT", "50");
+
+				////
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN003", "GB", "10");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN003", "GH", "20");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN003", "HT", "30");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN003", "KB", "40");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN003", "TT", "50");
+
+				////
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN004", "GB", "10");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN004", "GH", "20");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN004", "HT", "30");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN004", "KB", "40");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN004", "TT", "50");
+
+				////
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN005", "GB", "10");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN005", "GH", "20");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN005", "HT", "30");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN005", "KB", "40");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN005", "TT", "50");
+
+				//// 
+				dsData.Tables.Add(dtData_Aud_CampaignDBReceive);
+				object[] arrobjDSData = CmUtils.ConvertUtils.DataSet2Array(dsData);
+
+				////
+				string strTid = string.Format("{0}.{1}", DateTime.Now.ToString("yyyyMMdd.HHmmss"), nSeq++);
+
+
+				mdsResult = CmUtils.ConvertUtils.Array2DataSet(ws.Aud_CampaignDBReceive(
 					strGwUserCode // strGwUserCode
 					, strGwPassword // strGwPassword
 					, strTid // strTid
