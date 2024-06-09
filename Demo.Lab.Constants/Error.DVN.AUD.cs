@@ -503,6 +503,16 @@
 
 		// Aud_Campaign_Cancel
 		public const string Aud_Campaign_Cancel = "ErrDemoLab.Aud_Campaign_Cancel"; //// //Aud_Campaign_Cancel
+
+		// Aud_CampaignDBReceive_CheckDB:
+		public const string Aud_CampaignDBReceive_CampaignDBReceiveNotFound = "ErrDemoLab.Aud_CampaignDBReceive_CampaignDBReceiveNotFound"; //// //Aud_CampaignDBReceive_CampaignDBReceiveNotFound
+		public const string Aud_CampaignDBReceive_CampaignDBReceiveExist = "ErrDemoLab.Aud_CampaignDBReceive_CampaignDBReceiveExist"; //// //Aud_CampaignDBReceive_CampaignDBReceiveExist
+		public const string Aud_CampaignDBReceive_FlagActiveNotMatched = "ErrDemoLab.Aud_CampaignDBReceive_FlagActiveNotMatched"; //// //Aud_CampaignDBReceive_FlagActiveNotMatched
+
+		// Aud_CampaignDBReceive_Save:
+		public const string Aud_CampaignDBReceive_Save = "ErrDemoLab.Aud_CampaignDBReceive_Save"; //// //Aud_CampaignDBReceive_Save
+		public const string Aud_CampaignDBReceive_Save_Input_CampaignDBReceiveTblNotFound = "ErrDemoLab.Aud_CampaignDBReceive_Save_Input_CampaignDBReceiveTblNotFound"; //// //Aud_CampaignDBReceive_Save_Input_CampaignDBReceiveTblNotFound
+		public const string Aud_CampaignDBReceive_Save_InvalidValue = "ErrDemoLab.Aud_CampaignDBReceive_Save_InvalidValue"; //// //Aud_CampaignDBReceive_Save_InvalidValue
 		#endregion
 
 		#region // Mst_CriteriaScoreVersion:
