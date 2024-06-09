@@ -756,6 +756,7 @@ namespace ZTest01
 				////
 				object objFlagIsDelete = "0"; // 1 => Clear Exist, 0 => Clear + Insert
 				object objCampaignCode = "AC20220912.999999";
+				object objDBReceiveNo = "DBReceiveNo.999999";
 
 				DataSet dsData = new DataSet();
 
@@ -766,39 +767,39 @@ namespace ZTest01
 				dtData_Aud_CampaignDBReceive.Columns.Add("QtyDBRec", typeof(object));
 
 				////
-				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN001", "GB", "10");
-				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN001", "GH", "20");
-				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN001", "HT", "30");
-				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN001", "KB", "40");
-				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN001", "TT", "50");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN001", "GB", "4");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN001", "GH", "4");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN001", "HT", "4");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN001", "KB", "4");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN001", "TT", "4");
 
 				////
-				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN002", "GB", "10");
-				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN002", "GH", "20");
-				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN002", "HT", "30");
-				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN002", "KB", "40");
-				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN002", "TT", "50");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN002", "GB", "4");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN002", "GH", "4");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN002", "HT", "4");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN002", "KB", "4");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN002", "TT", "4");
 
 				////
-				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN003", "GB", "10");
-				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN003", "GH", "20");
-				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN003", "HT", "30");
-				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN003", "KB", "40");
-				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN003", "TT", "50");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN003", "GB", "4");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN003", "GH", "4");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN003", "HT", "4");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN003", "KB", "4");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN003", "TT", "4");
 
 				////
-				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN004", "GB", "10");
-				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN004", "GH", "20");
-				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN004", "HT", "30");
-				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN004", "KB", "40");
-				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN004", "TT", "50");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN004", "GB", "4");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN004", "GH", "4");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN004", "HT", "4");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN004", "KB", "4");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN004", "TT", "4");
 
 				////
-				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN005", "GB", "10");
-				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN005", "GH", "20");
-				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN005", "HT", "30");
-				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN005", "KB", "40");
-				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN005", "TT", "50");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN005", "GB", "4");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN005", "GH", "4");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN005", "HT", "4");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN005", "KB", "4");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN005", "TT", "4");
 
 				//// 
 				dsData.Tables.Add(dtData_Aud_CampaignDBReceive);
@@ -808,7 +809,7 @@ namespace ZTest01
 				string strTid = string.Format("{0}.{1}", DateTime.Now.ToString("yyyyMMdd.HHmmss"), nSeq++);
 
 
-				mdsResult = CmUtils.ConvertUtils.Array2DataSet(ws.Aud_CampaignDBReceive(
+				mdsResult = CmUtils.ConvertUtils.Array2DataSet(ws.Aud_CampaignDBReceive_Save(
 					strGwUserCode // strGwUserCode
 					, strGwPassword // strGwPassword
 					, strTid // strTid
@@ -817,16 +818,7 @@ namespace ZTest01
 					, objFlagIsDelete
 					////
 					, objCampaignCode
-					, objCampaignCrCode
-					, objCrtrScoreVerCode
-					, objCrtrScoreVerAUCode
-					, objCampaignName
-					, objEffDTimeStart
-					, objEffDTimeEnd
-					, objQtyCheck
-					, objQtySuccess
-					, objMinIntervalDays
-					, objReportEndDate
+					, objDBReceiveNo
 					, arrobjDSData
 					));
 				dtTable0 = mdsResult.Tables[0];

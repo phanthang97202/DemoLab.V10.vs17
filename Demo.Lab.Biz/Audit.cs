@@ -1377,24 +1377,15 @@ namespace Demo.Lab.Biz
 		}
 		#endregion
 
-		#region // Aud_CampaignDBReceive
-		public DataSet Aud_CampaignDBReceive(
+		#region // Aud_CampaignDBReceive_Save
+		public DataSet Aud_CampaignDBReceive_Save(
 			string strTid
 			, DataRow drSession
 			////
 			, object objFlagIsDelete
 			////
 			, object objCampaignCode
-			, object objCampaignCrCode
-			, object objCrtrScoreVerCode
-			, object objCrtrScoreVerAUCode
-			, object objCampaignName
-			, object objEffDTimeStart
-			, object objEffDTimeEnd
-			, object objQtyCheck
-			, object objQtySuccess
-			, object objMinIntervalDays
-			, object objReportEndDate
+			, object objDBReceiveNo
 			, object[] arrobjDSData
 			)
 		{
