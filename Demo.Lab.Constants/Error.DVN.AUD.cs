@@ -513,7 +513,7 @@
         public const string Aud_CampaignDBReceive_Save = "ErrDemoLab.Aud_CampaignDBReceive_Save"; //// //Aud_CampaignDBReceive_Save
         public const string Aud_CampaignDBReceive_Save_Input_CampaignDBReceiveTblNotFound = "ErrDemoLab.Aud_CampaignDBReceive_Save_Input_CampaignDBReceiveTblNotFound"; //// //Aud_CampaignDBReceive_Save_Input_CampaignDBReceiveTblNotFound
         public const string Aud_CampaignDBReceive_Save_InvalidValue = "ErrDemoLab.Aud_CampaignDBReceive_Save_InvalidValue"; //// //Aud_CampaignDBReceive_Save_InvalidValue
-        public const string Aud_CampaignDBReceive_Save_InvalidQtyDBRecInput = "ErrDemoLab.Aud_CampaignDBReceive_Save_InvalidQtyDBRecInput"; //// //Aud_CampaignDBReceive_Save_InvalidQtyDBRecInput
+        public const string Aud_CampaignDBReceive_Save_InvalidQtyDBRec = "ErrDemoLab.Aud_CampaignDBReceive_Save_InvalidQtyDBRec"; //// //Aud_CampaignDBReceive_Save_InvalidQtyDBRec
         #endregion
 
         #region // Mst_CriteriaScoreVersion:

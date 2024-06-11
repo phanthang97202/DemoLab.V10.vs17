@@ -1753,65 +1753,64 @@ namespace Demo.Lab.Biz
                     string strSqlCheck = CmUtils.StringUtils.Replace(@"
 					        ---- #tbl_Aud_CampaignDBReceive_TotalQtyDBRec:
 					        select 
+                                t.CampaignCode
+                                , t.DBCode
+                                , t.POSMCode
+                                , Sum(t.QtyDBRec) TotalQtyDBRec
+                            into #tbl_Aud_CampaignDBReceive_TotalQtyDBRec
+                            from Aud_CampaignDBReceive t --//[mylock]
+                                inner join #input_Aud_CampaignDBReceive f --//[mylock]
+                                    on t.CampaignCode = f.CampaignCode
+                            where (1=1)
+                            group by
+                                t.CampaignCode
+                                , t.DBCode
+                                , t.POSMCode
+                            ;
+
+                            --select null #tbl_Aud_CampaignDBReceive_TotalQtyDBRec, * from #tbl_Aud_CampaignDBReceive_TotalQtyDBRec t --//[mylock];
+
+					        --- Check:
+					        select
 						        t.CampaignCode
 						        , t.DBCode
 						        , t.POSMCode
-						        , t.QtyDBRec
-					        into #tbl_Aud_CampaignDBReceive_TotalQtyDBRec
-					        from #input_Aud_CampaignDBReceive t --//[mylock]
-						        inner join Aud_CampaignDBPOSMDtl a_cpdbposmdtl --//[mylock]
-							        on t.CampaignCode = a_cpdbposmdtl.CampaignCode
-							        and t.DBCode = a_cpdbposmdtl.DBCode
-							        and t.POSMCode = a_cpdbposmdtl.POSMCode
+						        , t.QtyDBRec 
+						        , f.TotalQtyDBRec
+					        from Aud_CampaignDBReceive t --//[mylock]
+						        inner join #input_Aud_CampaignDBReceive t_iacpdbrc --//[mylock]
+							        on t.CampaignCode = t_iacpdbrc.CampaignCode
+						        left join #tbl_Aud_CampaignDBReceive_TotalQtyDBRec f --//[mylock]
+							        on t.CampaignCode = f.CampaignCode
+								        and t.DBCode = f.DBCode
+								        and t.POSMCode = f.POSMCode
 					        where (1=1)
+						        and (t.QtyDBRec > f.TotalQtyDBRec)
 					        ;
+
 					        ---- Clear for Debug:
-					        select 
-                                t.CampaignCode
-                                , t.DBCode
-                                , t.POSMCode
-                                , MIN(a_cpdbposmdtl.QtyDeliver) as QtyDeliver
-                                , MIN(t.QtyDBRec) as QtyDBRec
-                                , MIN(a_cpdbposmdtl.QtyDeliver - t.QtyDBRec) as RemainQtyDeliver
-                            from #tbl_Aud_CampaignDBReceive_TotalQtyDBRec t
-                            inner join Aud_CampaignDBReceive a_cpdbrc
-                                on t.CampaignCode = a_cpdbrc.CampaignCode
-                                and t.DBCode = a_cpdbrc.DBCode
-                                and t.POSMCode = a_cpdbrc.POSMCode
-                            inner join Aud_CampaignDBPOSMDtl a_cpdbposmdtl
-                                on a_cpdbrc.CampaignCode = a_cpdbposmdtl.CampaignCode
-                                and a_cpdbrc.DBCode = a_cpdbposmdtl.DBCode
-                                and a_cpdbrc.POSMCode = a_cpdbposmdtl.POSMCode
-                            where (1=1)
-                            group by 
-                                t.CampaignCode
-                                , t.DBCode
-                                , t.POSMCode
+					        drop table #tbl_Aud_CampaignDBReceive_TotalQtyDBRec;
 				        "
                         );
 
                     DataTable dtCheck = _cf.db.ExecQuery(strSqlCheck).Tables[0];
                     ////
-                    foreach (DataRow dtRow in dtCheck.Rows)
+                    if (dtCheck.Rows.Count > 0)
                     {
-                        if (Convert.ToDouble(dtRow["RemainQtyDeliver"]) < 0)
-                        {
-                            alParamsCoupleError.AddRange(new object[]{
-                                "Check.CampaignCode", dtRow["CampaignCode"]
-                                , "Check.DBCode", dtRow["DBCode"]
-                                , "Check.POSMCode", dtRow["POSMCode"]
-                                , "Check.PartCode", dtRow["PartCode"]
-                                , "Check.QtyDeliver", dtRow["QtyDeliver"]
-                                , "Check.QtyDBRec", dtRow["QtyDBRec"]
-                                , "Check.RemainQtyDeliver", dtRow["RemainQtyDeliver"]
-                                , "Check.ConditionRaiseError", "(t.QtyDeliver <> a_cpdbposmdtl.TotalQtyDBRec)"
-                                });
-                            throw CmUtils.CMyException.Raise(
-                                TError.ErrDemoLab.Aud_CampaignDBReceive_Save_InvalidQtyDBRecInput
-                                , null
-                                , alParamsCoupleError.ToArray()
-                                );
-                        }
+                        alParamsCoupleError.AddRange(new object[]{
+                            "Check.CampaignCode", dtCheck.Rows[0]["CampaignCode"]
+                            , "Check.DBCode", dtCheck.Rows[0]["DBCode"]
+                            , "Check.POSMCode", dtCheck.Rows[0]["POSMCode"]
+                            , "Check.QtyDBRec", dtCheck.Rows[0]["QtyDBRec"]
+                            , "Check.TotalQtyDBRec", dtCheck.Rows[0]["TotalQtyDBRec"]
+                            , "Check.ConditionRaiseError", "(t.QtyDBRec > f.TotalQtyDBRec)"
+                            , "Check.ErrRows.Count", dtCheck.Rows.Count
+                            });
+                        throw CmUtils.CMyException.Raise(
+                            TError.ErrDemoLab.Aud_CampaignDBReceive_Save_InvalidQtyDBRec
+                            , null
+                            , alParamsCoupleError.ToArray()
+                            );
                     }
                 }
             #endregion
