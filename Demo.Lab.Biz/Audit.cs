@@ -1647,7 +1647,6 @@ namespace Demo.Lab.Biz
                         ////
                         drScan["DBReceiveNo"] = strDBReceiveNo;
                         drScan["CampaignCode"] = strCampaignCode;
-                        drScan["QtyRetrieve"] = 0;
                         drScan["DateDBReceive"] = dtimeSys.ToString("yyyy-MM-dd HH:mm:ss");
                         drScan["CreateDTime"] = strCreateDTime;
                         drScan["CreateBy"] = strCreateBy;
@@ -1757,9 +1756,7 @@ namespace Demo.Lab.Biz
 						        t.CampaignCode
 						        , t.DBCode
 						        , t.POSMCode
-						        , a_cpdbposmdtl.QtyDeliver
 						        , t.QtyDBRec
-						        , a_cpdbposmdtl.QtyDeliver - t.QtyDBRec as RemainQtyDeliver
 					        into #tbl_Aud_CampaignDBReceive_TotalQtyDBRec
 					        from #input_Aud_CampaignDBReceive t --//[mylock]
 						        inner join Aud_CampaignDBPOSMDtl a_cpdbposmdtl --//[mylock]
@@ -1767,12 +1764,30 @@ namespace Demo.Lab.Biz
 							        and t.DBCode = a_cpdbposmdtl.DBCode
 							        and t.POSMCode = a_cpdbposmdtl.POSMCode
 					        where (1=1)
-					        and t.DBReceiveNo = @strDBReceiveNo
 					        ;
 					        ---- Clear for Debug:
-					        drop table #tbl_Aud_CampaignDBReceive_TotalQtyDBRec;
+					        select 
+                                t.CampaignCode
+                                , t.DBCode
+                                , t.POSMCode
+                                , MIN(a_cpdbposmdtl.QtyDeliver) as QtyDeliver
+                                , MIN(t.QtyDBRec) as QtyDBRec
+                                , MIN(a_cpdbposmdtl.QtyDeliver - t.QtyDBRec) as RemainQtyDeliver
+                            from #tbl_Aud_CampaignDBReceive_TotalQtyDBRec t
+                            inner join Aud_CampaignDBReceive a_cpdbrc
+                                on t.CampaignCode = a_cpdbrc.CampaignCode
+                                and t.DBCode = a_cpdbrc.DBCode
+                                and t.POSMCode = a_cpdbrc.POSMCode
+                            inner join Aud_CampaignDBPOSMDtl a_cpdbposmdtl
+                                on a_cpdbrc.CampaignCode = a_cpdbposmdtl.CampaignCode
+                                and a_cpdbrc.DBCode = a_cpdbposmdtl.DBCode
+                                and a_cpdbrc.POSMCode = a_cpdbposmdtl.POSMCode
+                            where (1=1)
+                            group by 
+                                t.CampaignCode
+                                , t.DBCode
+                                , t.POSMCode
 				        "
-                        , "@strDBReceiveNo", strDBReceiveNo
                         );
 
                     DataTable dtCheck = _cf.db.ExecQuery(strSqlCheck).Tables[0];

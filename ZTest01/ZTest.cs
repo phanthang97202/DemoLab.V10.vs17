@@ -756,7 +756,7 @@ namespace ZTest01
 				////
 				object objFlagIsDelete = "0"; // 1 => Clear Exist, 0 => Clear + Insert
 				object objCampaignCode = "AC20220912.999999";
-				object objDBReceiveNo = "DBReceiveNo.999999";
+				object objDBReceiveNo = "DBReceiveNo.999999v2";
 
 				DataSet dsData = new DataSet();
 
@@ -767,39 +767,39 @@ namespace ZTest01
 				dtData_Aud_CampaignDBReceive.Columns.Add("QtyDBRec", typeof(object));
 
 				////
-				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN001", "GB", "4");
-				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN001", "GH", "4");
-				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN001", "HT", "4");
-				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN001", "KB", "4");
-				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN001", "TT", "4");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN001", "GB", "7");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN001", "GH", "7");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN001", "HT", "7");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN001", "KB", "7");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN001", "TT", "7");
 
 				////
-				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN002", "GB", "4");
-				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN002", "GH", "4");
-				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN002", "HT", "4");
-				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN002", "KB", "4");
-				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN002", "TT", "4");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN002", "GB", "7");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN002", "GH", "7");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN002", "HT", "7");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN002", "KB", "7");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN002", "TT", "7");
 
 				////
-				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN003", "GB", "4");
-				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN003", "GH", "4");
-				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN003", "HT", "4");
-				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN003", "KB", "4");
-				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN003", "TT", "4");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN003", "GB", "7");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN003", "GH", "7");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN003", "HT", "7");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN003", "KB", "7");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN003", "TT", "7");
 
 				////
-				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN004", "GB", "4");
-				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN004", "GH", "4");
-				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN004", "HT", "4");
-				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN004", "KB", "4");
-				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN004", "TT", "4");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN004", "GB", "7");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN004", "GH", "7");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN004", "HT", "7");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN004", "KB", "7");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN004", "TT", "7");
 
 				////
-				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN005", "GB", "4");
-				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN005", "GH", "4");
-				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN005", "HT", "4");
-				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN005", "KB", "4");
-				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN005", "TT", "4");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN005", "GB", "7");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN005", "GH", "7");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN005", "HT", "7");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN005", "KB", "7");
+				dtData_Aud_CampaignDBReceive.Rows.Add("DBVN005", "TT", "7");
 
 				//// 
 				dsData.Tables.Add(dtData_Aud_CampaignDBReceive);
