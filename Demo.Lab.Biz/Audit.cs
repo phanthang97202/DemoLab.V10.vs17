@@ -14,75 +14,7 @@ namespace Demo.Lab.Biz
 {
     public partial class BizDemoLab
     {
-        #region // Aud_Campaign_CheckDB
-        private void Aud_Campaign_CheckDB(
-            ref ArrayList alParamsCoupleError
-            , object objCampaignCode
-            , string strFlagExistToCheck
-            , string strFlagActiveListToCheck
-            , out DataTable dtDB_Aud_Campaign
-            )
-        {
-            // GetInfo:
-            string strSqlExec = CmUtils.StringUtils.Replace(@"
-					select top 1
-						t.*
-					from Aud_Campaign t --//[mylock]
-					where (1=1)
-						and t.CampaignCode = @objCampaignCode
-					;
-				");
-            dtDB_Aud_Campaign = _cf.db.ExecQuery(
-                strSqlExec
-                , "@objCampaignCode", objCampaignCode
-                ).Tables[0];
-            dtDB_Aud_Campaign.TableName = "Aud_Campaign";
-
-            // strFlagExistToCheck:
-            if (strFlagExistToCheck.Length > 0)
-            {
-                if (CmUtils.StringUtils.StringEqual(strFlagExistToCheck, TConst.Flag.Active) && dtDB_Aud_Campaign.Rows.Count < 1)
-                {
-                    alParamsCoupleError.AddRange(new object[]{
-                        "Check.CampaignCode", objCampaignCode
-                        });
-                    throw CmUtils.CMyException.Raise(
-                        TError.ErrDemoLab.Aud_Campaign_CheckDB_CampainNotFound
-                        , null
-                        , alParamsCoupleError.ToArray()
-                        );
-                }
-                if (CmUtils.StringUtils.StringEqual(strFlagExistToCheck, TConst.Flag.Inactive) && dtDB_Aud_Campaign.Rows.Count > 0)
-                {
-                    alParamsCoupleError.AddRange(new object[]{
-                        "Check.CampaignCode", objCampaignCode
-                        });
-                    throw CmUtils.CMyException.Raise(
-                        TError.ErrDemoLab.Aud_Campaign_CheckDB_CampainExist
-                        , null
-                        , alParamsCoupleError.ToArray()
-                        );
-                }
-            }
-
-            // strFlagActiveListToCheck:
-            if (strFlagActiveListToCheck.Length > 0 && !strFlagActiveListToCheck.Contains(Convert.ToString(dtDB_Aud_Campaign.Rows[0]["FlagActive"])))
-            {
-                alParamsCoupleError.AddRange(new object[]{
-                    "Check.CampaignCode", objCampaignCode
-                    , "Check.strFlagActiveListToCheck", strFlagActiveListToCheck
-                    , "DB.FlagActive", dtDB_Aud_Campaign.Rows[0]["FlagActive"]
-                    });
-                throw CmUtils.CMyException.Raise(
-                    TError.ErrDemoLab.Aud_Campaign_CheckDB_FlagActiveNotMatched
-                    , null
-                    , alParamsCoupleError.ToArray()
-                    );
-            }
-        }
-        #endregion
-
-        #region // Aud_CampaignDBReceive_CheckDB
+        #region // Aud_CampaignDBReceive:
         private void Aud_CampaignDBReceive_CheckDB(
             ref ArrayList alParamsCoupleError
             , object objDBReceiveNo
@@ -150,7 +82,7 @@ namespace Demo.Lab.Biz
         }
         #endregion
 
-        #region // Mst_CriteriaScoreVersion_CheckDB
+        #region // Mst_CriteriaScoreVersion:
         private void Mst_CriteriaScoreVersion_CheckDB(
             ref ArrayList alParamsCoupleError
             , object objCrtrScoreVerCode
@@ -218,7 +150,7 @@ namespace Demo.Lab.Biz
         }
         #endregion
 
-        #region // Mst_CriteriaScoreVersionAuditUser_CheckDB
+        #region // Mst_CriteriaScoreVersionAuditUser:
         private void Mst_CriteriaScoreVersionAuditUser_CheckDB(
             ref ArrayList alParamsCoupleError
             , object objCrtrScoreVerAUCode
@@ -286,7 +218,72 @@ namespace Demo.Lab.Biz
         }
         #endregion
 
-        #region // Aud_Campaign_Save
+        #region // Aud_Campaign:
+        private void Aud_Campaign_CheckDB(
+            ref ArrayList alParamsCoupleError
+            , object objCampaignCode
+            , string strFlagExistToCheck
+            , string strFlagActiveListToCheck
+            , out DataTable dtDB_Aud_Campaign
+            )
+        {
+            // GetInfo:
+            string strSqlExec = CmUtils.StringUtils.Replace(@"
+					select top 1
+						t.*
+					from Aud_Campaign t --//[mylock]
+					where (1=1)
+						and t.CampaignCode = @objCampaignCode
+					;
+				");
+            dtDB_Aud_Campaign = _cf.db.ExecQuery(
+                strSqlExec
+                , "@objCampaignCode", objCampaignCode
+                ).Tables[0];
+            dtDB_Aud_Campaign.TableName = "Aud_Campaign";
+
+            // strFlagExistToCheck:
+            if (strFlagExistToCheck.Length > 0)
+            {
+                if (CmUtils.StringUtils.StringEqual(strFlagExistToCheck, TConst.Flag.Active) && dtDB_Aud_Campaign.Rows.Count < 1)
+                {
+                    alParamsCoupleError.AddRange(new object[]{
+                        "Check.CampaignCode", objCampaignCode
+                        });
+                    throw CmUtils.CMyException.Raise(
+                        TError.ErrDemoLab.Aud_Campaign_CheckDB_CampainNotFound
+                        , null
+                        , alParamsCoupleError.ToArray()
+                        );
+                }
+                if (CmUtils.StringUtils.StringEqual(strFlagExistToCheck, TConst.Flag.Inactive) && dtDB_Aud_Campaign.Rows.Count > 0)
+                {
+                    alParamsCoupleError.AddRange(new object[]{
+                        "Check.CampaignCode", objCampaignCode
+                        });
+                    throw CmUtils.CMyException.Raise(
+                        TError.ErrDemoLab.Aud_Campaign_CheckDB_CampainExist
+                        , null
+                        , alParamsCoupleError.ToArray()
+                        );
+                }
+            }
+
+            // strFlagActiveListToCheck:
+            if (strFlagActiveListToCheck.Length > 0 && !strFlagActiveListToCheck.Contains(Convert.ToString(dtDB_Aud_Campaign.Rows[0]["FlagActive"])))
+            {
+                alParamsCoupleError.AddRange(new object[]{
+                    "Check.CampaignCode", objCampaignCode
+                    , "Check.strFlagActiveListToCheck", strFlagActiveListToCheck
+                    , "DB.FlagActive", dtDB_Aud_Campaign.Rows[0]["FlagActive"]
+                    });
+                throw CmUtils.CMyException.Raise(
+                    TError.ErrDemoLab.Aud_Campaign_CheckDB_FlagActiveNotMatched
+                    , null
+                    , alParamsCoupleError.ToArray()
+                    );
+            }
+        }
         public DataSet Aud_Campaign_Save(
             string strTid
             , DataRow drSession
@@ -1101,9 +1098,6 @@ namespace Demo.Lab.Biz
                 #endregion
             }
         }
-        #endregion
-
-        #region // Aud_Campaign_Approve
         public DataSet Aud_Campaign_Approve(
             string strTid
             , DataRow drSession
@@ -1272,9 +1266,6 @@ namespace Demo.Lab.Biz
                 #endregion
             }
         }
-        #endregion
-
-        #region // Aud_Campaign_Cancel
         public DataSet Aud_Campaign_Cancel(
             string strTid
             , DataRow drSession
@@ -1445,7 +1436,7 @@ namespace Demo.Lab.Biz
         }
         #endregion
 
-        #region // Aud_CampaignDBReceive_Save
+        #region // Aud_CampaignDBReceive:
         public DataSet Aud_CampaignDBReceive_Save(
             string strTid
             , DataRow drSession
@@ -1772,21 +1763,21 @@ namespace Demo.Lab.Biz
 
 					        --- Check:
 					        select
-						        t.CampaignCode
-						        , t.DBCode
-						        , t.POSMCode
-						        , t.QtyDBRec 
-						        , f.TotalQtyDBRec
-					        from Aud_CampaignDBReceive t --//[mylock]
-						        inner join #input_Aud_CampaignDBReceive t_iacpdbrc --//[mylock]
-							        on t.CampaignCode = t_iacpdbrc.CampaignCode
-						        left join #tbl_Aud_CampaignDBReceive_TotalQtyDBRec f --//[mylock]
-							        on t.CampaignCode = f.CampaignCode
-								        and t.DBCode = f.DBCode
-								        and t.POSMCode = f.POSMCode
-					        where (1=1)
-						        and (t.QtyDBRec > f.TotalQtyDBRec)
-					        ;
+                                t.CampaignCode
+                                , t.DBCode
+                                , t.POSMCode
+                                , t.QtyDeliver 
+                                , f.TotalQtyDBRec
+                            from Aud_CampaignDBPOSMDtl t --//[mylock]
+                                inner join #input_Aud_CampaignDBReceive t_iacpdbrc --//[mylock]
+                                    on t.CampaignCode = t_iacpdbrc.CampaignCode
+                                left join #tbl_Aud_CampaignDBReceive_TotalQtyDBRec f --//[mylock]
+                                    on t.CampaignCode = f.CampaignCode
+				                                    and t.DBCode = f.DBCode
+				                                    and t.POSMCode = f.POSMCode
+                            where (1=1)
+                                and (t.QtyDeliver <> f.TotalQtyDBRec)
+                            ;
 
 					        ---- Clear for Debug:
 					        drop table #tbl_Aud_CampaignDBReceive_TotalQtyDBRec;
