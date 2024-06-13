@@ -1747,9 +1747,12 @@ namespace Demo.Lab.Biz
                                 t.CampaignCode
                                 , t.DBCode
                                 , t.POSMCode
+                                , t.QtyDBRec
                                 , Sum(t.QtyDBRec) TotalQtyDBRec
                             into #tbl_Aud_CampaignDBReceive_TotalQtyDBRec
                             from Aud_CampaignDBReceive t --//[mylock]
+                                inner join #input_Aud_CampaignDBReceive f
+                                    on t.CampaignCode = f.CampaignCode
                             where (1=1)
                             group by
                                 t.CampaignCode
@@ -1765,6 +1768,7 @@ namespace Demo.Lab.Biz
                                 , t.DBCode
                                 , t.POSMCode
                                 , t.QtyDeliver 
+                                , f.QtyDBRec
                                 , f.TotalQtyDBRec
                             from Aud_CampaignDBPOSMDtl t --//[mylock]
                                 left join #tbl_Aud_CampaignDBReceive_TotalQtyDBRec f --//[mylock]
