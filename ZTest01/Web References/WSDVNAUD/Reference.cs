@@ -30,6 +30,40 @@ namespace ZTest01.WSDVNAUD {
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(object[]))]
     public partial class WS : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
+        private System.Threading.SendOrPostCallback Sys_User_ChangePasswordOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback Sys_User_GetForCurrentUserOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback Sys_User_LoginOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback Sys_User_LogoutOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback Sys_User_GetOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback Sys_User_Get_01OperationCompleted;
+        
+        private System.Threading.SendOrPostCallback Sys_User_CreateOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback Sys_User_UpdOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback Sys_User_DeleteOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback Sys_Group_GetOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback Sys_Group_CreateOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback Sys_Group_UpdateOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback Sys_Group_DeleteOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback Sys_UserInGroup_SaveOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback Sys_Access_GetOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback Sys_Access_SaveOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback Sys_Object_GetOperationCompleted;
+        
         private System.Threading.SendOrPostCallback Cm_ReinitOperationCompleted;
         
         private System.Threading.SendOrPostCallback Cm_TestOperationCompleted;
@@ -152,40 +186,6 @@ namespace ZTest01.WSDVNAUD {
         
         private System.Threading.SendOrPostCallback Lic_Session_DelOperationCompleted;
         
-        private System.Threading.SendOrPostCallback Sys_User_ChangePasswordOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback Sys_User_GetForCurrentUserOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback Sys_User_LoginOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback Sys_User_LogoutOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback Sys_User_GetOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback Sys_User_Get_01OperationCompleted;
-        
-        private System.Threading.SendOrPostCallback Sys_User_CreateOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback Sys_User_UpdOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback Sys_User_DeleteOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback Sys_Group_GetOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback Sys_Group_CreateOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback Sys_Group_UpdateOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback Sys_Group_DeleteOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback Sys_UserInGroup_SaveOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback Sys_Access_GetOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback Sys_Access_SaveOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback Sys_Object_GetOperationCompleted;
-        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -223,6 +223,57 @@ namespace ZTest01.WSDVNAUD {
                 this.useDefaultCredentialsSetExplicitly = true;
             }
         }
+        
+        /// <remarks/>
+        public event Sys_User_ChangePasswordCompletedEventHandler Sys_User_ChangePasswordCompleted;
+        
+        /// <remarks/>
+        public event Sys_User_GetForCurrentUserCompletedEventHandler Sys_User_GetForCurrentUserCompleted;
+        
+        /// <remarks/>
+        public event Sys_User_LoginCompletedEventHandler Sys_User_LoginCompleted;
+        
+        /// <remarks/>
+        public event Sys_User_LogoutCompletedEventHandler Sys_User_LogoutCompleted;
+        
+        /// <remarks/>
+        public event Sys_User_GetCompletedEventHandler Sys_User_GetCompleted;
+        
+        /// <remarks/>
+        public event Sys_User_Get_01CompletedEventHandler Sys_User_Get_01Completed;
+        
+        /// <remarks/>
+        public event Sys_User_CreateCompletedEventHandler Sys_User_CreateCompleted;
+        
+        /// <remarks/>
+        public event Sys_User_UpdCompletedEventHandler Sys_User_UpdCompleted;
+        
+        /// <remarks/>
+        public event Sys_User_DeleteCompletedEventHandler Sys_User_DeleteCompleted;
+        
+        /// <remarks/>
+        public event Sys_Group_GetCompletedEventHandler Sys_Group_GetCompleted;
+        
+        /// <remarks/>
+        public event Sys_Group_CreateCompletedEventHandler Sys_Group_CreateCompleted;
+        
+        /// <remarks/>
+        public event Sys_Group_UpdateCompletedEventHandler Sys_Group_UpdateCompleted;
+        
+        /// <remarks/>
+        public event Sys_Group_DeleteCompletedEventHandler Sys_Group_DeleteCompleted;
+        
+        /// <remarks/>
+        public event Sys_UserInGroup_SaveCompletedEventHandler Sys_UserInGroup_SaveCompleted;
+        
+        /// <remarks/>
+        public event Sys_Access_GetCompletedEventHandler Sys_Access_GetCompleted;
+        
+        /// <remarks/>
+        public event Sys_Access_SaveCompletedEventHandler Sys_Access_SaveCompleted;
+        
+        /// <remarks/>
+        public event Sys_Object_GetCompletedEventHandler Sys_Object_GetCompleted;
         
         /// <remarks/>
         public event Cm_ReinitCompletedEventHandler Cm_ReinitCompleted;
@@ -408,55 +459,717 @@ namespace ZTest01.WSDVNAUD {
         public event Lic_Session_DelCompletedEventHandler Lic_Session_DelCompleted;
         
         /// <remarks/>
-        public event Sys_User_ChangePasswordCompletedEventHandler Sys_User_ChangePasswordCompleted;
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Sys_User_ChangePassword", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public object[] Sys_User_ChangePassword(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, string strUserPasswordOld, string strUserPasswordNew) {
+            object[] results = this.Invoke("Sys_User_ChangePassword", new object[] {
+                        strGwUserCode,
+                        strGwPassword,
+                        strTid,
+                        strSessionId,
+                        strUserPasswordOld,
+                        strUserPasswordNew});
+            return ((object[])(results[0]));
+        }
         
         /// <remarks/>
-        public event Sys_User_GetForCurrentUserCompletedEventHandler Sys_User_GetForCurrentUserCompleted;
+        public void Sys_User_ChangePasswordAsync(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, string strUserPasswordOld, string strUserPasswordNew) {
+            this.Sys_User_ChangePasswordAsync(strGwUserCode, strGwPassword, strTid, strSessionId, strUserPasswordOld, strUserPasswordNew, null);
+        }
         
         /// <remarks/>
-        public event Sys_User_LoginCompletedEventHandler Sys_User_LoginCompleted;
+        public void Sys_User_ChangePasswordAsync(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, string strUserPasswordOld, string strUserPasswordNew, object userState) {
+            if ((this.Sys_User_ChangePasswordOperationCompleted == null)) {
+                this.Sys_User_ChangePasswordOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSys_User_ChangePasswordOperationCompleted);
+            }
+            this.InvokeAsync("Sys_User_ChangePassword", new object[] {
+                        strGwUserCode,
+                        strGwPassword,
+                        strTid,
+                        strSessionId,
+                        strUserPasswordOld,
+                        strUserPasswordNew}, this.Sys_User_ChangePasswordOperationCompleted, userState);
+        }
+        
+        private void OnSys_User_ChangePasswordOperationCompleted(object arg) {
+            if ((this.Sys_User_ChangePasswordCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.Sys_User_ChangePasswordCompleted(this, new Sys_User_ChangePasswordCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
         
         /// <remarks/>
-        public event Sys_User_LogoutCompletedEventHandler Sys_User_LogoutCompleted;
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Sys_User_GetForCurrentUser", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public object[] Sys_User_GetForCurrentUser(string strGwUserCode, string strGwPassword, string strTid, string strSessionId) {
+            object[] results = this.Invoke("Sys_User_GetForCurrentUser", new object[] {
+                        strGwUserCode,
+                        strGwPassword,
+                        strTid,
+                        strSessionId});
+            return ((object[])(results[0]));
+        }
         
         /// <remarks/>
-        public event Sys_User_GetCompletedEventHandler Sys_User_GetCompleted;
+        public void Sys_User_GetForCurrentUserAsync(string strGwUserCode, string strGwPassword, string strTid, string strSessionId) {
+            this.Sys_User_GetForCurrentUserAsync(strGwUserCode, strGwPassword, strTid, strSessionId, null);
+        }
         
         /// <remarks/>
-        public event Sys_User_Get_01CompletedEventHandler Sys_User_Get_01Completed;
+        public void Sys_User_GetForCurrentUserAsync(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, object userState) {
+            if ((this.Sys_User_GetForCurrentUserOperationCompleted == null)) {
+                this.Sys_User_GetForCurrentUserOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSys_User_GetForCurrentUserOperationCompleted);
+            }
+            this.InvokeAsync("Sys_User_GetForCurrentUser", new object[] {
+                        strGwUserCode,
+                        strGwPassword,
+                        strTid,
+                        strSessionId}, this.Sys_User_GetForCurrentUserOperationCompleted, userState);
+        }
+        
+        private void OnSys_User_GetForCurrentUserOperationCompleted(object arg) {
+            if ((this.Sys_User_GetForCurrentUserCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.Sys_User_GetForCurrentUserCompleted(this, new Sys_User_GetForCurrentUserCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
         
         /// <remarks/>
-        public event Sys_User_CreateCompletedEventHandler Sys_User_CreateCompleted;
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Sys_User_Login", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public object[] Sys_User_Login(string strGwUserCode, string strGwPassword, string strTid, string strRootSvCode, string strRootUserCode, string strServiceCode, string strUserCode, string strLanguageCode, string strUserPassword, string strOtherInfo) {
+            object[] results = this.Invoke("Sys_User_Login", new object[] {
+                        strGwUserCode,
+                        strGwPassword,
+                        strTid,
+                        strRootSvCode,
+                        strRootUserCode,
+                        strServiceCode,
+                        strUserCode,
+                        strLanguageCode,
+                        strUserPassword,
+                        strOtherInfo});
+            return ((object[])(results[0]));
+        }
         
         /// <remarks/>
-        public event Sys_User_UpdCompletedEventHandler Sys_User_UpdCompleted;
+        public void Sys_User_LoginAsync(string strGwUserCode, string strGwPassword, string strTid, string strRootSvCode, string strRootUserCode, string strServiceCode, string strUserCode, string strLanguageCode, string strUserPassword, string strOtherInfo) {
+            this.Sys_User_LoginAsync(strGwUserCode, strGwPassword, strTid, strRootSvCode, strRootUserCode, strServiceCode, strUserCode, strLanguageCode, strUserPassword, strOtherInfo, null);
+        }
         
         /// <remarks/>
-        public event Sys_User_DeleteCompletedEventHandler Sys_User_DeleteCompleted;
+        public void Sys_User_LoginAsync(string strGwUserCode, string strGwPassword, string strTid, string strRootSvCode, string strRootUserCode, string strServiceCode, string strUserCode, string strLanguageCode, string strUserPassword, string strOtherInfo, object userState) {
+            if ((this.Sys_User_LoginOperationCompleted == null)) {
+                this.Sys_User_LoginOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSys_User_LoginOperationCompleted);
+            }
+            this.InvokeAsync("Sys_User_Login", new object[] {
+                        strGwUserCode,
+                        strGwPassword,
+                        strTid,
+                        strRootSvCode,
+                        strRootUserCode,
+                        strServiceCode,
+                        strUserCode,
+                        strLanguageCode,
+                        strUserPassword,
+                        strOtherInfo}, this.Sys_User_LoginOperationCompleted, userState);
+        }
+        
+        private void OnSys_User_LoginOperationCompleted(object arg) {
+            if ((this.Sys_User_LoginCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.Sys_User_LoginCompleted(this, new Sys_User_LoginCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
         
         /// <remarks/>
-        public event Sys_Group_GetCompletedEventHandler Sys_Group_GetCompleted;
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Sys_User_Logout", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public object[] Sys_User_Logout(string strGwUserCode, string strGwPassword, string strTid, string strSessionId) {
+            object[] results = this.Invoke("Sys_User_Logout", new object[] {
+                        strGwUserCode,
+                        strGwPassword,
+                        strTid,
+                        strSessionId});
+            return ((object[])(results[0]));
+        }
         
         /// <remarks/>
-        public event Sys_Group_CreateCompletedEventHandler Sys_Group_CreateCompleted;
+        public void Sys_User_LogoutAsync(string strGwUserCode, string strGwPassword, string strTid, string strSessionId) {
+            this.Sys_User_LogoutAsync(strGwUserCode, strGwPassword, strTid, strSessionId, null);
+        }
         
         /// <remarks/>
-        public event Sys_Group_UpdateCompletedEventHandler Sys_Group_UpdateCompleted;
+        public void Sys_User_LogoutAsync(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, object userState) {
+            if ((this.Sys_User_LogoutOperationCompleted == null)) {
+                this.Sys_User_LogoutOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSys_User_LogoutOperationCompleted);
+            }
+            this.InvokeAsync("Sys_User_Logout", new object[] {
+                        strGwUserCode,
+                        strGwPassword,
+                        strTid,
+                        strSessionId}, this.Sys_User_LogoutOperationCompleted, userState);
+        }
+        
+        private void OnSys_User_LogoutOperationCompleted(object arg) {
+            if ((this.Sys_User_LogoutCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.Sys_User_LogoutCompleted(this, new Sys_User_LogoutCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
         
         /// <remarks/>
-        public event Sys_Group_DeleteCompletedEventHandler Sys_Group_DeleteCompleted;
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Sys_User_Get", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public object[] Sys_User_Get(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, string strFt_RecordStart, string strFt_RecordCount, string strFt_WhereClause, string strRt_Cols_Sys_User, string strRt_Cols_Sys_UserInGroup) {
+            object[] results = this.Invoke("Sys_User_Get", new object[] {
+                        strGwUserCode,
+                        strGwPassword,
+                        strTid,
+                        strSessionId,
+                        strFt_RecordStart,
+                        strFt_RecordCount,
+                        strFt_WhereClause,
+                        strRt_Cols_Sys_User,
+                        strRt_Cols_Sys_UserInGroup});
+            return ((object[])(results[0]));
+        }
         
         /// <remarks/>
-        public event Sys_UserInGroup_SaveCompletedEventHandler Sys_UserInGroup_SaveCompleted;
+        public void Sys_User_GetAsync(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, string strFt_RecordStart, string strFt_RecordCount, string strFt_WhereClause, string strRt_Cols_Sys_User, string strRt_Cols_Sys_UserInGroup) {
+            this.Sys_User_GetAsync(strGwUserCode, strGwPassword, strTid, strSessionId, strFt_RecordStart, strFt_RecordCount, strFt_WhereClause, strRt_Cols_Sys_User, strRt_Cols_Sys_UserInGroup, null);
+        }
         
         /// <remarks/>
-        public event Sys_Access_GetCompletedEventHandler Sys_Access_GetCompleted;
+        public void Sys_User_GetAsync(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, string strFt_RecordStart, string strFt_RecordCount, string strFt_WhereClause, string strRt_Cols_Sys_User, string strRt_Cols_Sys_UserInGroup, object userState) {
+            if ((this.Sys_User_GetOperationCompleted == null)) {
+                this.Sys_User_GetOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSys_User_GetOperationCompleted);
+            }
+            this.InvokeAsync("Sys_User_Get", new object[] {
+                        strGwUserCode,
+                        strGwPassword,
+                        strTid,
+                        strSessionId,
+                        strFt_RecordStart,
+                        strFt_RecordCount,
+                        strFt_WhereClause,
+                        strRt_Cols_Sys_User,
+                        strRt_Cols_Sys_UserInGroup}, this.Sys_User_GetOperationCompleted, userState);
+        }
+        
+        private void OnSys_User_GetOperationCompleted(object arg) {
+            if ((this.Sys_User_GetCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.Sys_User_GetCompleted(this, new Sys_User_GetCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
         
         /// <remarks/>
-        public event Sys_Access_SaveCompletedEventHandler Sys_Access_SaveCompleted;
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Sys_User_Get_01", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public object[] Sys_User_Get_01(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, string strFt_RecordStart, string strFt_RecordCount, string strFt_WhereClause, string strRt_Cols_Sys_User, string strRt_Cols_Sys_UserInGroup) {
+            object[] results = this.Invoke("Sys_User_Get_01", new object[] {
+                        strGwUserCode,
+                        strGwPassword,
+                        strTid,
+                        strSessionId,
+                        strFt_RecordStart,
+                        strFt_RecordCount,
+                        strFt_WhereClause,
+                        strRt_Cols_Sys_User,
+                        strRt_Cols_Sys_UserInGroup});
+            return ((object[])(results[0]));
+        }
         
         /// <remarks/>
-        public event Sys_Object_GetCompletedEventHandler Sys_Object_GetCompleted;
+        public void Sys_User_Get_01Async(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, string strFt_RecordStart, string strFt_RecordCount, string strFt_WhereClause, string strRt_Cols_Sys_User, string strRt_Cols_Sys_UserInGroup) {
+            this.Sys_User_Get_01Async(strGwUserCode, strGwPassword, strTid, strSessionId, strFt_RecordStart, strFt_RecordCount, strFt_WhereClause, strRt_Cols_Sys_User, strRt_Cols_Sys_UserInGroup, null);
+        }
+        
+        /// <remarks/>
+        public void Sys_User_Get_01Async(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, string strFt_RecordStart, string strFt_RecordCount, string strFt_WhereClause, string strRt_Cols_Sys_User, string strRt_Cols_Sys_UserInGroup, object userState) {
+            if ((this.Sys_User_Get_01OperationCompleted == null)) {
+                this.Sys_User_Get_01OperationCompleted = new System.Threading.SendOrPostCallback(this.OnSys_User_Get_01OperationCompleted);
+            }
+            this.InvokeAsync("Sys_User_Get_01", new object[] {
+                        strGwUserCode,
+                        strGwPassword,
+                        strTid,
+                        strSessionId,
+                        strFt_RecordStart,
+                        strFt_RecordCount,
+                        strFt_WhereClause,
+                        strRt_Cols_Sys_User,
+                        strRt_Cols_Sys_UserInGroup}, this.Sys_User_Get_01OperationCompleted, userState);
+        }
+        
+        private void OnSys_User_Get_01OperationCompleted(object arg) {
+            if ((this.Sys_User_Get_01Completed != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.Sys_User_Get_01Completed(this, new Sys_User_Get_01CompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Sys_User_Create", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public object[] Sys_User_Create(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, object objUserCode, object objDBCode, object objAreaCode, object objUserName, object objUserPassword, object objFlagSysAdmin, object objFlagDBAdmin) {
+            object[] results = this.Invoke("Sys_User_Create", new object[] {
+                        strGwUserCode,
+                        strGwPassword,
+                        strTid,
+                        strSessionId,
+                        objUserCode,
+                        objDBCode,
+                        objAreaCode,
+                        objUserName,
+                        objUserPassword,
+                        objFlagSysAdmin,
+                        objFlagDBAdmin});
+            return ((object[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void Sys_User_CreateAsync(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, object objUserCode, object objDBCode, object objAreaCode, object objUserName, object objUserPassword, object objFlagSysAdmin, object objFlagDBAdmin) {
+            this.Sys_User_CreateAsync(strGwUserCode, strGwPassword, strTid, strSessionId, objUserCode, objDBCode, objAreaCode, objUserName, objUserPassword, objFlagSysAdmin, objFlagDBAdmin, null);
+        }
+        
+        /// <remarks/>
+        public void Sys_User_CreateAsync(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, object objUserCode, object objDBCode, object objAreaCode, object objUserName, object objUserPassword, object objFlagSysAdmin, object objFlagDBAdmin, object userState) {
+            if ((this.Sys_User_CreateOperationCompleted == null)) {
+                this.Sys_User_CreateOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSys_User_CreateOperationCompleted);
+            }
+            this.InvokeAsync("Sys_User_Create", new object[] {
+                        strGwUserCode,
+                        strGwPassword,
+                        strTid,
+                        strSessionId,
+                        objUserCode,
+                        objDBCode,
+                        objAreaCode,
+                        objUserName,
+                        objUserPassword,
+                        objFlagSysAdmin,
+                        objFlagDBAdmin}, this.Sys_User_CreateOperationCompleted, userState);
+        }
+        
+        private void OnSys_User_CreateOperationCompleted(object arg) {
+            if ((this.Sys_User_CreateCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.Sys_User_CreateCompleted(this, new Sys_User_CreateCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Sys_User_Upd", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public object[] Sys_User_Upd(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, object objUserCode, object objDBCode, object objAreaCode, object objUserName, object objUserPassword, object objFlagSysAdmin, object objFlagDBAdmin, object objFlagActive, object objFt_Cols_Upd) {
+            object[] results = this.Invoke("Sys_User_Upd", new object[] {
+                        strGwUserCode,
+                        strGwPassword,
+                        strTid,
+                        strSessionId,
+                        objUserCode,
+                        objDBCode,
+                        objAreaCode,
+                        objUserName,
+                        objUserPassword,
+                        objFlagSysAdmin,
+                        objFlagDBAdmin,
+                        objFlagActive,
+                        objFt_Cols_Upd});
+            return ((object[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void Sys_User_UpdAsync(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, object objUserCode, object objDBCode, object objAreaCode, object objUserName, object objUserPassword, object objFlagSysAdmin, object objFlagDBAdmin, object objFlagActive, object objFt_Cols_Upd) {
+            this.Sys_User_UpdAsync(strGwUserCode, strGwPassword, strTid, strSessionId, objUserCode, objDBCode, objAreaCode, objUserName, objUserPassword, objFlagSysAdmin, objFlagDBAdmin, objFlagActive, objFt_Cols_Upd, null);
+        }
+        
+        /// <remarks/>
+        public void Sys_User_UpdAsync(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, object objUserCode, object objDBCode, object objAreaCode, object objUserName, object objUserPassword, object objFlagSysAdmin, object objFlagDBAdmin, object objFlagActive, object objFt_Cols_Upd, object userState) {
+            if ((this.Sys_User_UpdOperationCompleted == null)) {
+                this.Sys_User_UpdOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSys_User_UpdOperationCompleted);
+            }
+            this.InvokeAsync("Sys_User_Upd", new object[] {
+                        strGwUserCode,
+                        strGwPassword,
+                        strTid,
+                        strSessionId,
+                        objUserCode,
+                        objDBCode,
+                        objAreaCode,
+                        objUserName,
+                        objUserPassword,
+                        objFlagSysAdmin,
+                        objFlagDBAdmin,
+                        objFlagActive,
+                        objFt_Cols_Upd}, this.Sys_User_UpdOperationCompleted, userState);
+        }
+        
+        private void OnSys_User_UpdOperationCompleted(object arg) {
+            if ((this.Sys_User_UpdCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.Sys_User_UpdCompleted(this, new Sys_User_UpdCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Sys_User_Delete", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public object[] Sys_User_Delete(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, object objUserCode) {
+            object[] results = this.Invoke("Sys_User_Delete", new object[] {
+                        strGwUserCode,
+                        strGwPassword,
+                        strTid,
+                        strSessionId,
+                        objUserCode});
+            return ((object[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void Sys_User_DeleteAsync(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, object objUserCode) {
+            this.Sys_User_DeleteAsync(strGwUserCode, strGwPassword, strTid, strSessionId, objUserCode, null);
+        }
+        
+        /// <remarks/>
+        public void Sys_User_DeleteAsync(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, object objUserCode, object userState) {
+            if ((this.Sys_User_DeleteOperationCompleted == null)) {
+                this.Sys_User_DeleteOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSys_User_DeleteOperationCompleted);
+            }
+            this.InvokeAsync("Sys_User_Delete", new object[] {
+                        strGwUserCode,
+                        strGwPassword,
+                        strTid,
+                        strSessionId,
+                        objUserCode}, this.Sys_User_DeleteOperationCompleted, userState);
+        }
+        
+        private void OnSys_User_DeleteOperationCompleted(object arg) {
+            if ((this.Sys_User_DeleteCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.Sys_User_DeleteCompleted(this, new Sys_User_DeleteCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Sys_Group_Get", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public object[] Sys_Group_Get(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, string strFt_RecordStart, string strFt_RecordCount, string strFt_WhereClause, string strRt_Cols_Sys_Group, string strRt_Cols_Sys_UserInGroup) {
+            object[] results = this.Invoke("Sys_Group_Get", new object[] {
+                        strGwUserCode,
+                        strGwPassword,
+                        strTid,
+                        strSessionId,
+                        strFt_RecordStart,
+                        strFt_RecordCount,
+                        strFt_WhereClause,
+                        strRt_Cols_Sys_Group,
+                        strRt_Cols_Sys_UserInGroup});
+            return ((object[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void Sys_Group_GetAsync(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, string strFt_RecordStart, string strFt_RecordCount, string strFt_WhereClause, string strRt_Cols_Sys_Group, string strRt_Cols_Sys_UserInGroup) {
+            this.Sys_Group_GetAsync(strGwUserCode, strGwPassword, strTid, strSessionId, strFt_RecordStart, strFt_RecordCount, strFt_WhereClause, strRt_Cols_Sys_Group, strRt_Cols_Sys_UserInGroup, null);
+        }
+        
+        /// <remarks/>
+        public void Sys_Group_GetAsync(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, string strFt_RecordStart, string strFt_RecordCount, string strFt_WhereClause, string strRt_Cols_Sys_Group, string strRt_Cols_Sys_UserInGroup, object userState) {
+            if ((this.Sys_Group_GetOperationCompleted == null)) {
+                this.Sys_Group_GetOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSys_Group_GetOperationCompleted);
+            }
+            this.InvokeAsync("Sys_Group_Get", new object[] {
+                        strGwUserCode,
+                        strGwPassword,
+                        strTid,
+                        strSessionId,
+                        strFt_RecordStart,
+                        strFt_RecordCount,
+                        strFt_WhereClause,
+                        strRt_Cols_Sys_Group,
+                        strRt_Cols_Sys_UserInGroup}, this.Sys_Group_GetOperationCompleted, userState);
+        }
+        
+        private void OnSys_Group_GetOperationCompleted(object arg) {
+            if ((this.Sys_Group_GetCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.Sys_Group_GetCompleted(this, new Sys_Group_GetCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Sys_Group_Create", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public object[] Sys_Group_Create(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, object objGroupCode, object objGroupName) {
+            object[] results = this.Invoke("Sys_Group_Create", new object[] {
+                        strGwUserCode,
+                        strGwPassword,
+                        strTid,
+                        strSessionId,
+                        objGroupCode,
+                        objGroupName});
+            return ((object[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void Sys_Group_CreateAsync(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, object objGroupCode, object objGroupName) {
+            this.Sys_Group_CreateAsync(strGwUserCode, strGwPassword, strTid, strSessionId, objGroupCode, objGroupName, null);
+        }
+        
+        /// <remarks/>
+        public void Sys_Group_CreateAsync(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, object objGroupCode, object objGroupName, object userState) {
+            if ((this.Sys_Group_CreateOperationCompleted == null)) {
+                this.Sys_Group_CreateOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSys_Group_CreateOperationCompleted);
+            }
+            this.InvokeAsync("Sys_Group_Create", new object[] {
+                        strGwUserCode,
+                        strGwPassword,
+                        strTid,
+                        strSessionId,
+                        objGroupCode,
+                        objGroupName}, this.Sys_Group_CreateOperationCompleted, userState);
+        }
+        
+        private void OnSys_Group_CreateOperationCompleted(object arg) {
+            if ((this.Sys_Group_CreateCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.Sys_Group_CreateCompleted(this, new Sys_Group_CreateCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Sys_Group_Update", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public object[] Sys_Group_Update(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, object objGroupCode, object objGroupName, object objFlagActive, object objFt_Cols_Upd) {
+            object[] results = this.Invoke("Sys_Group_Update", new object[] {
+                        strGwUserCode,
+                        strGwPassword,
+                        strTid,
+                        strSessionId,
+                        objGroupCode,
+                        objGroupName,
+                        objFlagActive,
+                        objFt_Cols_Upd});
+            return ((object[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void Sys_Group_UpdateAsync(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, object objGroupCode, object objGroupName, object objFlagActive, object objFt_Cols_Upd) {
+            this.Sys_Group_UpdateAsync(strGwUserCode, strGwPassword, strTid, strSessionId, objGroupCode, objGroupName, objFlagActive, objFt_Cols_Upd, null);
+        }
+        
+        /// <remarks/>
+        public void Sys_Group_UpdateAsync(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, object objGroupCode, object objGroupName, object objFlagActive, object objFt_Cols_Upd, object userState) {
+            if ((this.Sys_Group_UpdateOperationCompleted == null)) {
+                this.Sys_Group_UpdateOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSys_Group_UpdateOperationCompleted);
+            }
+            this.InvokeAsync("Sys_Group_Update", new object[] {
+                        strGwUserCode,
+                        strGwPassword,
+                        strTid,
+                        strSessionId,
+                        objGroupCode,
+                        objGroupName,
+                        objFlagActive,
+                        objFt_Cols_Upd}, this.Sys_Group_UpdateOperationCompleted, userState);
+        }
+        
+        private void OnSys_Group_UpdateOperationCompleted(object arg) {
+            if ((this.Sys_Group_UpdateCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.Sys_Group_UpdateCompleted(this, new Sys_Group_UpdateCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Sys_Group_Delete", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public object[] Sys_Group_Delete(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, object objGroupCode) {
+            object[] results = this.Invoke("Sys_Group_Delete", new object[] {
+                        strGwUserCode,
+                        strGwPassword,
+                        strTid,
+                        strSessionId,
+                        objGroupCode});
+            return ((object[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void Sys_Group_DeleteAsync(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, object objGroupCode) {
+            this.Sys_Group_DeleteAsync(strGwUserCode, strGwPassword, strTid, strSessionId, objGroupCode, null);
+        }
+        
+        /// <remarks/>
+        public void Sys_Group_DeleteAsync(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, object objGroupCode, object userState) {
+            if ((this.Sys_Group_DeleteOperationCompleted == null)) {
+                this.Sys_Group_DeleteOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSys_Group_DeleteOperationCompleted);
+            }
+            this.InvokeAsync("Sys_Group_Delete", new object[] {
+                        strGwUserCode,
+                        strGwPassword,
+                        strTid,
+                        strSessionId,
+                        objGroupCode}, this.Sys_Group_DeleteOperationCompleted, userState);
+        }
+        
+        private void OnSys_Group_DeleteOperationCompleted(object arg) {
+            if ((this.Sys_Group_DeleteCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.Sys_Group_DeleteCompleted(this, new Sys_Group_DeleteCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Sys_UserInGroup_Save", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public object[] Sys_UserInGroup_Save(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, object objGroupCode, object[] arrobjDSData) {
+            object[] results = this.Invoke("Sys_UserInGroup_Save", new object[] {
+                        strGwUserCode,
+                        strGwPassword,
+                        strTid,
+                        strSessionId,
+                        objGroupCode,
+                        arrobjDSData});
+            return ((object[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void Sys_UserInGroup_SaveAsync(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, object objGroupCode, object[] arrobjDSData) {
+            this.Sys_UserInGroup_SaveAsync(strGwUserCode, strGwPassword, strTid, strSessionId, objGroupCode, arrobjDSData, null);
+        }
+        
+        /// <remarks/>
+        public void Sys_UserInGroup_SaveAsync(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, object objGroupCode, object[] arrobjDSData, object userState) {
+            if ((this.Sys_UserInGroup_SaveOperationCompleted == null)) {
+                this.Sys_UserInGroup_SaveOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSys_UserInGroup_SaveOperationCompleted);
+            }
+            this.InvokeAsync("Sys_UserInGroup_Save", new object[] {
+                        strGwUserCode,
+                        strGwPassword,
+                        strTid,
+                        strSessionId,
+                        objGroupCode,
+                        arrobjDSData}, this.Sys_UserInGroup_SaveOperationCompleted, userState);
+        }
+        
+        private void OnSys_UserInGroup_SaveOperationCompleted(object arg) {
+            if ((this.Sys_UserInGroup_SaveCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.Sys_UserInGroup_SaveCompleted(this, new Sys_UserInGroup_SaveCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Sys_Access_Get", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public object[] Sys_Access_Get(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, string strFt_RecordStart, string strFt_RecordCount, string strFt_WhereClause, string strRt_Cols_Sys_Access) {
+            object[] results = this.Invoke("Sys_Access_Get", new object[] {
+                        strGwUserCode,
+                        strGwPassword,
+                        strTid,
+                        strSessionId,
+                        strFt_RecordStart,
+                        strFt_RecordCount,
+                        strFt_WhereClause,
+                        strRt_Cols_Sys_Access});
+            return ((object[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void Sys_Access_GetAsync(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, string strFt_RecordStart, string strFt_RecordCount, string strFt_WhereClause, string strRt_Cols_Sys_Access) {
+            this.Sys_Access_GetAsync(strGwUserCode, strGwPassword, strTid, strSessionId, strFt_RecordStart, strFt_RecordCount, strFt_WhereClause, strRt_Cols_Sys_Access, null);
+        }
+        
+        /// <remarks/>
+        public void Sys_Access_GetAsync(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, string strFt_RecordStart, string strFt_RecordCount, string strFt_WhereClause, string strRt_Cols_Sys_Access, object userState) {
+            if ((this.Sys_Access_GetOperationCompleted == null)) {
+                this.Sys_Access_GetOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSys_Access_GetOperationCompleted);
+            }
+            this.InvokeAsync("Sys_Access_Get", new object[] {
+                        strGwUserCode,
+                        strGwPassword,
+                        strTid,
+                        strSessionId,
+                        strFt_RecordStart,
+                        strFt_RecordCount,
+                        strFt_WhereClause,
+                        strRt_Cols_Sys_Access}, this.Sys_Access_GetOperationCompleted, userState);
+        }
+        
+        private void OnSys_Access_GetOperationCompleted(object arg) {
+            if ((this.Sys_Access_GetCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.Sys_Access_GetCompleted(this, new Sys_Access_GetCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Sys_Access_Save", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public object[] Sys_Access_Save(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, object objGroupCode, object[] arrobjDSData) {
+            object[] results = this.Invoke("Sys_Access_Save", new object[] {
+                        strGwUserCode,
+                        strGwPassword,
+                        strTid,
+                        strSessionId,
+                        objGroupCode,
+                        arrobjDSData});
+            return ((object[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void Sys_Access_SaveAsync(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, object objGroupCode, object[] arrobjDSData) {
+            this.Sys_Access_SaveAsync(strGwUserCode, strGwPassword, strTid, strSessionId, objGroupCode, arrobjDSData, null);
+        }
+        
+        /// <remarks/>
+        public void Sys_Access_SaveAsync(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, object objGroupCode, object[] arrobjDSData, object userState) {
+            if ((this.Sys_Access_SaveOperationCompleted == null)) {
+                this.Sys_Access_SaveOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSys_Access_SaveOperationCompleted);
+            }
+            this.InvokeAsync("Sys_Access_Save", new object[] {
+                        strGwUserCode,
+                        strGwPassword,
+                        strTid,
+                        strSessionId,
+                        objGroupCode,
+                        arrobjDSData}, this.Sys_Access_SaveOperationCompleted, userState);
+        }
+        
+        private void OnSys_Access_SaveOperationCompleted(object arg) {
+            if ((this.Sys_Access_SaveCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.Sys_Access_SaveCompleted(this, new Sys_Access_SaveCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Sys_Object_Get", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public object[] Sys_Object_Get(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, string strFt_RecordStart, string strFt_RecordCount, string strFt_WhereClause, string strRt_Cols_Sys_Access) {
+            object[] results = this.Invoke("Sys_Object_Get", new object[] {
+                        strGwUserCode,
+                        strGwPassword,
+                        strTid,
+                        strSessionId,
+                        strFt_RecordStart,
+                        strFt_RecordCount,
+                        strFt_WhereClause,
+                        strRt_Cols_Sys_Access});
+            return ((object[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void Sys_Object_GetAsync(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, string strFt_RecordStart, string strFt_RecordCount, string strFt_WhereClause, string strRt_Cols_Sys_Access) {
+            this.Sys_Object_GetAsync(strGwUserCode, strGwPassword, strTid, strSessionId, strFt_RecordStart, strFt_RecordCount, strFt_WhereClause, strRt_Cols_Sys_Access, null);
+        }
+        
+        /// <remarks/>
+        public void Sys_Object_GetAsync(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, string strFt_RecordStart, string strFt_RecordCount, string strFt_WhereClause, string strRt_Cols_Sys_Access, object userState) {
+            if ((this.Sys_Object_GetOperationCompleted == null)) {
+                this.Sys_Object_GetOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSys_Object_GetOperationCompleted);
+            }
+            this.InvokeAsync("Sys_Object_Get", new object[] {
+                        strGwUserCode,
+                        strGwPassword,
+                        strTid,
+                        strSessionId,
+                        strFt_RecordStart,
+                        strFt_RecordCount,
+                        strFt_WhereClause,
+                        strRt_Cols_Sys_Access}, this.Sys_Object_GetOperationCompleted, userState);
+        }
+        
+        private void OnSys_Object_GetOperationCompleted(object arg) {
+            if ((this.Sys_Object_GetCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.Sys_Object_GetCompleted(this, new Sys_Object_GetCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Cm_Reinit", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -3414,719 +4127,6 @@ namespace ZTest01.WSDVNAUD {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Sys_User_ChangePassword", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public object[] Sys_User_ChangePassword(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, string strUserPasswordOld, string strUserPasswordNew) {
-            object[] results = this.Invoke("Sys_User_ChangePassword", new object[] {
-                        strGwUserCode,
-                        strGwPassword,
-                        strTid,
-                        strSessionId,
-                        strUserPasswordOld,
-                        strUserPasswordNew});
-            return ((object[])(results[0]));
-        }
-        
-        /// <remarks/>
-        public void Sys_User_ChangePasswordAsync(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, string strUserPasswordOld, string strUserPasswordNew) {
-            this.Sys_User_ChangePasswordAsync(strGwUserCode, strGwPassword, strTid, strSessionId, strUserPasswordOld, strUserPasswordNew, null);
-        }
-        
-        /// <remarks/>
-        public void Sys_User_ChangePasswordAsync(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, string strUserPasswordOld, string strUserPasswordNew, object userState) {
-            if ((this.Sys_User_ChangePasswordOperationCompleted == null)) {
-                this.Sys_User_ChangePasswordOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSys_User_ChangePasswordOperationCompleted);
-            }
-            this.InvokeAsync("Sys_User_ChangePassword", new object[] {
-                        strGwUserCode,
-                        strGwPassword,
-                        strTid,
-                        strSessionId,
-                        strUserPasswordOld,
-                        strUserPasswordNew}, this.Sys_User_ChangePasswordOperationCompleted, userState);
-        }
-        
-        private void OnSys_User_ChangePasswordOperationCompleted(object arg) {
-            if ((this.Sys_User_ChangePasswordCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.Sys_User_ChangePasswordCompleted(this, new Sys_User_ChangePasswordCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Sys_User_GetForCurrentUser", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public object[] Sys_User_GetForCurrentUser(string strGwUserCode, string strGwPassword, string strTid, string strSessionId) {
-            object[] results = this.Invoke("Sys_User_GetForCurrentUser", new object[] {
-                        strGwUserCode,
-                        strGwPassword,
-                        strTid,
-                        strSessionId});
-            return ((object[])(results[0]));
-        }
-        
-        /// <remarks/>
-        public void Sys_User_GetForCurrentUserAsync(string strGwUserCode, string strGwPassword, string strTid, string strSessionId) {
-            this.Sys_User_GetForCurrentUserAsync(strGwUserCode, strGwPassword, strTid, strSessionId, null);
-        }
-        
-        /// <remarks/>
-        public void Sys_User_GetForCurrentUserAsync(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, object userState) {
-            if ((this.Sys_User_GetForCurrentUserOperationCompleted == null)) {
-                this.Sys_User_GetForCurrentUserOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSys_User_GetForCurrentUserOperationCompleted);
-            }
-            this.InvokeAsync("Sys_User_GetForCurrentUser", new object[] {
-                        strGwUserCode,
-                        strGwPassword,
-                        strTid,
-                        strSessionId}, this.Sys_User_GetForCurrentUserOperationCompleted, userState);
-        }
-        
-        private void OnSys_User_GetForCurrentUserOperationCompleted(object arg) {
-            if ((this.Sys_User_GetForCurrentUserCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.Sys_User_GetForCurrentUserCompleted(this, new Sys_User_GetForCurrentUserCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Sys_User_Login", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public object[] Sys_User_Login(string strGwUserCode, string strGwPassword, string strTid, string strRootSvCode, string strRootUserCode, string strServiceCode, string strUserCode, string strLanguageCode, string strUserPassword, string strOtherInfo) {
-            object[] results = this.Invoke("Sys_User_Login", new object[] {
-                        strGwUserCode,
-                        strGwPassword,
-                        strTid,
-                        strRootSvCode,
-                        strRootUserCode,
-                        strServiceCode,
-                        strUserCode,
-                        strLanguageCode,
-                        strUserPassword,
-                        strOtherInfo});
-            return ((object[])(results[0]));
-        }
-        
-        /// <remarks/>
-        public void Sys_User_LoginAsync(string strGwUserCode, string strGwPassword, string strTid, string strRootSvCode, string strRootUserCode, string strServiceCode, string strUserCode, string strLanguageCode, string strUserPassword, string strOtherInfo) {
-            this.Sys_User_LoginAsync(strGwUserCode, strGwPassword, strTid, strRootSvCode, strRootUserCode, strServiceCode, strUserCode, strLanguageCode, strUserPassword, strOtherInfo, null);
-        }
-        
-        /// <remarks/>
-        public void Sys_User_LoginAsync(string strGwUserCode, string strGwPassword, string strTid, string strRootSvCode, string strRootUserCode, string strServiceCode, string strUserCode, string strLanguageCode, string strUserPassword, string strOtherInfo, object userState) {
-            if ((this.Sys_User_LoginOperationCompleted == null)) {
-                this.Sys_User_LoginOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSys_User_LoginOperationCompleted);
-            }
-            this.InvokeAsync("Sys_User_Login", new object[] {
-                        strGwUserCode,
-                        strGwPassword,
-                        strTid,
-                        strRootSvCode,
-                        strRootUserCode,
-                        strServiceCode,
-                        strUserCode,
-                        strLanguageCode,
-                        strUserPassword,
-                        strOtherInfo}, this.Sys_User_LoginOperationCompleted, userState);
-        }
-        
-        private void OnSys_User_LoginOperationCompleted(object arg) {
-            if ((this.Sys_User_LoginCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.Sys_User_LoginCompleted(this, new Sys_User_LoginCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Sys_User_Logout", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public object[] Sys_User_Logout(string strGwUserCode, string strGwPassword, string strTid, string strSessionId) {
-            object[] results = this.Invoke("Sys_User_Logout", new object[] {
-                        strGwUserCode,
-                        strGwPassword,
-                        strTid,
-                        strSessionId});
-            return ((object[])(results[0]));
-        }
-        
-        /// <remarks/>
-        public void Sys_User_LogoutAsync(string strGwUserCode, string strGwPassword, string strTid, string strSessionId) {
-            this.Sys_User_LogoutAsync(strGwUserCode, strGwPassword, strTid, strSessionId, null);
-        }
-        
-        /// <remarks/>
-        public void Sys_User_LogoutAsync(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, object userState) {
-            if ((this.Sys_User_LogoutOperationCompleted == null)) {
-                this.Sys_User_LogoutOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSys_User_LogoutOperationCompleted);
-            }
-            this.InvokeAsync("Sys_User_Logout", new object[] {
-                        strGwUserCode,
-                        strGwPassword,
-                        strTid,
-                        strSessionId}, this.Sys_User_LogoutOperationCompleted, userState);
-        }
-        
-        private void OnSys_User_LogoutOperationCompleted(object arg) {
-            if ((this.Sys_User_LogoutCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.Sys_User_LogoutCompleted(this, new Sys_User_LogoutCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Sys_User_Get", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public object[] Sys_User_Get(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, string strFt_RecordStart, string strFt_RecordCount, string strFt_WhereClause, string strRt_Cols_Sys_User, string strRt_Cols_Sys_UserInGroup) {
-            object[] results = this.Invoke("Sys_User_Get", new object[] {
-                        strGwUserCode,
-                        strGwPassword,
-                        strTid,
-                        strSessionId,
-                        strFt_RecordStart,
-                        strFt_RecordCount,
-                        strFt_WhereClause,
-                        strRt_Cols_Sys_User,
-                        strRt_Cols_Sys_UserInGroup});
-            return ((object[])(results[0]));
-        }
-        
-        /// <remarks/>
-        public void Sys_User_GetAsync(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, string strFt_RecordStart, string strFt_RecordCount, string strFt_WhereClause, string strRt_Cols_Sys_User, string strRt_Cols_Sys_UserInGroup) {
-            this.Sys_User_GetAsync(strGwUserCode, strGwPassword, strTid, strSessionId, strFt_RecordStart, strFt_RecordCount, strFt_WhereClause, strRt_Cols_Sys_User, strRt_Cols_Sys_UserInGroup, null);
-        }
-        
-        /// <remarks/>
-        public void Sys_User_GetAsync(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, string strFt_RecordStart, string strFt_RecordCount, string strFt_WhereClause, string strRt_Cols_Sys_User, string strRt_Cols_Sys_UserInGroup, object userState) {
-            if ((this.Sys_User_GetOperationCompleted == null)) {
-                this.Sys_User_GetOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSys_User_GetOperationCompleted);
-            }
-            this.InvokeAsync("Sys_User_Get", new object[] {
-                        strGwUserCode,
-                        strGwPassword,
-                        strTid,
-                        strSessionId,
-                        strFt_RecordStart,
-                        strFt_RecordCount,
-                        strFt_WhereClause,
-                        strRt_Cols_Sys_User,
-                        strRt_Cols_Sys_UserInGroup}, this.Sys_User_GetOperationCompleted, userState);
-        }
-        
-        private void OnSys_User_GetOperationCompleted(object arg) {
-            if ((this.Sys_User_GetCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.Sys_User_GetCompleted(this, new Sys_User_GetCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Sys_User_Get_01", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public object[] Sys_User_Get_01(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, string strFt_RecordStart, string strFt_RecordCount, string strFt_WhereClause, string strRt_Cols_Sys_User, string strRt_Cols_Sys_UserInGroup) {
-            object[] results = this.Invoke("Sys_User_Get_01", new object[] {
-                        strGwUserCode,
-                        strGwPassword,
-                        strTid,
-                        strSessionId,
-                        strFt_RecordStart,
-                        strFt_RecordCount,
-                        strFt_WhereClause,
-                        strRt_Cols_Sys_User,
-                        strRt_Cols_Sys_UserInGroup});
-            return ((object[])(results[0]));
-        }
-        
-        /// <remarks/>
-        public void Sys_User_Get_01Async(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, string strFt_RecordStart, string strFt_RecordCount, string strFt_WhereClause, string strRt_Cols_Sys_User, string strRt_Cols_Sys_UserInGroup) {
-            this.Sys_User_Get_01Async(strGwUserCode, strGwPassword, strTid, strSessionId, strFt_RecordStart, strFt_RecordCount, strFt_WhereClause, strRt_Cols_Sys_User, strRt_Cols_Sys_UserInGroup, null);
-        }
-        
-        /// <remarks/>
-        public void Sys_User_Get_01Async(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, string strFt_RecordStart, string strFt_RecordCount, string strFt_WhereClause, string strRt_Cols_Sys_User, string strRt_Cols_Sys_UserInGroup, object userState) {
-            if ((this.Sys_User_Get_01OperationCompleted == null)) {
-                this.Sys_User_Get_01OperationCompleted = new System.Threading.SendOrPostCallback(this.OnSys_User_Get_01OperationCompleted);
-            }
-            this.InvokeAsync("Sys_User_Get_01", new object[] {
-                        strGwUserCode,
-                        strGwPassword,
-                        strTid,
-                        strSessionId,
-                        strFt_RecordStart,
-                        strFt_RecordCount,
-                        strFt_WhereClause,
-                        strRt_Cols_Sys_User,
-                        strRt_Cols_Sys_UserInGroup}, this.Sys_User_Get_01OperationCompleted, userState);
-        }
-        
-        private void OnSys_User_Get_01OperationCompleted(object arg) {
-            if ((this.Sys_User_Get_01Completed != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.Sys_User_Get_01Completed(this, new Sys_User_Get_01CompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Sys_User_Create", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public object[] Sys_User_Create(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, object objUserCode, object objDBCode, object objAreaCode, object objUserName, object objUserPassword, object objFlagSysAdmin, object objFlagDBAdmin) {
-            object[] results = this.Invoke("Sys_User_Create", new object[] {
-                        strGwUserCode,
-                        strGwPassword,
-                        strTid,
-                        strSessionId,
-                        objUserCode,
-                        objDBCode,
-                        objAreaCode,
-                        objUserName,
-                        objUserPassword,
-                        objFlagSysAdmin,
-                        objFlagDBAdmin});
-            return ((object[])(results[0]));
-        }
-        
-        /// <remarks/>
-        public void Sys_User_CreateAsync(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, object objUserCode, object objDBCode, object objAreaCode, object objUserName, object objUserPassword, object objFlagSysAdmin, object objFlagDBAdmin) {
-            this.Sys_User_CreateAsync(strGwUserCode, strGwPassword, strTid, strSessionId, objUserCode, objDBCode, objAreaCode, objUserName, objUserPassword, objFlagSysAdmin, objFlagDBAdmin, null);
-        }
-        
-        /// <remarks/>
-        public void Sys_User_CreateAsync(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, object objUserCode, object objDBCode, object objAreaCode, object objUserName, object objUserPassword, object objFlagSysAdmin, object objFlagDBAdmin, object userState) {
-            if ((this.Sys_User_CreateOperationCompleted == null)) {
-                this.Sys_User_CreateOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSys_User_CreateOperationCompleted);
-            }
-            this.InvokeAsync("Sys_User_Create", new object[] {
-                        strGwUserCode,
-                        strGwPassword,
-                        strTid,
-                        strSessionId,
-                        objUserCode,
-                        objDBCode,
-                        objAreaCode,
-                        objUserName,
-                        objUserPassword,
-                        objFlagSysAdmin,
-                        objFlagDBAdmin}, this.Sys_User_CreateOperationCompleted, userState);
-        }
-        
-        private void OnSys_User_CreateOperationCompleted(object arg) {
-            if ((this.Sys_User_CreateCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.Sys_User_CreateCompleted(this, new Sys_User_CreateCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Sys_User_Upd", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public object[] Sys_User_Upd(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, object objUserCode, object objDBCode, object objAreaCode, object objUserName, object objUserPassword, object objFlagSysAdmin, object objFlagDBAdmin, object objFlagActive, object objFt_Cols_Upd) {
-            object[] results = this.Invoke("Sys_User_Upd", new object[] {
-                        strGwUserCode,
-                        strGwPassword,
-                        strTid,
-                        strSessionId,
-                        objUserCode,
-                        objDBCode,
-                        objAreaCode,
-                        objUserName,
-                        objUserPassword,
-                        objFlagSysAdmin,
-                        objFlagDBAdmin,
-                        objFlagActive,
-                        objFt_Cols_Upd});
-            return ((object[])(results[0]));
-        }
-        
-        /// <remarks/>
-        public void Sys_User_UpdAsync(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, object objUserCode, object objDBCode, object objAreaCode, object objUserName, object objUserPassword, object objFlagSysAdmin, object objFlagDBAdmin, object objFlagActive, object objFt_Cols_Upd) {
-            this.Sys_User_UpdAsync(strGwUserCode, strGwPassword, strTid, strSessionId, objUserCode, objDBCode, objAreaCode, objUserName, objUserPassword, objFlagSysAdmin, objFlagDBAdmin, objFlagActive, objFt_Cols_Upd, null);
-        }
-        
-        /// <remarks/>
-        public void Sys_User_UpdAsync(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, object objUserCode, object objDBCode, object objAreaCode, object objUserName, object objUserPassword, object objFlagSysAdmin, object objFlagDBAdmin, object objFlagActive, object objFt_Cols_Upd, object userState) {
-            if ((this.Sys_User_UpdOperationCompleted == null)) {
-                this.Sys_User_UpdOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSys_User_UpdOperationCompleted);
-            }
-            this.InvokeAsync("Sys_User_Upd", new object[] {
-                        strGwUserCode,
-                        strGwPassword,
-                        strTid,
-                        strSessionId,
-                        objUserCode,
-                        objDBCode,
-                        objAreaCode,
-                        objUserName,
-                        objUserPassword,
-                        objFlagSysAdmin,
-                        objFlagDBAdmin,
-                        objFlagActive,
-                        objFt_Cols_Upd}, this.Sys_User_UpdOperationCompleted, userState);
-        }
-        
-        private void OnSys_User_UpdOperationCompleted(object arg) {
-            if ((this.Sys_User_UpdCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.Sys_User_UpdCompleted(this, new Sys_User_UpdCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Sys_User_Delete", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public object[] Sys_User_Delete(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, object objUserCode) {
-            object[] results = this.Invoke("Sys_User_Delete", new object[] {
-                        strGwUserCode,
-                        strGwPassword,
-                        strTid,
-                        strSessionId,
-                        objUserCode});
-            return ((object[])(results[0]));
-        }
-        
-        /// <remarks/>
-        public void Sys_User_DeleteAsync(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, object objUserCode) {
-            this.Sys_User_DeleteAsync(strGwUserCode, strGwPassword, strTid, strSessionId, objUserCode, null);
-        }
-        
-        /// <remarks/>
-        public void Sys_User_DeleteAsync(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, object objUserCode, object userState) {
-            if ((this.Sys_User_DeleteOperationCompleted == null)) {
-                this.Sys_User_DeleteOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSys_User_DeleteOperationCompleted);
-            }
-            this.InvokeAsync("Sys_User_Delete", new object[] {
-                        strGwUserCode,
-                        strGwPassword,
-                        strTid,
-                        strSessionId,
-                        objUserCode}, this.Sys_User_DeleteOperationCompleted, userState);
-        }
-        
-        private void OnSys_User_DeleteOperationCompleted(object arg) {
-            if ((this.Sys_User_DeleteCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.Sys_User_DeleteCompleted(this, new Sys_User_DeleteCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Sys_Group_Get", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public object[] Sys_Group_Get(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, string strFt_RecordStart, string strFt_RecordCount, string strFt_WhereClause, string strRt_Cols_Sys_Group, string strRt_Cols_Sys_UserInGroup) {
-            object[] results = this.Invoke("Sys_Group_Get", new object[] {
-                        strGwUserCode,
-                        strGwPassword,
-                        strTid,
-                        strSessionId,
-                        strFt_RecordStart,
-                        strFt_RecordCount,
-                        strFt_WhereClause,
-                        strRt_Cols_Sys_Group,
-                        strRt_Cols_Sys_UserInGroup});
-            return ((object[])(results[0]));
-        }
-        
-        /// <remarks/>
-        public void Sys_Group_GetAsync(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, string strFt_RecordStart, string strFt_RecordCount, string strFt_WhereClause, string strRt_Cols_Sys_Group, string strRt_Cols_Sys_UserInGroup) {
-            this.Sys_Group_GetAsync(strGwUserCode, strGwPassword, strTid, strSessionId, strFt_RecordStart, strFt_RecordCount, strFt_WhereClause, strRt_Cols_Sys_Group, strRt_Cols_Sys_UserInGroup, null);
-        }
-        
-        /// <remarks/>
-        public void Sys_Group_GetAsync(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, string strFt_RecordStart, string strFt_RecordCount, string strFt_WhereClause, string strRt_Cols_Sys_Group, string strRt_Cols_Sys_UserInGroup, object userState) {
-            if ((this.Sys_Group_GetOperationCompleted == null)) {
-                this.Sys_Group_GetOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSys_Group_GetOperationCompleted);
-            }
-            this.InvokeAsync("Sys_Group_Get", new object[] {
-                        strGwUserCode,
-                        strGwPassword,
-                        strTid,
-                        strSessionId,
-                        strFt_RecordStart,
-                        strFt_RecordCount,
-                        strFt_WhereClause,
-                        strRt_Cols_Sys_Group,
-                        strRt_Cols_Sys_UserInGroup}, this.Sys_Group_GetOperationCompleted, userState);
-        }
-        
-        private void OnSys_Group_GetOperationCompleted(object arg) {
-            if ((this.Sys_Group_GetCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.Sys_Group_GetCompleted(this, new Sys_Group_GetCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Sys_Group_Create", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public object[] Sys_Group_Create(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, object objGroupCode, object objGroupName) {
-            object[] results = this.Invoke("Sys_Group_Create", new object[] {
-                        strGwUserCode,
-                        strGwPassword,
-                        strTid,
-                        strSessionId,
-                        objGroupCode,
-                        objGroupName});
-            return ((object[])(results[0]));
-        }
-        
-        /// <remarks/>
-        public void Sys_Group_CreateAsync(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, object objGroupCode, object objGroupName) {
-            this.Sys_Group_CreateAsync(strGwUserCode, strGwPassword, strTid, strSessionId, objGroupCode, objGroupName, null);
-        }
-        
-        /// <remarks/>
-        public void Sys_Group_CreateAsync(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, object objGroupCode, object objGroupName, object userState) {
-            if ((this.Sys_Group_CreateOperationCompleted == null)) {
-                this.Sys_Group_CreateOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSys_Group_CreateOperationCompleted);
-            }
-            this.InvokeAsync("Sys_Group_Create", new object[] {
-                        strGwUserCode,
-                        strGwPassword,
-                        strTid,
-                        strSessionId,
-                        objGroupCode,
-                        objGroupName}, this.Sys_Group_CreateOperationCompleted, userState);
-        }
-        
-        private void OnSys_Group_CreateOperationCompleted(object arg) {
-            if ((this.Sys_Group_CreateCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.Sys_Group_CreateCompleted(this, new Sys_Group_CreateCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Sys_Group_Update", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public object[] Sys_Group_Update(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, object objGroupCode, object objGroupName, object objFlagActive, object objFt_Cols_Upd) {
-            object[] results = this.Invoke("Sys_Group_Update", new object[] {
-                        strGwUserCode,
-                        strGwPassword,
-                        strTid,
-                        strSessionId,
-                        objGroupCode,
-                        objGroupName,
-                        objFlagActive,
-                        objFt_Cols_Upd});
-            return ((object[])(results[0]));
-        }
-        
-        /// <remarks/>
-        public void Sys_Group_UpdateAsync(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, object objGroupCode, object objGroupName, object objFlagActive, object objFt_Cols_Upd) {
-            this.Sys_Group_UpdateAsync(strGwUserCode, strGwPassword, strTid, strSessionId, objGroupCode, objGroupName, objFlagActive, objFt_Cols_Upd, null);
-        }
-        
-        /// <remarks/>
-        public void Sys_Group_UpdateAsync(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, object objGroupCode, object objGroupName, object objFlagActive, object objFt_Cols_Upd, object userState) {
-            if ((this.Sys_Group_UpdateOperationCompleted == null)) {
-                this.Sys_Group_UpdateOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSys_Group_UpdateOperationCompleted);
-            }
-            this.InvokeAsync("Sys_Group_Update", new object[] {
-                        strGwUserCode,
-                        strGwPassword,
-                        strTid,
-                        strSessionId,
-                        objGroupCode,
-                        objGroupName,
-                        objFlagActive,
-                        objFt_Cols_Upd}, this.Sys_Group_UpdateOperationCompleted, userState);
-        }
-        
-        private void OnSys_Group_UpdateOperationCompleted(object arg) {
-            if ((this.Sys_Group_UpdateCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.Sys_Group_UpdateCompleted(this, new Sys_Group_UpdateCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Sys_Group_Delete", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public object[] Sys_Group_Delete(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, object objGroupCode) {
-            object[] results = this.Invoke("Sys_Group_Delete", new object[] {
-                        strGwUserCode,
-                        strGwPassword,
-                        strTid,
-                        strSessionId,
-                        objGroupCode});
-            return ((object[])(results[0]));
-        }
-        
-        /// <remarks/>
-        public void Sys_Group_DeleteAsync(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, object objGroupCode) {
-            this.Sys_Group_DeleteAsync(strGwUserCode, strGwPassword, strTid, strSessionId, objGroupCode, null);
-        }
-        
-        /// <remarks/>
-        public void Sys_Group_DeleteAsync(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, object objGroupCode, object userState) {
-            if ((this.Sys_Group_DeleteOperationCompleted == null)) {
-                this.Sys_Group_DeleteOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSys_Group_DeleteOperationCompleted);
-            }
-            this.InvokeAsync("Sys_Group_Delete", new object[] {
-                        strGwUserCode,
-                        strGwPassword,
-                        strTid,
-                        strSessionId,
-                        objGroupCode}, this.Sys_Group_DeleteOperationCompleted, userState);
-        }
-        
-        private void OnSys_Group_DeleteOperationCompleted(object arg) {
-            if ((this.Sys_Group_DeleteCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.Sys_Group_DeleteCompleted(this, new Sys_Group_DeleteCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Sys_UserInGroup_Save", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public object[] Sys_UserInGroup_Save(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, object objGroupCode, object[] arrobjDSData) {
-            object[] results = this.Invoke("Sys_UserInGroup_Save", new object[] {
-                        strGwUserCode,
-                        strGwPassword,
-                        strTid,
-                        strSessionId,
-                        objGroupCode,
-                        arrobjDSData});
-            return ((object[])(results[0]));
-        }
-        
-        /// <remarks/>
-        public void Sys_UserInGroup_SaveAsync(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, object objGroupCode, object[] arrobjDSData) {
-            this.Sys_UserInGroup_SaveAsync(strGwUserCode, strGwPassword, strTid, strSessionId, objGroupCode, arrobjDSData, null);
-        }
-        
-        /// <remarks/>
-        public void Sys_UserInGroup_SaveAsync(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, object objGroupCode, object[] arrobjDSData, object userState) {
-            if ((this.Sys_UserInGroup_SaveOperationCompleted == null)) {
-                this.Sys_UserInGroup_SaveOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSys_UserInGroup_SaveOperationCompleted);
-            }
-            this.InvokeAsync("Sys_UserInGroup_Save", new object[] {
-                        strGwUserCode,
-                        strGwPassword,
-                        strTid,
-                        strSessionId,
-                        objGroupCode,
-                        arrobjDSData}, this.Sys_UserInGroup_SaveOperationCompleted, userState);
-        }
-        
-        private void OnSys_UserInGroup_SaveOperationCompleted(object arg) {
-            if ((this.Sys_UserInGroup_SaveCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.Sys_UserInGroup_SaveCompleted(this, new Sys_UserInGroup_SaveCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Sys_Access_Get", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public object[] Sys_Access_Get(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, string strFt_RecordStart, string strFt_RecordCount, string strFt_WhereClause, string strRt_Cols_Sys_Access) {
-            object[] results = this.Invoke("Sys_Access_Get", new object[] {
-                        strGwUserCode,
-                        strGwPassword,
-                        strTid,
-                        strSessionId,
-                        strFt_RecordStart,
-                        strFt_RecordCount,
-                        strFt_WhereClause,
-                        strRt_Cols_Sys_Access});
-            return ((object[])(results[0]));
-        }
-        
-        /// <remarks/>
-        public void Sys_Access_GetAsync(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, string strFt_RecordStart, string strFt_RecordCount, string strFt_WhereClause, string strRt_Cols_Sys_Access) {
-            this.Sys_Access_GetAsync(strGwUserCode, strGwPassword, strTid, strSessionId, strFt_RecordStart, strFt_RecordCount, strFt_WhereClause, strRt_Cols_Sys_Access, null);
-        }
-        
-        /// <remarks/>
-        public void Sys_Access_GetAsync(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, string strFt_RecordStart, string strFt_RecordCount, string strFt_WhereClause, string strRt_Cols_Sys_Access, object userState) {
-            if ((this.Sys_Access_GetOperationCompleted == null)) {
-                this.Sys_Access_GetOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSys_Access_GetOperationCompleted);
-            }
-            this.InvokeAsync("Sys_Access_Get", new object[] {
-                        strGwUserCode,
-                        strGwPassword,
-                        strTid,
-                        strSessionId,
-                        strFt_RecordStart,
-                        strFt_RecordCount,
-                        strFt_WhereClause,
-                        strRt_Cols_Sys_Access}, this.Sys_Access_GetOperationCompleted, userState);
-        }
-        
-        private void OnSys_Access_GetOperationCompleted(object arg) {
-            if ((this.Sys_Access_GetCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.Sys_Access_GetCompleted(this, new Sys_Access_GetCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Sys_Access_Save", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public object[] Sys_Access_Save(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, object objGroupCode, object[] arrobjDSData) {
-            object[] results = this.Invoke("Sys_Access_Save", new object[] {
-                        strGwUserCode,
-                        strGwPassword,
-                        strTid,
-                        strSessionId,
-                        objGroupCode,
-                        arrobjDSData});
-            return ((object[])(results[0]));
-        }
-        
-        /// <remarks/>
-        public void Sys_Access_SaveAsync(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, object objGroupCode, object[] arrobjDSData) {
-            this.Sys_Access_SaveAsync(strGwUserCode, strGwPassword, strTid, strSessionId, objGroupCode, arrobjDSData, null);
-        }
-        
-        /// <remarks/>
-        public void Sys_Access_SaveAsync(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, object objGroupCode, object[] arrobjDSData, object userState) {
-            if ((this.Sys_Access_SaveOperationCompleted == null)) {
-                this.Sys_Access_SaveOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSys_Access_SaveOperationCompleted);
-            }
-            this.InvokeAsync("Sys_Access_Save", new object[] {
-                        strGwUserCode,
-                        strGwPassword,
-                        strTid,
-                        strSessionId,
-                        objGroupCode,
-                        arrobjDSData}, this.Sys_Access_SaveOperationCompleted, userState);
-        }
-        
-        private void OnSys_Access_SaveOperationCompleted(object arg) {
-            if ((this.Sys_Access_SaveCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.Sys_Access_SaveCompleted(this, new Sys_Access_SaveCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Sys_Object_Get", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public object[] Sys_Object_Get(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, string strFt_RecordStart, string strFt_RecordCount, string strFt_WhereClause, string strRt_Cols_Sys_Access) {
-            object[] results = this.Invoke("Sys_Object_Get", new object[] {
-                        strGwUserCode,
-                        strGwPassword,
-                        strTid,
-                        strSessionId,
-                        strFt_RecordStart,
-                        strFt_RecordCount,
-                        strFt_WhereClause,
-                        strRt_Cols_Sys_Access});
-            return ((object[])(results[0]));
-        }
-        
-        /// <remarks/>
-        public void Sys_Object_GetAsync(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, string strFt_RecordStart, string strFt_RecordCount, string strFt_WhereClause, string strRt_Cols_Sys_Access) {
-            this.Sys_Object_GetAsync(strGwUserCode, strGwPassword, strTid, strSessionId, strFt_RecordStart, strFt_RecordCount, strFt_WhereClause, strRt_Cols_Sys_Access, null);
-        }
-        
-        /// <remarks/>
-        public void Sys_Object_GetAsync(string strGwUserCode, string strGwPassword, string strTid, string strSessionId, string strFt_RecordStart, string strFt_RecordCount, string strFt_WhereClause, string strRt_Cols_Sys_Access, object userState) {
-            if ((this.Sys_Object_GetOperationCompleted == null)) {
-                this.Sys_Object_GetOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSys_Object_GetOperationCompleted);
-            }
-            this.InvokeAsync("Sys_Object_Get", new object[] {
-                        strGwUserCode,
-                        strGwPassword,
-                        strTid,
-                        strSessionId,
-                        strFt_RecordStart,
-                        strFt_RecordCount,
-                        strFt_WhereClause,
-                        strRt_Cols_Sys_Access}, this.Sys_Object_GetOperationCompleted, userState);
-        }
-        
-        private void OnSys_Object_GetOperationCompleted(object arg) {
-            if ((this.Sys_Object_GetCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.Sys_Object_GetCompleted(this, new Sys_Object_GetCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -4142,6 +4142,448 @@ namespace ZTest01.WSDVNAUD {
                 return true;
             }
             return false;
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    public delegate void Sys_User_ChangePasswordCompletedEventHandler(object sender, Sys_User_ChangePasswordCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class Sys_User_ChangePasswordCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal Sys_User_ChangePasswordCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public object[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((object[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    public delegate void Sys_User_GetForCurrentUserCompletedEventHandler(object sender, Sys_User_GetForCurrentUserCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class Sys_User_GetForCurrentUserCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal Sys_User_GetForCurrentUserCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public object[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((object[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    public delegate void Sys_User_LoginCompletedEventHandler(object sender, Sys_User_LoginCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class Sys_User_LoginCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal Sys_User_LoginCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public object[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((object[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    public delegate void Sys_User_LogoutCompletedEventHandler(object sender, Sys_User_LogoutCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class Sys_User_LogoutCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal Sys_User_LogoutCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public object[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((object[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    public delegate void Sys_User_GetCompletedEventHandler(object sender, Sys_User_GetCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class Sys_User_GetCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal Sys_User_GetCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public object[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((object[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    public delegate void Sys_User_Get_01CompletedEventHandler(object sender, Sys_User_Get_01CompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class Sys_User_Get_01CompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal Sys_User_Get_01CompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public object[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((object[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    public delegate void Sys_User_CreateCompletedEventHandler(object sender, Sys_User_CreateCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class Sys_User_CreateCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal Sys_User_CreateCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public object[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((object[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    public delegate void Sys_User_UpdCompletedEventHandler(object sender, Sys_User_UpdCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class Sys_User_UpdCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal Sys_User_UpdCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public object[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((object[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    public delegate void Sys_User_DeleteCompletedEventHandler(object sender, Sys_User_DeleteCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class Sys_User_DeleteCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal Sys_User_DeleteCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public object[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((object[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    public delegate void Sys_Group_GetCompletedEventHandler(object sender, Sys_Group_GetCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class Sys_Group_GetCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal Sys_Group_GetCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public object[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((object[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    public delegate void Sys_Group_CreateCompletedEventHandler(object sender, Sys_Group_CreateCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class Sys_Group_CreateCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal Sys_Group_CreateCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public object[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((object[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    public delegate void Sys_Group_UpdateCompletedEventHandler(object sender, Sys_Group_UpdateCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class Sys_Group_UpdateCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal Sys_Group_UpdateCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public object[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((object[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    public delegate void Sys_Group_DeleteCompletedEventHandler(object sender, Sys_Group_DeleteCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class Sys_Group_DeleteCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal Sys_Group_DeleteCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public object[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((object[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    public delegate void Sys_UserInGroup_SaveCompletedEventHandler(object sender, Sys_UserInGroup_SaveCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class Sys_UserInGroup_SaveCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal Sys_UserInGroup_SaveCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public object[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((object[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    public delegate void Sys_Access_GetCompletedEventHandler(object sender, Sys_Access_GetCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class Sys_Access_GetCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal Sys_Access_GetCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public object[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((object[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    public delegate void Sys_Access_SaveCompletedEventHandler(object sender, Sys_Access_SaveCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class Sys_Access_SaveCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal Sys_Access_SaveCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public object[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((object[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    public delegate void Sys_Object_GetCompletedEventHandler(object sender, Sys_Object_GetCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class Sys_Object_GetCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal Sys_Object_GetCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public object[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((object[])(this.results[0]));
+            }
         }
     }
     
@@ -5718,448 +6160,6 @@ namespace ZTest01.WSDVNAUD {
         private object[] results;
         
         internal Lic_Session_DelCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public object[] Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((object[])(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
-    public delegate void Sys_User_ChangePasswordCompletedEventHandler(object sender, Sys_User_ChangePasswordCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class Sys_User_ChangePasswordCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal Sys_User_ChangePasswordCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public object[] Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((object[])(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
-    public delegate void Sys_User_GetForCurrentUserCompletedEventHandler(object sender, Sys_User_GetForCurrentUserCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class Sys_User_GetForCurrentUserCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal Sys_User_GetForCurrentUserCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public object[] Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((object[])(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
-    public delegate void Sys_User_LoginCompletedEventHandler(object sender, Sys_User_LoginCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class Sys_User_LoginCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal Sys_User_LoginCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public object[] Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((object[])(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
-    public delegate void Sys_User_LogoutCompletedEventHandler(object sender, Sys_User_LogoutCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class Sys_User_LogoutCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal Sys_User_LogoutCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public object[] Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((object[])(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
-    public delegate void Sys_User_GetCompletedEventHandler(object sender, Sys_User_GetCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class Sys_User_GetCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal Sys_User_GetCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public object[] Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((object[])(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
-    public delegate void Sys_User_Get_01CompletedEventHandler(object sender, Sys_User_Get_01CompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class Sys_User_Get_01CompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal Sys_User_Get_01CompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public object[] Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((object[])(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
-    public delegate void Sys_User_CreateCompletedEventHandler(object sender, Sys_User_CreateCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class Sys_User_CreateCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal Sys_User_CreateCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public object[] Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((object[])(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
-    public delegate void Sys_User_UpdCompletedEventHandler(object sender, Sys_User_UpdCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class Sys_User_UpdCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal Sys_User_UpdCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public object[] Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((object[])(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
-    public delegate void Sys_User_DeleteCompletedEventHandler(object sender, Sys_User_DeleteCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class Sys_User_DeleteCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal Sys_User_DeleteCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public object[] Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((object[])(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
-    public delegate void Sys_Group_GetCompletedEventHandler(object sender, Sys_Group_GetCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class Sys_Group_GetCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal Sys_Group_GetCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public object[] Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((object[])(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
-    public delegate void Sys_Group_CreateCompletedEventHandler(object sender, Sys_Group_CreateCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class Sys_Group_CreateCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal Sys_Group_CreateCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public object[] Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((object[])(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
-    public delegate void Sys_Group_UpdateCompletedEventHandler(object sender, Sys_Group_UpdateCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class Sys_Group_UpdateCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal Sys_Group_UpdateCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public object[] Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((object[])(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
-    public delegate void Sys_Group_DeleteCompletedEventHandler(object sender, Sys_Group_DeleteCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class Sys_Group_DeleteCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal Sys_Group_DeleteCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public object[] Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((object[])(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
-    public delegate void Sys_UserInGroup_SaveCompletedEventHandler(object sender, Sys_UserInGroup_SaveCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class Sys_UserInGroup_SaveCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal Sys_UserInGroup_SaveCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public object[] Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((object[])(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
-    public delegate void Sys_Access_GetCompletedEventHandler(object sender, Sys_Access_GetCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class Sys_Access_GetCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal Sys_Access_GetCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public object[] Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((object[])(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
-    public delegate void Sys_Access_SaveCompletedEventHandler(object sender, Sys_Access_SaveCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class Sys_Access_SaveCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal Sys_Access_SaveCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public object[] Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((object[])(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
-    public delegate void Sys_Object_GetCompletedEventHandler(object sender, Sys_Object_GetCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.9037.0")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class Sys_Object_GetCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal Sys_Object_GetCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

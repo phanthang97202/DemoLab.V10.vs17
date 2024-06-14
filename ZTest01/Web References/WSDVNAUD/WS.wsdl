@@ -2,6 +2,359 @@
 <wsdl:definitions xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Sys_User_ChangePassword">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strGwUserCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strGwPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strSessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strUserPasswordOld" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strUserPasswordNew" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Sys_User_ChangePasswordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Sys_User_ChangePasswordResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAnyType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="anyType" nillable="true" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Sys_User_GetForCurrentUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strGwUserCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strGwPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strSessionId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Sys_User_GetForCurrentUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Sys_User_GetForCurrentUserResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Sys_User_Login">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strGwUserCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strGwPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strRootSvCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strRootUserCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strServiceCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strUserCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strLanguageCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strUserPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strOtherInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Sys_User_LoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Sys_User_LoginResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Sys_User_Logout">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strGwUserCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strGwPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strSessionId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Sys_User_LogoutResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Sys_User_LogoutResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Sys_User_Get">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strGwUserCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strGwPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strSessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strFt_RecordStart" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strFt_RecordCount" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strFt_WhereClause" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strRt_Cols_Sys_User" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strRt_Cols_Sys_UserInGroup" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Sys_User_GetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Sys_User_GetResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Sys_User_Get_01">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strGwUserCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strGwPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strSessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strFt_RecordStart" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strFt_RecordCount" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strFt_WhereClause" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strRt_Cols_Sys_User" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strRt_Cols_Sys_UserInGroup" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Sys_User_Get_01Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Sys_User_Get_01Result" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Sys_User_Create">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strGwUserCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strGwPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strSessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="objUserCode" />
+            <s:element minOccurs="0" maxOccurs="1" name="objDBCode" />
+            <s:element minOccurs="0" maxOccurs="1" name="objAreaCode" />
+            <s:element minOccurs="0" maxOccurs="1" name="objUserName" />
+            <s:element minOccurs="0" maxOccurs="1" name="objUserPassword" />
+            <s:element minOccurs="0" maxOccurs="1" name="objFlagSysAdmin" />
+            <s:element minOccurs="0" maxOccurs="1" name="objFlagDBAdmin" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Sys_User_CreateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Sys_User_CreateResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Sys_User_Upd">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strGwUserCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strGwPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strSessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="objUserCode" />
+            <s:element minOccurs="0" maxOccurs="1" name="objDBCode" />
+            <s:element minOccurs="0" maxOccurs="1" name="objAreaCode" />
+            <s:element minOccurs="0" maxOccurs="1" name="objUserName" />
+            <s:element minOccurs="0" maxOccurs="1" name="objUserPassword" />
+            <s:element minOccurs="0" maxOccurs="1" name="objFlagSysAdmin" />
+            <s:element minOccurs="0" maxOccurs="1" name="objFlagDBAdmin" />
+            <s:element minOccurs="0" maxOccurs="1" name="objFlagActive" />
+            <s:element minOccurs="0" maxOccurs="1" name="objFt_Cols_Upd" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Sys_User_UpdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Sys_User_UpdResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Sys_User_Delete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strGwUserCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strGwPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strSessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="objUserCode" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Sys_User_DeleteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Sys_User_DeleteResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Sys_Group_Get">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strGwUserCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strGwPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strSessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strFt_RecordStart" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strFt_RecordCount" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strFt_WhereClause" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strRt_Cols_Sys_Group" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strRt_Cols_Sys_UserInGroup" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Sys_Group_GetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Sys_Group_GetResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Sys_Group_Create">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strGwUserCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strGwPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strSessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="objGroupCode" />
+            <s:element minOccurs="0" maxOccurs="1" name="objGroupName" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Sys_Group_CreateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Sys_Group_CreateResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Sys_Group_Update">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strGwUserCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strGwPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strSessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="objGroupCode" />
+            <s:element minOccurs="0" maxOccurs="1" name="objGroupName" />
+            <s:element minOccurs="0" maxOccurs="1" name="objFlagActive" />
+            <s:element minOccurs="0" maxOccurs="1" name="objFt_Cols_Upd" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Sys_Group_UpdateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Sys_Group_UpdateResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Sys_Group_Delete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strGwUserCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strGwPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strSessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="objGroupCode" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Sys_Group_DeleteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Sys_Group_DeleteResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Sys_UserInGroup_Save">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strGwUserCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strGwPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strSessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="objGroupCode" />
+            <s:element minOccurs="0" maxOccurs="1" name="arrobjDSData" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Sys_UserInGroup_SaveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Sys_UserInGroup_SaveResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Sys_Access_Get">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strGwUserCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strGwPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strSessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strFt_RecordStart" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strFt_RecordCount" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strFt_WhereClause" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strRt_Cols_Sys_Access" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Sys_Access_GetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Sys_Access_GetResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Sys_Access_Save">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strGwUserCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strGwPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strSessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="objGroupCode" />
+            <s:element minOccurs="0" maxOccurs="1" name="arrobjDSData" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Sys_Access_SaveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Sys_Access_SaveResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Sys_Object_Get">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strGwUserCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strGwPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strSessionId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strFt_RecordStart" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strFt_RecordCount" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strFt_WhereClause" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strRt_Cols_Sys_Access" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Sys_Object_GetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Sys_Object_GetResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="Cm_Reinit">
         <s:complexType>
           <s:sequence>
@@ -42,11 +395,6 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:complexType name="ArrayOfAnyType">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="anyType" nillable="true" />
-        </s:sequence>
-      </s:complexType>
       <s:element name="Cm_GetDTime">
         <s:complexType>
           <s:sequence>
@@ -1285,356 +1633,110 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="Sys_User_ChangePassword">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="strGwUserCode" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strGwPassword" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strTid" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strSessionId" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strUserPasswordOld" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strUserPasswordNew" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="Sys_User_ChangePasswordResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="Sys_User_ChangePasswordResult" type="tns:ArrayOfAnyType" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="Sys_User_GetForCurrentUser">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="strGwUserCode" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strGwPassword" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strTid" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strSessionId" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="Sys_User_GetForCurrentUserResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="Sys_User_GetForCurrentUserResult" type="tns:ArrayOfAnyType" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="Sys_User_Login">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="strGwUserCode" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strGwPassword" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strTid" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strRootSvCode" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strRootUserCode" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strServiceCode" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strUserCode" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strLanguageCode" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strUserPassword" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strOtherInfo" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="Sys_User_LoginResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="Sys_User_LoginResult" type="tns:ArrayOfAnyType" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="Sys_User_Logout">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="strGwUserCode" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strGwPassword" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strTid" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strSessionId" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="Sys_User_LogoutResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="Sys_User_LogoutResult" type="tns:ArrayOfAnyType" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="Sys_User_Get">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="strGwUserCode" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strGwPassword" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strTid" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strSessionId" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strFt_RecordStart" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strFt_RecordCount" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strFt_WhereClause" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strRt_Cols_Sys_User" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strRt_Cols_Sys_UserInGroup" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="Sys_User_GetResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="Sys_User_GetResult" type="tns:ArrayOfAnyType" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="Sys_User_Get_01">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="strGwUserCode" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strGwPassword" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strTid" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strSessionId" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strFt_RecordStart" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strFt_RecordCount" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strFt_WhereClause" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strRt_Cols_Sys_User" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strRt_Cols_Sys_UserInGroup" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="Sys_User_Get_01Response">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="Sys_User_Get_01Result" type="tns:ArrayOfAnyType" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="Sys_User_Create">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="strGwUserCode" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strGwPassword" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strTid" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strSessionId" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="objUserCode" />
-            <s:element minOccurs="0" maxOccurs="1" name="objDBCode" />
-            <s:element minOccurs="0" maxOccurs="1" name="objAreaCode" />
-            <s:element minOccurs="0" maxOccurs="1" name="objUserName" />
-            <s:element minOccurs="0" maxOccurs="1" name="objUserPassword" />
-            <s:element minOccurs="0" maxOccurs="1" name="objFlagSysAdmin" />
-            <s:element minOccurs="0" maxOccurs="1" name="objFlagDBAdmin" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="Sys_User_CreateResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="Sys_User_CreateResult" type="tns:ArrayOfAnyType" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="Sys_User_Upd">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="strGwUserCode" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strGwPassword" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strTid" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strSessionId" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="objUserCode" />
-            <s:element minOccurs="0" maxOccurs="1" name="objDBCode" />
-            <s:element minOccurs="0" maxOccurs="1" name="objAreaCode" />
-            <s:element minOccurs="0" maxOccurs="1" name="objUserName" />
-            <s:element minOccurs="0" maxOccurs="1" name="objUserPassword" />
-            <s:element minOccurs="0" maxOccurs="1" name="objFlagSysAdmin" />
-            <s:element minOccurs="0" maxOccurs="1" name="objFlagDBAdmin" />
-            <s:element minOccurs="0" maxOccurs="1" name="objFlagActive" />
-            <s:element minOccurs="0" maxOccurs="1" name="objFt_Cols_Upd" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="Sys_User_UpdResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="Sys_User_UpdResult" type="tns:ArrayOfAnyType" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="Sys_User_Delete">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="strGwUserCode" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strGwPassword" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strTid" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strSessionId" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="objUserCode" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="Sys_User_DeleteResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="Sys_User_DeleteResult" type="tns:ArrayOfAnyType" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="Sys_Group_Get">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="strGwUserCode" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strGwPassword" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strTid" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strSessionId" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strFt_RecordStart" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strFt_RecordCount" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strFt_WhereClause" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strRt_Cols_Sys_Group" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strRt_Cols_Sys_UserInGroup" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="Sys_Group_GetResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="Sys_Group_GetResult" type="tns:ArrayOfAnyType" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="Sys_Group_Create">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="strGwUserCode" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strGwPassword" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strTid" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strSessionId" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="objGroupCode" />
-            <s:element minOccurs="0" maxOccurs="1" name="objGroupName" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="Sys_Group_CreateResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="Sys_Group_CreateResult" type="tns:ArrayOfAnyType" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="Sys_Group_Update">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="strGwUserCode" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strGwPassword" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strTid" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strSessionId" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="objGroupCode" />
-            <s:element minOccurs="0" maxOccurs="1" name="objGroupName" />
-            <s:element minOccurs="0" maxOccurs="1" name="objFlagActive" />
-            <s:element minOccurs="0" maxOccurs="1" name="objFt_Cols_Upd" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="Sys_Group_UpdateResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="Sys_Group_UpdateResult" type="tns:ArrayOfAnyType" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="Sys_Group_Delete">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="strGwUserCode" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strGwPassword" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strTid" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strSessionId" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="objGroupCode" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="Sys_Group_DeleteResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="Sys_Group_DeleteResult" type="tns:ArrayOfAnyType" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="Sys_UserInGroup_Save">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="strGwUserCode" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strGwPassword" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strTid" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strSessionId" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="objGroupCode" />
-            <s:element minOccurs="0" maxOccurs="1" name="arrobjDSData" type="tns:ArrayOfAnyType" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="Sys_UserInGroup_SaveResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="Sys_UserInGroup_SaveResult" type="tns:ArrayOfAnyType" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="Sys_Access_Get">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="strGwUserCode" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strGwPassword" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strTid" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strSessionId" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strFt_RecordStart" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strFt_RecordCount" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strFt_WhereClause" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strRt_Cols_Sys_Access" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="Sys_Access_GetResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="Sys_Access_GetResult" type="tns:ArrayOfAnyType" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="Sys_Access_Save">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="strGwUserCode" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strGwPassword" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strTid" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strSessionId" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="objGroupCode" />
-            <s:element minOccurs="0" maxOccurs="1" name="arrobjDSData" type="tns:ArrayOfAnyType" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="Sys_Access_SaveResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="Sys_Access_SaveResult" type="tns:ArrayOfAnyType" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="Sys_Object_Get">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="strGwUserCode" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strGwPassword" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strTid" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strSessionId" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strFt_RecordStart" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strFt_RecordCount" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strFt_WhereClause" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="strRt_Cols_Sys_Access" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="Sys_Object_GetResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="Sys_Object_GetResult" type="tns:ArrayOfAnyType" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
     </s:schema>
   </wsdl:types>
+  <wsdl:message name="Sys_User_ChangePasswordSoapIn">
+    <wsdl:part name="parameters" element="tns:Sys_User_ChangePassword" />
+  </wsdl:message>
+  <wsdl:message name="Sys_User_ChangePasswordSoapOut">
+    <wsdl:part name="parameters" element="tns:Sys_User_ChangePasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="Sys_User_GetForCurrentUserSoapIn">
+    <wsdl:part name="parameters" element="tns:Sys_User_GetForCurrentUser" />
+  </wsdl:message>
+  <wsdl:message name="Sys_User_GetForCurrentUserSoapOut">
+    <wsdl:part name="parameters" element="tns:Sys_User_GetForCurrentUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="Sys_User_LoginSoapIn">
+    <wsdl:part name="parameters" element="tns:Sys_User_Login" />
+  </wsdl:message>
+  <wsdl:message name="Sys_User_LoginSoapOut">
+    <wsdl:part name="parameters" element="tns:Sys_User_LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="Sys_User_LogoutSoapIn">
+    <wsdl:part name="parameters" element="tns:Sys_User_Logout" />
+  </wsdl:message>
+  <wsdl:message name="Sys_User_LogoutSoapOut">
+    <wsdl:part name="parameters" element="tns:Sys_User_LogoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="Sys_User_GetSoapIn">
+    <wsdl:part name="parameters" element="tns:Sys_User_Get" />
+  </wsdl:message>
+  <wsdl:message name="Sys_User_GetSoapOut">
+    <wsdl:part name="parameters" element="tns:Sys_User_GetResponse" />
+  </wsdl:message>
+  <wsdl:message name="Sys_User_Get_01SoapIn">
+    <wsdl:part name="parameters" element="tns:Sys_User_Get_01" />
+  </wsdl:message>
+  <wsdl:message name="Sys_User_Get_01SoapOut">
+    <wsdl:part name="parameters" element="tns:Sys_User_Get_01Response" />
+  </wsdl:message>
+  <wsdl:message name="Sys_User_CreateSoapIn">
+    <wsdl:part name="parameters" element="tns:Sys_User_Create" />
+  </wsdl:message>
+  <wsdl:message name="Sys_User_CreateSoapOut">
+    <wsdl:part name="parameters" element="tns:Sys_User_CreateResponse" />
+  </wsdl:message>
+  <wsdl:message name="Sys_User_UpdSoapIn">
+    <wsdl:part name="parameters" element="tns:Sys_User_Upd" />
+  </wsdl:message>
+  <wsdl:message name="Sys_User_UpdSoapOut">
+    <wsdl:part name="parameters" element="tns:Sys_User_UpdResponse" />
+  </wsdl:message>
+  <wsdl:message name="Sys_User_DeleteSoapIn">
+    <wsdl:part name="parameters" element="tns:Sys_User_Delete" />
+  </wsdl:message>
+  <wsdl:message name="Sys_User_DeleteSoapOut">
+    <wsdl:part name="parameters" element="tns:Sys_User_DeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="Sys_Group_GetSoapIn">
+    <wsdl:part name="parameters" element="tns:Sys_Group_Get" />
+  </wsdl:message>
+  <wsdl:message name="Sys_Group_GetSoapOut">
+    <wsdl:part name="parameters" element="tns:Sys_Group_GetResponse" />
+  </wsdl:message>
+  <wsdl:message name="Sys_Group_CreateSoapIn">
+    <wsdl:part name="parameters" element="tns:Sys_Group_Create" />
+  </wsdl:message>
+  <wsdl:message name="Sys_Group_CreateSoapOut">
+    <wsdl:part name="parameters" element="tns:Sys_Group_CreateResponse" />
+  </wsdl:message>
+  <wsdl:message name="Sys_Group_UpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:Sys_Group_Update" />
+  </wsdl:message>
+  <wsdl:message name="Sys_Group_UpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:Sys_Group_UpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="Sys_Group_DeleteSoapIn">
+    <wsdl:part name="parameters" element="tns:Sys_Group_Delete" />
+  </wsdl:message>
+  <wsdl:message name="Sys_Group_DeleteSoapOut">
+    <wsdl:part name="parameters" element="tns:Sys_Group_DeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="Sys_UserInGroup_SaveSoapIn">
+    <wsdl:part name="parameters" element="tns:Sys_UserInGroup_Save" />
+  </wsdl:message>
+  <wsdl:message name="Sys_UserInGroup_SaveSoapOut">
+    <wsdl:part name="parameters" element="tns:Sys_UserInGroup_SaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="Sys_Access_GetSoapIn">
+    <wsdl:part name="parameters" element="tns:Sys_Access_Get" />
+  </wsdl:message>
+  <wsdl:message name="Sys_Access_GetSoapOut">
+    <wsdl:part name="parameters" element="tns:Sys_Access_GetResponse" />
+  </wsdl:message>
+  <wsdl:message name="Sys_Access_SaveSoapIn">
+    <wsdl:part name="parameters" element="tns:Sys_Access_Save" />
+  </wsdl:message>
+  <wsdl:message name="Sys_Access_SaveSoapOut">
+    <wsdl:part name="parameters" element="tns:Sys_Access_SaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="Sys_Object_GetSoapIn">
+    <wsdl:part name="parameters" element="tns:Sys_Object_Get" />
+  </wsdl:message>
+  <wsdl:message name="Sys_Object_GetSoapOut">
+    <wsdl:part name="parameters" element="tns:Sys_Object_GetResponse" />
+  </wsdl:message>
   <wsdl:message name="Cm_ReinitSoapIn">
     <wsdl:part name="parameters" element="tns:Cm_Reinit" />
   </wsdl:message>
@@ -2001,109 +2103,75 @@
   <wsdl:message name="Lic_Session_DelSoapOut">
     <wsdl:part name="parameters" element="tns:Lic_Session_DelResponse" />
   </wsdl:message>
-  <wsdl:message name="Sys_User_ChangePasswordSoapIn">
-    <wsdl:part name="parameters" element="tns:Sys_User_ChangePassword" />
-  </wsdl:message>
-  <wsdl:message name="Sys_User_ChangePasswordSoapOut">
-    <wsdl:part name="parameters" element="tns:Sys_User_ChangePasswordResponse" />
-  </wsdl:message>
-  <wsdl:message name="Sys_User_GetForCurrentUserSoapIn">
-    <wsdl:part name="parameters" element="tns:Sys_User_GetForCurrentUser" />
-  </wsdl:message>
-  <wsdl:message name="Sys_User_GetForCurrentUserSoapOut">
-    <wsdl:part name="parameters" element="tns:Sys_User_GetForCurrentUserResponse" />
-  </wsdl:message>
-  <wsdl:message name="Sys_User_LoginSoapIn">
-    <wsdl:part name="parameters" element="tns:Sys_User_Login" />
-  </wsdl:message>
-  <wsdl:message name="Sys_User_LoginSoapOut">
-    <wsdl:part name="parameters" element="tns:Sys_User_LoginResponse" />
-  </wsdl:message>
-  <wsdl:message name="Sys_User_LogoutSoapIn">
-    <wsdl:part name="parameters" element="tns:Sys_User_Logout" />
-  </wsdl:message>
-  <wsdl:message name="Sys_User_LogoutSoapOut">
-    <wsdl:part name="parameters" element="tns:Sys_User_LogoutResponse" />
-  </wsdl:message>
-  <wsdl:message name="Sys_User_GetSoapIn">
-    <wsdl:part name="parameters" element="tns:Sys_User_Get" />
-  </wsdl:message>
-  <wsdl:message name="Sys_User_GetSoapOut">
-    <wsdl:part name="parameters" element="tns:Sys_User_GetResponse" />
-  </wsdl:message>
-  <wsdl:message name="Sys_User_Get_01SoapIn">
-    <wsdl:part name="parameters" element="tns:Sys_User_Get_01" />
-  </wsdl:message>
-  <wsdl:message name="Sys_User_Get_01SoapOut">
-    <wsdl:part name="parameters" element="tns:Sys_User_Get_01Response" />
-  </wsdl:message>
-  <wsdl:message name="Sys_User_CreateSoapIn">
-    <wsdl:part name="parameters" element="tns:Sys_User_Create" />
-  </wsdl:message>
-  <wsdl:message name="Sys_User_CreateSoapOut">
-    <wsdl:part name="parameters" element="tns:Sys_User_CreateResponse" />
-  </wsdl:message>
-  <wsdl:message name="Sys_User_UpdSoapIn">
-    <wsdl:part name="parameters" element="tns:Sys_User_Upd" />
-  </wsdl:message>
-  <wsdl:message name="Sys_User_UpdSoapOut">
-    <wsdl:part name="parameters" element="tns:Sys_User_UpdResponse" />
-  </wsdl:message>
-  <wsdl:message name="Sys_User_DeleteSoapIn">
-    <wsdl:part name="parameters" element="tns:Sys_User_Delete" />
-  </wsdl:message>
-  <wsdl:message name="Sys_User_DeleteSoapOut">
-    <wsdl:part name="parameters" element="tns:Sys_User_DeleteResponse" />
-  </wsdl:message>
-  <wsdl:message name="Sys_Group_GetSoapIn">
-    <wsdl:part name="parameters" element="tns:Sys_Group_Get" />
-  </wsdl:message>
-  <wsdl:message name="Sys_Group_GetSoapOut">
-    <wsdl:part name="parameters" element="tns:Sys_Group_GetResponse" />
-  </wsdl:message>
-  <wsdl:message name="Sys_Group_CreateSoapIn">
-    <wsdl:part name="parameters" element="tns:Sys_Group_Create" />
-  </wsdl:message>
-  <wsdl:message name="Sys_Group_CreateSoapOut">
-    <wsdl:part name="parameters" element="tns:Sys_Group_CreateResponse" />
-  </wsdl:message>
-  <wsdl:message name="Sys_Group_UpdateSoapIn">
-    <wsdl:part name="parameters" element="tns:Sys_Group_Update" />
-  </wsdl:message>
-  <wsdl:message name="Sys_Group_UpdateSoapOut">
-    <wsdl:part name="parameters" element="tns:Sys_Group_UpdateResponse" />
-  </wsdl:message>
-  <wsdl:message name="Sys_Group_DeleteSoapIn">
-    <wsdl:part name="parameters" element="tns:Sys_Group_Delete" />
-  </wsdl:message>
-  <wsdl:message name="Sys_Group_DeleteSoapOut">
-    <wsdl:part name="parameters" element="tns:Sys_Group_DeleteResponse" />
-  </wsdl:message>
-  <wsdl:message name="Sys_UserInGroup_SaveSoapIn">
-    <wsdl:part name="parameters" element="tns:Sys_UserInGroup_Save" />
-  </wsdl:message>
-  <wsdl:message name="Sys_UserInGroup_SaveSoapOut">
-    <wsdl:part name="parameters" element="tns:Sys_UserInGroup_SaveResponse" />
-  </wsdl:message>
-  <wsdl:message name="Sys_Access_GetSoapIn">
-    <wsdl:part name="parameters" element="tns:Sys_Access_Get" />
-  </wsdl:message>
-  <wsdl:message name="Sys_Access_GetSoapOut">
-    <wsdl:part name="parameters" element="tns:Sys_Access_GetResponse" />
-  </wsdl:message>
-  <wsdl:message name="Sys_Access_SaveSoapIn">
-    <wsdl:part name="parameters" element="tns:Sys_Access_Save" />
-  </wsdl:message>
-  <wsdl:message name="Sys_Access_SaveSoapOut">
-    <wsdl:part name="parameters" element="tns:Sys_Access_SaveResponse" />
-  </wsdl:message>
-  <wsdl:message name="Sys_Object_GetSoapIn">
-    <wsdl:part name="parameters" element="tns:Sys_Object_Get" />
-  </wsdl:message>
-  <wsdl:message name="Sys_Object_GetSoapOut">
-    <wsdl:part name="parameters" element="tns:Sys_Object_GetResponse" />
-  </wsdl:message>
   <wsdl:portType name="WSSoap">
+    <wsdl:operation name="Sys_User_ChangePassword">
+      <wsdl:input message="tns:Sys_User_ChangePasswordSoapIn" />
+      <wsdl:output message="tns:Sys_User_ChangePasswordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Sys_User_GetForCurrentUser">
+      <wsdl:input message="tns:Sys_User_GetForCurrentUserSoapIn" />
+      <wsdl:output message="tns:Sys_User_GetForCurrentUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Sys_User_Login">
+      <wsdl:input message="tns:Sys_User_LoginSoapIn" />
+      <wsdl:output message="tns:Sys_User_LoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Sys_User_Logout">
+      <wsdl:input message="tns:Sys_User_LogoutSoapIn" />
+      <wsdl:output message="tns:Sys_User_LogoutSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Sys_User_Get">
+      <wsdl:input message="tns:Sys_User_GetSoapIn" />
+      <wsdl:output message="tns:Sys_User_GetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Sys_User_Get_01">
+      <wsdl:input message="tns:Sys_User_Get_01SoapIn" />
+      <wsdl:output message="tns:Sys_User_Get_01SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Sys_User_Create">
+      <wsdl:input message="tns:Sys_User_CreateSoapIn" />
+      <wsdl:output message="tns:Sys_User_CreateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Sys_User_Upd">
+      <wsdl:input message="tns:Sys_User_UpdSoapIn" />
+      <wsdl:output message="tns:Sys_User_UpdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Sys_User_Delete">
+      <wsdl:input message="tns:Sys_User_DeleteSoapIn" />
+      <wsdl:output message="tns:Sys_User_DeleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Sys_Group_Get">
+      <wsdl:input message="tns:Sys_Group_GetSoapIn" />
+      <wsdl:output message="tns:Sys_Group_GetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Sys_Group_Create">
+      <wsdl:input message="tns:Sys_Group_CreateSoapIn" />
+      <wsdl:output message="tns:Sys_Group_CreateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Sys_Group_Update">
+      <wsdl:input message="tns:Sys_Group_UpdateSoapIn" />
+      <wsdl:output message="tns:Sys_Group_UpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Sys_Group_Delete">
+      <wsdl:input message="tns:Sys_Group_DeleteSoapIn" />
+      <wsdl:output message="tns:Sys_Group_DeleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Sys_UserInGroup_Save">
+      <wsdl:input message="tns:Sys_UserInGroup_SaveSoapIn" />
+      <wsdl:output message="tns:Sys_UserInGroup_SaveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Sys_Access_Get">
+      <wsdl:input message="tns:Sys_Access_GetSoapIn" />
+      <wsdl:output message="tns:Sys_Access_GetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Sys_Access_Save">
+      <wsdl:input message="tns:Sys_Access_SaveSoapIn" />
+      <wsdl:output message="tns:Sys_Access_SaveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Sys_Object_Get">
+      <wsdl:input message="tns:Sys_Object_GetSoapIn" />
+      <wsdl:output message="tns:Sys_Object_GetSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="Cm_Reinit">
       <wsdl:input message="tns:Cm_ReinitSoapIn" />
       <wsdl:output message="tns:Cm_ReinitSoapOut" />
@@ -2348,77 +2416,162 @@
       <wsdl:input message="tns:Lic_Session_DelSoapIn" />
       <wsdl:output message="tns:Lic_Session_DelSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="Sys_User_ChangePassword">
-      <wsdl:input message="tns:Sys_User_ChangePasswordSoapIn" />
-      <wsdl:output message="tns:Sys_User_ChangePasswordSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="Sys_User_GetForCurrentUser">
-      <wsdl:input message="tns:Sys_User_GetForCurrentUserSoapIn" />
-      <wsdl:output message="tns:Sys_User_GetForCurrentUserSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="Sys_User_Login">
-      <wsdl:input message="tns:Sys_User_LoginSoapIn" />
-      <wsdl:output message="tns:Sys_User_LoginSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="Sys_User_Logout">
-      <wsdl:input message="tns:Sys_User_LogoutSoapIn" />
-      <wsdl:output message="tns:Sys_User_LogoutSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="Sys_User_Get">
-      <wsdl:input message="tns:Sys_User_GetSoapIn" />
-      <wsdl:output message="tns:Sys_User_GetSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="Sys_User_Get_01">
-      <wsdl:input message="tns:Sys_User_Get_01SoapIn" />
-      <wsdl:output message="tns:Sys_User_Get_01SoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="Sys_User_Create">
-      <wsdl:input message="tns:Sys_User_CreateSoapIn" />
-      <wsdl:output message="tns:Sys_User_CreateSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="Sys_User_Upd">
-      <wsdl:input message="tns:Sys_User_UpdSoapIn" />
-      <wsdl:output message="tns:Sys_User_UpdSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="Sys_User_Delete">
-      <wsdl:input message="tns:Sys_User_DeleteSoapIn" />
-      <wsdl:output message="tns:Sys_User_DeleteSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="Sys_Group_Get">
-      <wsdl:input message="tns:Sys_Group_GetSoapIn" />
-      <wsdl:output message="tns:Sys_Group_GetSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="Sys_Group_Create">
-      <wsdl:input message="tns:Sys_Group_CreateSoapIn" />
-      <wsdl:output message="tns:Sys_Group_CreateSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="Sys_Group_Update">
-      <wsdl:input message="tns:Sys_Group_UpdateSoapIn" />
-      <wsdl:output message="tns:Sys_Group_UpdateSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="Sys_Group_Delete">
-      <wsdl:input message="tns:Sys_Group_DeleteSoapIn" />
-      <wsdl:output message="tns:Sys_Group_DeleteSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="Sys_UserInGroup_Save">
-      <wsdl:input message="tns:Sys_UserInGroup_SaveSoapIn" />
-      <wsdl:output message="tns:Sys_UserInGroup_SaveSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="Sys_Access_Get">
-      <wsdl:input message="tns:Sys_Access_GetSoapIn" />
-      <wsdl:output message="tns:Sys_Access_GetSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="Sys_Access_Save">
-      <wsdl:input message="tns:Sys_Access_SaveSoapIn" />
-      <wsdl:output message="tns:Sys_Access_SaveSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="Sys_Object_Get">
-      <wsdl:input message="tns:Sys_Object_GetSoapIn" />
-      <wsdl:output message="tns:Sys_Object_GetSoapOut" />
-    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WSSoap" type="tns:WSSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Sys_User_ChangePassword">
+      <soap:operation soapAction="http://tempuri.org/Sys_User_ChangePassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Sys_User_GetForCurrentUser">
+      <soap:operation soapAction="http://tempuri.org/Sys_User_GetForCurrentUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Sys_User_Login">
+      <soap:operation soapAction="http://tempuri.org/Sys_User_Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Sys_User_Logout">
+      <soap:operation soapAction="http://tempuri.org/Sys_User_Logout" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Sys_User_Get">
+      <soap:operation soapAction="http://tempuri.org/Sys_User_Get" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Sys_User_Get_01">
+      <soap:operation soapAction="http://tempuri.org/Sys_User_Get_01" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Sys_User_Create">
+      <soap:operation soapAction="http://tempuri.org/Sys_User_Create" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Sys_User_Upd">
+      <soap:operation soapAction="http://tempuri.org/Sys_User_Upd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Sys_User_Delete">
+      <soap:operation soapAction="http://tempuri.org/Sys_User_Delete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Sys_Group_Get">
+      <soap:operation soapAction="http://tempuri.org/Sys_Group_Get" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Sys_Group_Create">
+      <soap:operation soapAction="http://tempuri.org/Sys_Group_Create" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Sys_Group_Update">
+      <soap:operation soapAction="http://tempuri.org/Sys_Group_Update" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Sys_Group_Delete">
+      <soap:operation soapAction="http://tempuri.org/Sys_Group_Delete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Sys_UserInGroup_Save">
+      <soap:operation soapAction="http://tempuri.org/Sys_UserInGroup_Save" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Sys_Access_Get">
+      <soap:operation soapAction="http://tempuri.org/Sys_Access_Get" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Sys_Access_Save">
+      <soap:operation soapAction="http://tempuri.org/Sys_Access_Save" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Sys_Object_Get">
+      <soap:operation soapAction="http://tempuri.org/Sys_Object_Get" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Cm_Reinit">
       <soap:operation soapAction="http://tempuri.org/Cm_Reinit" style="document" />
       <wsdl:input>
@@ -2968,162 +3121,162 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Sys_User_ChangePassword">
-      <soap:operation soapAction="http://tempuri.org/Sys_User_ChangePassword" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Sys_User_GetForCurrentUser">
-      <soap:operation soapAction="http://tempuri.org/Sys_User_GetForCurrentUser" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Sys_User_Login">
-      <soap:operation soapAction="http://tempuri.org/Sys_User_Login" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Sys_User_Logout">
-      <soap:operation soapAction="http://tempuri.org/Sys_User_Logout" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Sys_User_Get">
-      <soap:operation soapAction="http://tempuri.org/Sys_User_Get" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Sys_User_Get_01">
-      <soap:operation soapAction="http://tempuri.org/Sys_User_Get_01" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Sys_User_Create">
-      <soap:operation soapAction="http://tempuri.org/Sys_User_Create" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Sys_User_Upd">
-      <soap:operation soapAction="http://tempuri.org/Sys_User_Upd" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Sys_User_Delete">
-      <soap:operation soapAction="http://tempuri.org/Sys_User_Delete" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Sys_Group_Get">
-      <soap:operation soapAction="http://tempuri.org/Sys_Group_Get" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Sys_Group_Create">
-      <soap:operation soapAction="http://tempuri.org/Sys_Group_Create" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Sys_Group_Update">
-      <soap:operation soapAction="http://tempuri.org/Sys_Group_Update" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Sys_Group_Delete">
-      <soap:operation soapAction="http://tempuri.org/Sys_Group_Delete" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Sys_UserInGroup_Save">
-      <soap:operation soapAction="http://tempuri.org/Sys_UserInGroup_Save" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Sys_Access_Get">
-      <soap:operation soapAction="http://tempuri.org/Sys_Access_Get" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Sys_Access_Save">
-      <soap:operation soapAction="http://tempuri.org/Sys_Access_Save" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Sys_Object_Get">
-      <soap:operation soapAction="http://tempuri.org/Sys_Object_Get" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="WSSoap12" type="tns:WSSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Sys_User_ChangePassword">
+      <soap12:operation soapAction="http://tempuri.org/Sys_User_ChangePassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Sys_User_GetForCurrentUser">
+      <soap12:operation soapAction="http://tempuri.org/Sys_User_GetForCurrentUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Sys_User_Login">
+      <soap12:operation soapAction="http://tempuri.org/Sys_User_Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Sys_User_Logout">
+      <soap12:operation soapAction="http://tempuri.org/Sys_User_Logout" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Sys_User_Get">
+      <soap12:operation soapAction="http://tempuri.org/Sys_User_Get" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Sys_User_Get_01">
+      <soap12:operation soapAction="http://tempuri.org/Sys_User_Get_01" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Sys_User_Create">
+      <soap12:operation soapAction="http://tempuri.org/Sys_User_Create" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Sys_User_Upd">
+      <soap12:operation soapAction="http://tempuri.org/Sys_User_Upd" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Sys_User_Delete">
+      <soap12:operation soapAction="http://tempuri.org/Sys_User_Delete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Sys_Group_Get">
+      <soap12:operation soapAction="http://tempuri.org/Sys_Group_Get" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Sys_Group_Create">
+      <soap12:operation soapAction="http://tempuri.org/Sys_Group_Create" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Sys_Group_Update">
+      <soap12:operation soapAction="http://tempuri.org/Sys_Group_Update" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Sys_Group_Delete">
+      <soap12:operation soapAction="http://tempuri.org/Sys_Group_Delete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Sys_UserInGroup_Save">
+      <soap12:operation soapAction="http://tempuri.org/Sys_UserInGroup_Save" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Sys_Access_Get">
+      <soap12:operation soapAction="http://tempuri.org/Sys_Access_Get" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Sys_Access_Save">
+      <soap12:operation soapAction="http://tempuri.org/Sys_Access_Save" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Sys_Object_Get">
+      <soap12:operation soapAction="http://tempuri.org/Sys_Object_Get" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Cm_Reinit">
       <soap12:operation soapAction="http://tempuri.org/Cm_Reinit" style="document" />
       <wsdl:input>
@@ -3666,159 +3819,6 @@
     </wsdl:operation>
     <wsdl:operation name="Lic_Session_Del">
       <soap12:operation soapAction="http://tempuri.org/Lic_Session_Del" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Sys_User_ChangePassword">
-      <soap12:operation soapAction="http://tempuri.org/Sys_User_ChangePassword" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Sys_User_GetForCurrentUser">
-      <soap12:operation soapAction="http://tempuri.org/Sys_User_GetForCurrentUser" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Sys_User_Login">
-      <soap12:operation soapAction="http://tempuri.org/Sys_User_Login" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Sys_User_Logout">
-      <soap12:operation soapAction="http://tempuri.org/Sys_User_Logout" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Sys_User_Get">
-      <soap12:operation soapAction="http://tempuri.org/Sys_User_Get" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Sys_User_Get_01">
-      <soap12:operation soapAction="http://tempuri.org/Sys_User_Get_01" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Sys_User_Create">
-      <soap12:operation soapAction="http://tempuri.org/Sys_User_Create" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Sys_User_Upd">
-      <soap12:operation soapAction="http://tempuri.org/Sys_User_Upd" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Sys_User_Delete">
-      <soap12:operation soapAction="http://tempuri.org/Sys_User_Delete" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Sys_Group_Get">
-      <soap12:operation soapAction="http://tempuri.org/Sys_Group_Get" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Sys_Group_Create">
-      <soap12:operation soapAction="http://tempuri.org/Sys_Group_Create" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Sys_Group_Update">
-      <soap12:operation soapAction="http://tempuri.org/Sys_Group_Update" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Sys_Group_Delete">
-      <soap12:operation soapAction="http://tempuri.org/Sys_Group_Delete" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Sys_UserInGroup_Save">
-      <soap12:operation soapAction="http://tempuri.org/Sys_UserInGroup_Save" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Sys_Access_Get">
-      <soap12:operation soapAction="http://tempuri.org/Sys_Access_Get" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Sys_Access_Save">
-      <soap12:operation soapAction="http://tempuri.org/Sys_Access_Save" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Sys_Object_Get">
-      <soap12:operation soapAction="http://tempuri.org/Sys_Object_Get" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

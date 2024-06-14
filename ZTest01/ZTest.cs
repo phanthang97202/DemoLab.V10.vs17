@@ -814,7 +814,7 @@ namespace ZTest01
                 ////
                 object objFlagIsDelete = "0"; // 1 => Clear Exist, 0 => Clear + Insert
                 object objCampaignCode = "AC20220912.999999";
-                object objDBReceiveNo = "DBReceiveNo.999999v1";
+                object objDBReceiveNo = "DBReceiveNo.999999v3";
 
                 DataSet dsData = new DataSet();
 
@@ -825,8 +825,8 @@ namespace ZTest01
                 dtData_Aud_CampaignDBReceive.Columns.Add("QtyDBRec", typeof(object));
 
                 ////
-                dtData_Aud_CampaignDBReceive.Rows.Add("DBVN001", "GB", "500");
-                dtData_Aud_CampaignDBReceive.Rows.Add("DBVN001", "GH", "600");
+                dtData_Aud_CampaignDBReceive.Rows.Add("DBVN001", "GB", "400");
+                dtData_Aud_CampaignDBReceive.Rows.Add("DBVN001", "GH", "400");
                 dtData_Aud_CampaignDBReceive.Rows.Add("DBVN001", "HT", "400");
                 dtData_Aud_CampaignDBReceive.Rows.Add("DBVN001", "KB", "400");
                 dtData_Aud_CampaignDBReceive.Rows.Add("DBVN001", "TT", "400");

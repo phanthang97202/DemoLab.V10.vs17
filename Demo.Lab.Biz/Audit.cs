@@ -1741,17 +1741,28 @@ namespace Demo.Lab.Biz
                 if (!bIsDelete)
                 {
                     ////
+                    DataTable dtInput_Aud_Campaign = new DataTable("input_Aud_Campaign");
+                    dtInput_Aud_Campaign.Columns.Add("CampaignCode", typeof(object));
+                    dtInput_Aud_Campaign.Rows.Add(strCampaignCode);
+                    TUtils.CUtils.MyBuildDBDT_Common(
+                        _cf.db
+                        , "#input_Aud_Campaign"
+                        , new object[]{
+                            "CampaignCode", TConst.BizMix.Default_DBColType
+                            }
+                        , dtInput_Aud_Campaign
+                        );
+                    ////
                     string strSqlCheck = CmUtils.StringUtils.Replace(@"
 					        ---- #tbl_Aud_CampaignDBReceive_TotalQtyDBRec:
 					        select 
                                 t.CampaignCode
                                 , t.DBCode
                                 , t.POSMCode
-                                , t.QtyDBRec
                                 , Sum(t.QtyDBRec) TotalQtyDBRec
                             into #tbl_Aud_CampaignDBReceive_TotalQtyDBRec
                             from Aud_CampaignDBReceive t --//[mylock]
-                                inner join #input_Aud_CampaignDBReceive f
+                                inner join #input_Aud_Campaign f
                                     on t.CampaignCode = f.CampaignCode
                             where (1=1)
                             group by
@@ -1767,8 +1778,7 @@ namespace Demo.Lab.Biz
                                 t.CampaignCode
                                 , t.DBCode
                                 , t.POSMCode
-                                , t.QtyDeliver 
-                                , f.QtyDBRec
+                                , t.QtyDeliver
                                 , f.TotalQtyDBRec
                             from Aud_CampaignDBPOSMDtl t --//[mylock]
                                 left join #tbl_Aud_CampaignDBReceive_TotalQtyDBRec f --//[mylock]
@@ -1792,7 +1802,7 @@ namespace Demo.Lab.Biz
                             "Check.CampaignCode", dtCheck.Rows[0]["CampaignCode"]
                             , "Check.DBCode", dtCheck.Rows[0]["DBCode"]
                             , "Check.POSMCode", dtCheck.Rows[0]["POSMCode"]
-                            , "Check.QtyDBRec", dtCheck.Rows[0]["QtyDBRec"]
+                            , "Check.QtyDeliver", dtCheck.Rows[0]["QtyDeliver"]
                             , "Check.TotalQtyDBRec", dtCheck.Rows[0]["TotalQtyDBRec"]
                             , "Check.ConditionRaiseError", "(t.QtyDBRec > f.TotalQtyDBRec)"
                             , "Check.ErrRows.Count", dtCheck.Rows.Count
