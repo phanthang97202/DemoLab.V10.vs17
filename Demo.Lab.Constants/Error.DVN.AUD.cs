@@ -482,6 +482,7 @@
         public const string Aud_Campaign_CheckDB_CampainNotFound = "ErrDemoLab.Aud_Campaign_CheckDB_CampainNotFound"; //// //Aud_Campaign_CheckDB_CampainNotFound
         public const string Aud_Campaign_CheckDB_CampainExist = "ErrDemoLab.Aud_Campaign_CheckDB_CampainExist"; //// //Aud_Campaign_CheckDB_CampainExist
         public const string Aud_Campaign_CheckDB_FlagActiveNotMatched = "ErrDemoLab.Aud_Campaign_CheckDB_FlagActiveNotMatched"; //// //Aud_Campaign_CheckDB_FlagActiveNotMatched
+        public const string Aud_Campaign_CheckDB_CampaignStatusNotMatched = "ErrDemoLab.Aud_Campaign_CheckDB_CampaignStatusNotMatched"; //// //Aud_Campaign_CheckDB_CampaignStatusNotMatched
         public const string Aud_Campaign_Save_InvalidCampaignStatus = "ErrDemoLab.Aud_Campaign_Save_InvalidCampaignStatus"; //// //Aud_Campaign_Save_InvalidCampaignStatus
 
         // Aud_Campaign_Save:

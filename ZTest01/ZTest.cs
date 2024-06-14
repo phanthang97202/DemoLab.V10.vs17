@@ -778,7 +778,7 @@ namespace ZTest01
                 }
             }
 
-            if (bTest)
+            if (!bTest)
             {
                 ////
                 object objFlagIsDelete = "0"; // 1 => Clear Exist, 0 => Clear + Insert
@@ -809,7 +809,7 @@ namespace ZTest01
             #endregion
 
             #region // Aud_CampaignDBReceive:
-            if (!bTest)
+            if (bTest)
             {
                 ////
                 object objFlagIsDelete = "0"; // 1 => Clear Exist, 0 => Clear + Insert

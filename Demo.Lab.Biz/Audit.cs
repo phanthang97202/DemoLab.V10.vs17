@@ -223,7 +223,7 @@ namespace Demo.Lab.Biz
             ref ArrayList alParamsCoupleError
             , object objCampaignCode
             , string strFlagExistToCheck
-            , string strFlagActiveListToCheck
+            , string strCampaignStatusListToCheck
             , out DataTable dtDB_Aud_Campaign
             )
         {
@@ -269,16 +269,16 @@ namespace Demo.Lab.Biz
                 }
             }
 
-            // strFlagActiveListToCheck:
-            if (strFlagActiveListToCheck.Length > 0 && !strFlagActiveListToCheck.Contains(Convert.ToString(dtDB_Aud_Campaign.Rows[0]["FlagActive"])))
+            // strCampaignStatusListToCheck:
+            if (strCampaignStatusListToCheck.Length > 0 && !strCampaignStatusListToCheck.Contains(Convert.ToString(dtDB_Aud_Campaign.Rows[0]["CampaignStatus"])))
             {
                 alParamsCoupleError.AddRange(new object[]{
                     "Check.CampaignCode", objCampaignCode
-                    , "Check.strFlagActiveListToCheck", strFlagActiveListToCheck
-                    , "DB.FlagActive", dtDB_Aud_Campaign.Rows[0]["FlagActive"]
+                    , "Check.strCampaignStatusListToCheck", strCampaignStatusListToCheck
+                    , "DB.CampaignStatus", dtDB_Aud_Campaign.Rows[0]["CampaignStatus"]
                     });
                 throw CmUtils.CMyException.Raise(
-                    TError.ErrDemoLab.Aud_Campaign_CheckDB_FlagActiveNotMatched
+                    TError.ErrDemoLab.Aud_Campaign_CheckDB_CampaignStatusNotMatched
                     , null
                     , alParamsCoupleError.ToArray()
                     );
@@ -1152,8 +1152,8 @@ namespace Demo.Lab.Biz
                     Aud_Campaign_CheckDB(
                          ref alParamsCoupleError // alParamsCoupleError
                          , strCampaignCode // objCampaignCode
-                         , TConst.Flag.Yes // strFlagExistToCheck
-                         , TConst.CampaignStatus.Approve1 // strStatusListToCheck
+                         , "" // strFlagExistToCheck
+                         , TConst.CampaignStatus.Pending // strStatusListToCheck
                          , out dtDB_Aud_Campaign // dtDB_Aud_Campaign
                         );
                 }
@@ -1320,8 +1320,8 @@ namespace Demo.Lab.Biz
                     Aud_Campaign_CheckDB(
                          ref alParamsCoupleError // alParamsCoupleError
                          , strCampaignCode // objCampaignCode
-                         , TConst.Flag.Yes // strFlagExistToCheck
-                         , TConst.CampaignStatus.Cancel // strStatusListToCheck
+                         , "" // strFlagExistToCheck
+                         , TConst.CampaignStatus.Pending // strStatusListToCheck
                          , out dtDB_Aud_Campaign // dtDB_Aud_Campaign
                         );
                 }
