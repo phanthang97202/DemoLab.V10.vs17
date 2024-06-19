@@ -510,6 +510,16 @@
         public const string Aud_CampaignDBReceive_CampaignDBReceiveExist = "ErrDemoLab.Aud_CampaignDBReceive_CampaignDBReceiveExist"; //// //Aud_CampaignDBReceive_CampaignDBReceiveExist
         public const string Aud_CampaignDBReceive_FlagActiveNotMatched = "ErrDemoLab.Aud_CampaignDBReceive_FlagActiveNotMatched"; //// //Aud_CampaignDBReceive_FlagActiveNotMatched
 
+        // Aud_CampaignDBPOSMDtl_CheckDB:
+        public const string Aud_CampaignDBPOSMDtl_CampaignDBPOSMDtlNotFound = "ErrDemoLab.Aud_CampaignDBPOSMDtl_CampaignDBPOSMDtlNotFound"; //// //Aud_CampaignDBPOSMDtl_CampaignDBPOSMDtlNotFound
+        public const string Aud_CampaignDBPOSMDtl_CampaignDBPOSMDtlExist = "ErrDemoLab.Aud_CampaignDBPOSMDtl_CampaignDBPOSMDtlExist"; //// //Aud_CampaignDBPOSMDtl_CampaignDBPOSMDtlExist
+        public const string Aud_CampaignDBPOSMDtl_FlagActiveNotMatched = "ErrDemoLab.Aud_CampaignDBPOSMDtl_FlagActiveNotMatched"; //// //Aud_CampaignDBPOSMDtl_FlagActiveNotMatched
+
+        // Aud_CampaignDBDtl_CheckDB:
+        public const string Aud_CampaignDBDtl_Aud_CampaignDBDtlNotFound = "ErrDemoLab.Aud_CampaignDBDtl_Aud_CampaignDBDtlNotFound"; //// //Aud_CampaignDBDtl_Aud_CampaignDBDtlNotFound
+        public const string Aud_CampaignDBDtl_Aud_CampaignDBDtlExist = "ErrDemoLab.Aud_CampaignDBDtl_Aud_CampaignDBDtlExist"; //// //Aud_CampaignDBDtl_Aud_CampaignDBDtlExist
+        public const string Aud_CampaignDBDtl_CampaignDBStatusDtlNotMatched = "ErrDemoLab.Aud_CampaignDBDtl_CampaignDBStatusDtlNotMatched"; //// //Aud_CampaignDBDtl_CampaignDBStatusDtlNotMatched
+
         // Aud_CampaignDBReceive_Save:
         public const string Aud_CampaignDBReceive_Save = "ErrDemoLab.Aud_CampaignDBReceive_Save"; //// //Aud_CampaignDBReceive_Save
         public const string Aud_CampaignDBReceive_Save_Input_CampaignDBReceiveTblNotFound = "ErrDemoLab.Aud_CampaignDBReceive_Save_Input_CampaignDBReceiveTblNotFound"; //// //Aud_CampaignDBReceive_Save_Input_CampaignDBReceiveTblNotFound
