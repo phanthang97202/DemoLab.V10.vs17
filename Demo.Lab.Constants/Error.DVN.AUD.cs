@@ -501,9 +501,11 @@
 
         // Aud_Campaign_Approve
         public const string Aud_Campaign_Approve = "ErrDemoLab.Aud_Campaign_Approve"; //// //Aud_Campaign_Approve
+        public const string Aud_Campaign_Approve_Aud_CampaignDBDtlNotFound = "ErrDemoLab.Aud_Campaign_Approve_Aud_CampaignDBDtlNotFound"; //// //Aud_Campaign_Approve_Aud_CampaignDBDtlNotFound
 
         // Aud_Campaign_Cancel
         public const string Aud_Campaign_Cancel = "ErrDemoLab.Aud_Campaign_Cancel"; //// //Aud_Campaign_Cancel
+        public const string Aud_Campaign_Cancel_Aud_CampaignDBDtlNotFound = "ErrDemoLab.Aud_Campaign_Cancel_Aud_CampaignDBDtlNotFound"; //// //Aud_Campaign_Cancel_Aud_CampaignDBDtlNotFound
 
         // Aud_CampaignDBReceive_CheckDB:
         public const string Aud_CampaignDBReceive_CampaignDBReceiveNotFound = "ErrDemoLab.Aud_CampaignDBReceive_CampaignDBReceiveNotFound"; //// //Aud_CampaignDBReceive_CampaignDBReceiveNotFound

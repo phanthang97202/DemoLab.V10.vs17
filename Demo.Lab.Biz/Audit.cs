@@ -1088,6 +1088,31 @@ namespace Demo.Lab.Biz
                          , TConst.CampaignStatus.Pending // strStatusListToCheck
                          , out dtDB_Aud_Campaign // dtDB_Aud_Campaign
                         );
+                    ////
+                    string strSqlCheck_Aud_CampaignDBDtl = CmUtils.StringUtils.Replace(@"
+					        select top 1
+						        t.*
+					        from Aud_CampaignDBDtl t --//[mylock]
+					        where (1=1)
+						        and t.CampaignCode = '@strCampaignCode'
+					        ;
+				        "
+                        , "@strCampaignCode", strCampaignCode
+                        );
+
+                    DataTable dtDB_Check_Aud_CampaignDBDtl = _cf.db.ExecQuery(strSqlCheck_Aud_CampaignDBDtl).Tables[0];
+                    ////
+                    if (dtDB_Check_Aud_CampaignDBDtl.Rows.Count < 1)
+                    {
+                        alParamsCoupleError.AddRange(new object[]{
+                            "Check.strCampaignCode", strCampaignCode
+                            });
+                        throw CmUtils.CMyException.Raise(
+                            TError.ErrDemoLab.Aud_Campaign_Approve_Aud_CampaignDBDtlNotFound
+                            , null
+                            , alParamsCoupleError.ToArray()
+                            );
+                    }
                 }
                 #endregion
 
@@ -1134,6 +1159,11 @@ namespace Demo.Lab.Biz
 								, t.Remark = f.Remark
 								";
                     ////
+                    string zzB_Update_Aud_CampaignDBDtl_ClauseSet_zzE = @"
+								t.LogLUDTime = f.LogLUDTime
+								, t.LogLUBy = f.LogLUBy
+								";
+                    ////
                     string zzB_Update_Aud_Campaign_zzE = CmUtils.StringUtils.Replace(@"
 							---- Aud_Campaign:
 							update t
@@ -1148,12 +1178,28 @@ namespace Demo.Lab.Biz
                         , "zzB_Update_Aud_Campaign_ClauseSet_zzE", zzB_Update_Aud_Campaign_ClauseSet_zzE
                         );
                     ////
+                    string zzB_Update_Aud_CampaignDBDtl_zzE = CmUtils.StringUtils.Replace(@"
+							update t
+							set 
+								zzB_Update_Aud_CampaignDBDtl_ClauseSet_zzE
+							from Aud_CampaignDBDtl t --//[mylock]
+								inner join #input_Aud_Campaign f --//[mylock]
+									on t.CampaignCode = f.CampaignCode
+							where (1=1)
+							;
+						"
+                        , "zzB_Update_Aud_CampaignDBDtl_ClauseSet_zzE", zzB_Update_Aud_CampaignDBDtl_ClauseSet_zzE
+                        );
+                    ////
                     string strSql_SaveOnDB = CmUtils.StringUtils.Replace(@"
 							----
 							zzB_Update_Aud_Campaign_zzE
 							----
+							zzB_Update_Aud_CampaignDBDtl_zzE
+							----
 						"
                         , "zzB_Update_Aud_Campaign_zzE", zzB_Update_Aud_Campaign_zzE
+                        , "zzB_Update_Aud_CampaignDBDtl_zzE", zzB_Update_Aud_CampaignDBDtl_zzE
                         );
 
                     DataSet dsDB_Check = _cf.db.ExecQuery(
@@ -1256,6 +1302,31 @@ namespace Demo.Lab.Biz
                          , TConst.CampaignStatus.Pending // strStatusListToCheck
                          , out dtDB_Aud_Campaign // dtDB_Aud_Campaign
                         );
+                    ////
+                    string strSqlCheck_Aud_CampaignDBDtl = CmUtils.StringUtils.Replace(@"
+					        select top 1
+						        t.*
+					        from Aud_CampaignDBDtl t --//[mylock]
+					        where (1=1)
+						        and t.CampaignCode = '@strCampaignCode'
+					        ;
+				        "
+                        , "@strCampaignCode", strCampaignCode
+                        );
+
+                    DataTable dtDB_Check_Aud_CampaignDBDtl = _cf.db.ExecQuery(strSqlCheck_Aud_CampaignDBDtl).Tables[0];
+                    ////
+                    if (dtDB_Check_Aud_CampaignDBDtl.Rows.Count < 1)
+                    {
+                        alParamsCoupleError.AddRange(new object[]{
+                            "Check.strCampaignCode", strCampaignCode
+                            });
+                        throw CmUtils.CMyException.Raise(
+                            TError.ErrDemoLab.Aud_Campaign_Cancel_Aud_CampaignDBDtlNotFound
+                            , null
+                            , alParamsCoupleError.ToArray()
+                            );
+                    }
                 }
                 #endregion
 
@@ -1302,6 +1373,11 @@ namespace Demo.Lab.Biz
 								, t.Remark = f.Remark
 								";
                     ////
+                    string zzB_Update_Aud_CampaignDBDtl_ClauseSet_zzE = @"
+								t.LogLUDTime = f.LogLUDTime
+								, t.LogLUBy = f.LogLUBy
+								";
+                    ////
                     string zzB_Update_Aud_Campaign_zzE = CmUtils.StringUtils.Replace(@"
 							---- Aud_Campaign:
 							update t
@@ -1316,12 +1392,28 @@ namespace Demo.Lab.Biz
                         , "zzB_Update_Aud_Campaign_ClauseSet_zzE", zzB_Update_Aud_Campaign_ClauseSet_zzE
                         );
                     ////
+                    string zzB_Update_Aud_CampaignDBDtl_zzE = CmUtils.StringUtils.Replace(@"
+							update t
+							set 
+								zzB_Update_Aud_CampaignDBDtl_ClauseSet_zzE
+							from Aud_CampaignDBDtl t --//[mylock]
+								inner join #input_Aud_Campaign f --//[mylock]
+									on t.CampaignCode = f.CampaignCode
+							where (1=1)
+							;
+						"
+                        , "zzB_Update_Aud_CampaignDBDtl_ClauseSet_zzE", zzB_Update_Aud_CampaignDBDtl_ClauseSet_zzE
+                        );
+                    ////
                     string strSql_SaveOnDB = CmUtils.StringUtils.Replace(@"
 							----
 							zzB_Update_Aud_Campaign_zzE
 							----
+							zzB_Update_Aud_CampaignDBDtl_zzE
+							----
 						"
                         , "zzB_Update_Aud_Campaign_zzE", zzB_Update_Aud_Campaign_zzE
+                        , "zzB_Update_Aud_CampaignDBDtl_zzE", zzB_Update_Aud_CampaignDBDtl_zzE
                         );
 
                     DataSet dsDB_Check = _cf.db.ExecQuery(
@@ -1522,8 +1614,6 @@ namespace Demo.Lab.Biz
         }
         #endregion
 
-
-
         #region // Aud_CampaignDBReceive:
         public DataSet Aud_CampaignDBReceive_Save(
             string strTid
@@ -1689,7 +1779,7 @@ namespace Demo.Lab.Biz
 
                         Aud_CampaignDBPOSMDtl_CheckDB(
                             ref alParamsCoupleError // alParamsCoupleError
-                            , drScan["CampaignCode"] // drScan["CampaignCode"]
+                            , strCampaignCode // strCampaignCode
                             , drScan["DBCode"] // drScan["DBCode"]
                             , drScan["POSMCode"] // drScan["POSMCode"]
                             , TConst.Flag.Yes // strFlagExistToCheck
@@ -1701,7 +1791,7 @@ namespace Demo.Lab.Biz
 
                         Aud_CampaignDBDtl_CheckDB(
                             ref alParamsCoupleError // alParamsCoupleError
-                            , drScan["CampaignCode"] // drScan["CampaignCode"]
+                            , strCampaignCode // strCampaignCode
                             , drScan["DBCode"] // drScan["DBCode"]
                             , TConst.Flag.Yes // strFlagExistToCheck
                             , TConst.Flag.Active // strStatusListToCheck

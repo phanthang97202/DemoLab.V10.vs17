@@ -648,7 +648,7 @@ namespace ZTest01
             {
                 ////
                 object objFlagIsDelete = "0"; // 1 => Clear Exist, 0 => Clear + Insert
-                object objCampaignCode = "AC20220912.999999";
+                object objCampaignCode = "AC20220912.999998";
                 object objCampaignCrCode = "DZUNGND.IF_ACSINNO.01"; // Phải tạo Tiêu chuẩn chiến dịch trước
                 object objCrtrScoreVerCode = "VER1.0";
                 object objCrtrScoreVerAUCode = "VER1.0";
@@ -778,7 +778,7 @@ namespace ZTest01
                 }
             }
 
-            if (!bTest)
+            if (bTest)
             {
                 ////
                 object objFlagIsDelete = "0"; // 1 => Clear Exist, 0 => Clear + Insert
@@ -809,12 +809,12 @@ namespace ZTest01
             #endregion
 
             #region // Aud_CampaignDBReceive:
-            if (bTest)
+            if (!bTest)
             {
                 ////
                 object objFlagIsDelete = "0"; // 1 => Clear Exist, 0 => Clear + Insert
                 object objCampaignCode = "AC20220912.999999";
-                object objDBReceiveNo = "DBReceiveNo.999999v3";
+                object objDBReceiveNo = "DBReceiveNo.999999v1";
 
                 DataSet dsData = new DataSet();
 
